@@ -1,7 +1,7 @@
 # Text Lab - Development Plan
 
 > **Domain:** text.kpruthvi.com
-> **Status:** Ready for Cloudflare Deployment
+> **Status:** ✅ Complete - Live on Cloudflare
 > **Last Updated:** 2026-01-21
 
 ---
@@ -23,7 +23,7 @@ Text Lab is a static, browser-only text utility web application. Zero backend, z
 | Editor | CodeMirror 6 |
 | State | Zustand (theme + favorites) |
 | Styling | Tailwind CSS v4 (dark-first) |
-| Deployment | GitHub Pages (current) → Cloudflare Pages (final) |
+| Deployment | Cloudflare Pages |
 
 ---
 
@@ -100,14 +100,14 @@ Text Lab is a static, browser-only text utility web application. Zero backend, z
 - [x] Tool favorites
 - [x] Scroll restoration
 
-### Phase 6: Deployment ⏳
+### Phase 6: Deployment ✅
 - [x] Test static export (npm run build)
 - [x] Create GitHub repo
 - [x] Push code
 - [x] Deploy to GitHub Pages (auto via Actions)
-- [ ] Connect to Cloudflare Pages
-- [ ] Configure custom domain (text.kpruthvi.com)
-- [ ] Add to hub (kpruthvi.com)
+- [x] Connect to Cloudflare Pages
+- [x] Configure custom domain (text.kpruthvi.com)
+- [x] Add to hub (kpruthvi.com)
 
 ---
 
@@ -127,5 +127,4 @@ Text Lab is a static, browser-only text utility web application. Zero backend, z
 - Build outputs to `out/` directory
 - All 21 pages successfully generated
 - Static export verified working
-- GitHub Pages: pruthvi2805.github.io/text-lab
-- Cloudflare Pages: text.kpruthvi.com (pending)
+- Cloudflare Pages: text.kpruthvi.com (live)
