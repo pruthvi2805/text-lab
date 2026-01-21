@@ -1,0 +1,84 @@
+"use client";
+
+import { useState, useCallback, useMemo } from "react";
+import { ToolLayout } from "@/components/tools";
+import { Button } from "@/components/ui/Button";
+import {
+  parseUrl,
+  formatParsedUrl,
+  encodeUrl,
+  decodeUrl,
+  UrlMode,
+} from "@/lib/tools/url";
+
+export default function UrlPage() {
+  const [input, setInput] = useState("");
+  const [mode, setMode] = useState<UrlMode>("parse");
+
+  const { output, error } = useMemo(() => {
+    if (!input.trim()) return { output: "", error: null };
+
+    try {
+      switch (mode) {
+        case "parse":
+          return { output: formatParsedUrl(parseUrl(input)), error: null };
+        case "encode":
+          return { output: encodeUrl(input), error: null };
+        case "decode":
+          return { output: decodeUrl(input), error: null };
+        default:
+          return { output: "", error: null };
+      }
+    } catch (err) {
+      return {
+        output: "",
+        error: err instanceof Error ? err.message : "Error processing URL",
+      };
+    }
+  }, [input, mode]);
+
+  const handleInputChange = useCallback((value: string) => {
+    setInput(value);
+  }, []);
+
+  return (
+    <ToolLayout
+      input={input}
+      output={output}
+      onInputChange={handleInputChange}
+      inputPlaceholder={
+        mode === "parse"
+          ? "Paste a URL to parse... e.g. https://example.com/path?query=value"
+          : mode === "encode"
+          ? "Enter text to URL encode..."
+          : "Enter URL-encoded text to decode..."
+      }
+      error={error}
+      options={
+        <div className="flex items-center gap-1 bg-bg-surface rounded p-0.5">
+          <Button
+            variant={mode === "parse" ? "primary" : "ghost"}
+            size="sm"
+            onClick={() => setMode("parse")}
+          >
+            Parse URL
+          </Button>
+          <Button
+            variant={mode === "encode" ? "primary" : "ghost"}
+            size="sm"
+            onClick={() => setMode("encode")}
+          >
+            Encode
+          </Button>
+          <Button
+            variant={mode === "decode" ? "primary" : "ghost"}
+            size="sm"
+            onClick={() => setMode("decode")}
+          >
+            Decode
+          </Button>
+        </div>
+      }
+    />
+  );
+}

@@ -1,0 +1,24 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "URL Parser & Encoder",
+  description:
+    "Parse URLs into components, encode text for URLs, or decode URL-encoded strings. Extract query parameters, hostname, path, and more. Browser-based tool.",
+  keywords: [
+    "url parser",
+    "url encoder",
+    "url decoder",
+    "query string parser",
+    "uri encoder",
+    "percent encoding",
+  ],
+  openGraph: {
+    title: "URL Parser & Encoder | Text Lab",
+    description:
+      "Parse, encode, and decode URLs. Extract query parameters and URL components. 100% browser-based.",
+  },
+};
+
+export default function UrlLayout({ children }: { children: React.ReactNode }) {
+  return children;
+}
