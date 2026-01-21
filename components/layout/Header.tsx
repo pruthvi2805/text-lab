@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getToolByPath } from "@/lib/tools/registry";
 import { MenuIcon, GithubIcon } from "@/components/ui/icons";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 interface HeaderProps {
   onMenuClick?: () => void;
@@ -46,12 +47,17 @@ export function Header({ onMenuClick }: HeaderProps) {
         100% Private
       </span>
 
+      {/* Theme toggle */}
+      <div className="ml-2">
+        <ThemeToggle />
+      </div>
+
       {/* GitHub link */}
       <a
         href="https://github.com/pruthvi2805/text-lab"
         target="_blank"
         rel="noopener noreferrer"
-        className="ml-3 p-1.5 text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-colors"
+        className="ml-1 p-1.5 text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-colors"
         aria-label="View on GitHub"
       >
         <GithubIcon size={16} />

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-:root {
+:root,
+.dark {
   /* IDE Dark Theme - GitHub Dark inspired */
   --bg-darkest: #0d1117;
   --bg-panel: #161b22;
@@ -16,9 +17,32 @@
   --warning: #d29922;
   --error: #f85149;
 
-  /* Set defaults to dark */
   --background: var(--bg-darkest);
   --foreground: var(--text-primary);
+
+  color-scheme: dark;
+}
+
+.light {
+  /* Light Theme - Clean and professional */
+  --bg-darkest: #ffffff;
+  --bg-panel: #f6f8fa;
+  --bg-surface: #eaeef2;
+  --bg-hover: #d0d7de;
+  --border: #d0d7de;
+  --text-primary: #1f2328;
+  --text-secondary: #656d76;
+  --text-muted: #8c959f;
+  --accent: #0969da;
+  --accent-hover: #0550ae;
+  --success: #1a7f37;
+  --warning: #9a6700;
+  --error: #cf222e;
+
+  --background: var(--bg-darkest);
+  --foreground: var(--text-primary);
+
+  color-scheme: light;
 }
 
 @theme inline {
@@ -46,7 +70,8 @@
 }
 
 html {
-  color-scheme: dark;
+  /* Smooth transition for theme switching */
+  transition: color-scheme 0.2s ease;
 }
 
 body {
@@ -55,6 +80,22 @@ body {
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   overflow: hidden;
+  /* Smooth transition for theme switching */
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Apply transitions to common elements for smooth theme switch */
+header,
+aside,
+footer,
+main,
+nav,
+.cm-editor,
+button,
+a,
+input,
+select {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 /* Scrollbar styling for IDE look */
@@ -81,6 +122,10 @@ body {
   background: rgba(88, 166, 255, 0.3);
 }
 
+.light ::selection {
+  background: rgba(9, 105, 218, 0.2);
+}
+
 /* Focus ring styling */
 :focus-visible {
   outline: 2px solid var(--accent);
@@ -92,6 +137,7 @@ body {
   height: 100%;
   font-family: var(--font-mono), "JetBrains Mono", "Fira Code", monospace;
   font-size: 14px;
+  background: var(--bg-darkest);
 }
 
 .cm-editor .cm-scroller {
@@ -100,4 +146,40 @@ body {
 
 .cm-editor.cm-focused {
   outline: none;
+}
+
+/* CodeMirror light theme overrides */
+.light .cm-editor {
+  background: var(--bg-darkest);
+}
+
+.light .cm-editor .cm-gutters {
+  background: var(--bg-panel);
+  border-color: var(--border);
+}
+
+.light .cm-editor .cm-activeLineGutter {
+  background: var(--bg-hover);
+}
+
+.light .cm-editor .cm-activeLine {
+  background: rgba(9, 105, 218, 0.05);
+}
+
+.light .cm-editor .cm-cursor {
+  border-left-color: var(--text-primary);
+}
+
+.light .cm-editor .cm-selectionBackground,
+.light .cm-editor .cm-content ::selection {
+  background: rgba(9, 105, 218, 0.15) !important;
+}
+
+/* Override one-dark theme colors in light mode */
+.light .cm-editor .cm-line {
+  color: var(--text-primary);
+}
+
+.light .cm-editor .cm-placeholder {
+  color: var(--text-muted);
 }
