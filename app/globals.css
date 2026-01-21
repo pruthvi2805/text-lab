@@ -80,22 +80,14 @@ body {
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   overflow: hidden;
-  /* Smooth transition for theme switching */
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Apply transitions to common elements for smooth theme switch */
-header,
-aside,
-footer,
-main,
-nav,
-.cm-editor,
-button,
-a,
-input,
-select {
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+/* Only apply transitions during theme switch to avoid scroll flicker */
+.theme-transitioning,
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;
 }
 
 /* Scrollbar styling for IDE look */
