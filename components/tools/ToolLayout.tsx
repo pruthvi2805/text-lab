@@ -1,10 +1,12 @@
 "use client";
 
-import { ReactNode, useState, useCallback } from "react";
+import { ReactNode, useState, useCallback, useMemo } from "react";
 import { Shell } from "@/components/layout";
 import { CodeEditor } from "@/components/editor";
 import { Button } from "@/components/ui/Button";
 import { CopyIcon, CheckIcon, TrashIcon } from "@/components/ui/icons";
+
+const LARGE_INPUT_THRESHOLD = 100000; // 100KB
 
 interface ToolLayoutProps {
   children?: ReactNode;
@@ -16,6 +18,7 @@ interface ToolLayoutProps {
   actions?: ReactNode;
   options?: ReactNode;
   error?: string | null;
+  isProcessing?: boolean;
 }
 
 export function ToolLayout({
@@ -27,8 +30,11 @@ export function ToolLayout({
   actions,
   options,
   error,
+  isProcessing = false,
 }: ToolLayoutProps) {
   const [copied, setCopied] = useState(false);
+
+  const isLargeInput = useMemo(() => input.length > LARGE_INPUT_THRESHOLD, [input.length]);
 
   const handleCopy = useCallback(async () => {
     if (!output) return;
@@ -78,18 +84,36 @@ export function ToolLayout({
           {/* Output panel */}
           <div className="flex-1 flex flex-col min-h-0 border-t md:border-t-0 border-border">
             <div className="flex items-center justify-between px-3 py-1.5 bg-bg-surface border-b border-border">
-              <span className="text-xs text-text-muted uppercase tracking-wide">Output</span>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-text-muted uppercase tracking-wide">Output</span>
+                {isProcessing && (
+                  <div className="flex items-center gap-1.5 text-xs text-accent">
+                    <svg className="w-3 h-3 animate-spin" viewBox="0 0 24 24" fill="none">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    <span>Processing...</span>
+                  </div>
+                )}
+              </div>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleCopy}
-                disabled={!output}
+                disabled={!output || isProcessing}
               >
                 {copied ? <CheckIcon size={14} /> : <CopyIcon size={14} />}
                 <span className="ml-1">{copied ? "Copied!" : "Copy"}</span>
               </Button>
             </div>
             <div className="flex-1 min-h-0 relative">
+              {isLargeInput && (
+                <div className="absolute top-2 left-2 right-2 z-10">
+                  <div className="text-xs text-warning bg-warning/10 px-3 py-1.5 rounded-md">
+                    Large input detected ({(input.length / 1000).toFixed(0)}KB). Processing may be slower.
+                  </div>
+                </div>
+              )}
               {error ? (
                 <div className="absolute inset-0 flex items-center justify-center p-4">
                   <div className="text-error text-sm bg-error/10 px-4 py-3 rounded-md max-w-md text-center">
