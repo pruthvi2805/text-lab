@@ -17,8 +17,20 @@ export function StatusBar({ inputLength = 0, outputLength = 0 }: StatusBarProps)
         className="flex items-center gap-1 text-text-secondary hover:text-text-primary transition-colors"
       >
         <ShieldIcon size={12} />
-        <span>Your data never leaves this browser</span>
+        <span className="hidden sm:inline">Your data never leaves this browser</span>
+        <span className="sm:hidden">Private</span>
       </Link>
+
+      {/* Separator and Hub link */}
+      <span className="mx-2 text-text-muted">·</span>
+      <a
+        href="https://kpruthvi.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-text-muted hover:text-text-secondary transition-colors"
+      >
+        kpruthvi.com
+      </a>
 
       {/* Spacer */}
       <div className="flex-1" />
