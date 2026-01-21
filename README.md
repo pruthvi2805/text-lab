@@ -8,19 +8,27 @@ Fast, private text utilities that run entirely in your browser. No servers, no u
 
 - **100% Browser-Based** — All processing happens client-side. Your data never leaves your device.
 - **No Tracking** — No analytics, no cookies, no telemetry.
-- **8 Developer Tools:**
+- **16 Developer Tools:**
   - JSON Formatter (validate, prettify, minify)
-  - Case Converter (camelCase, snake_case, etc.)
-  - JWT Decoder (view header & payload)
-  - URL Parser & Encoder
-  - List Utilities (sort, dedupe, shuffle)
-  - Regex Tester (live matching)
-  - Unix Timestamp Converter
   - Base64 Encoder/Decoder
+  - URL Parser & Encoder
+  - JWT Decoder (view header & payload)
+  - Hash Generator (MD5, SHA-1, SHA-256, SHA-512)
+  - UUID Generator (v4, v7, validation)
+  - Unix Timestamp Converter
+  - YAML ↔ JSON Converter
+  - Case Converter (camelCase, snake_case, etc.)
+  - Regex Tester (live matching)
+  - Text Diff (line, word, character comparison)
+  - Markdown Preview (live rendering)
+  - HTML Entity Encoder/Decoder
+  - Color Converter (HEX, RGB, HSL, HWB, CMYK)
+  - List Utilities (sort, dedupe, shuffle)
+  - Lorem Ipsum Generator
 
 ## Tech Stack
 
-- **Framework:** Next.js 14 (App Router)
+- **Framework:** Next.js 16 (App Router)
 - **Rendering:** Static Site Generation
 - **Editor:** CodeMirror 6
 - **State:** Zustand
