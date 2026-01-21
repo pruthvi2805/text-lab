@@ -46,6 +46,46 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://text.kpruthvi.com/tools/hash/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://text.kpruthvi.com/tools/diff/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://text.kpruthvi.com/tools/uuid/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://text.kpruthvi.com/tools/yaml/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://text.kpruthvi.com/tools/markdown/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://text.kpruthvi.com/tools/html-entities/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://text.kpruthvi.com/tools/color/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://text.kpruthvi.com/tools/lorem/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://text.kpruthvi.com/privacy/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
