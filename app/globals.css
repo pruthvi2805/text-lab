@@ -124,12 +124,27 @@ body {
   outline-offset: 2px;
 }
 
+/* Prevent iOS Safari zoom on input focus - must be 16px or larger */
+@media screen and (max-width: 768px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
 /* CodeMirror overrides for consistent theming */
 .cm-editor {
   height: 100%;
   font-family: var(--font-mono), "JetBrains Mono", "Fira Code", monospace;
-  font-size: 14px;
+  font-size: 16px;
   background: var(--bg-darkest);
+}
+
+@media screen and (min-width: 769px) {
+  .cm-editor {
+    font-size: 14px;
+  }
 }
 
 .cm-editor .cm-scroller {
