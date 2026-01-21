@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { tools } from "@/lib/tools/registry";
-import { HomeIcon, XIcon } from "@/components/ui/icons";
+import { HomeIcon, XIcon, StarIcon } from "@/components/ui/icons";
+import { useFavoritesStore } from "@/stores/favorites";
+import { useMemo } from "react";
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -12,6 +14,13 @@ interface MobileNavProps {
 
 export function MobileNav({ isOpen, onClose }: MobileNavProps) {
   const pathname = usePathname();
+  const { favorites, toggleFavorite } = useFavoritesStore();
+
+  const { favoriteTools, otherTools } = useMemo(() => {
+    const favs = tools.filter((tool) => favorites.includes(tool.id));
+    const others = tools.filter((tool) => !favorites.includes(tool.id));
+    return { favoriteTools: favs, otherTools: others };
+  }, [favorites]);
 
   if (!isOpen) return null;
 
@@ -54,30 +63,74 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
             <span>Home</span>
           </Link>
 
-          {/* Divider */}
-          <div className="my-2 mx-4 border-t border-border" />
+          {/* Favorites */}
+          {favoriteTools.length > 0 && (
+            <>
+              <div className="my-2 mx-4 border-t border-border" />
+              <div className="flex items-center gap-2 px-4 py-1.5">
+                <StarIcon size={12} filled className="text-warning" />
+                <span className="text-xs text-text-muted uppercase tracking-wide">Favorites</span>
+              </div>
+              {favoriteTools.map((tool) => {
+                const Icon = tool.icon;
+                const isActive = pathname === tool.path || pathname === `${tool.path}/`;
+                return (
+                  <div key={tool.id} className="flex items-center">
+                    <Link
+                      href={tool.path}
+                      onClick={onClose}
+                      className={`flex-1 flex items-center gap-3 pl-4 pr-2 py-2.5 transition-colors ${
+                        isActive
+                          ? "bg-bg-hover text-accent"
+                          : "text-text-secondary hover:bg-bg-hover hover:text-text-primary"
+                      }`}
+                    >
+                      <Icon size={18} />
+                      <span>{tool.name}</span>
+                    </Link>
+                    <button
+                      onClick={() => toggleFavorite(tool.id)}
+                      className="p-2 text-warning hover:bg-bg-hover rounded transition-colors"
+                      aria-label="Remove from favorites"
+                    >
+                      <StarIcon size={14} filled />
+                    </button>
+                  </div>
+                );
+              })}
+            </>
+          )}
 
-          {/* Tools */}
+          {/* All Tools */}
+          <div className="my-2 mx-4 border-t border-border" />
           <div className="px-4 py-1.5 text-xs text-text-muted uppercase tracking-wide">
-            Tools
+            {favoriteTools.length > 0 ? "All Tools" : "Tools"}
           </div>
-          {tools.map((tool) => {
+          {otherTools.map((tool) => {
             const Icon = tool.icon;
             const isActive = pathname === tool.path || pathname === `${tool.path}/`;
             return (
-              <Link
-                key={tool.id}
-                href={tool.path}
-                onClick={onClose}
-                className={`flex items-center gap-3 px-4 py-2.5 transition-colors ${
-                  isActive
-                    ? "bg-bg-hover text-accent"
-                    : "text-text-secondary hover:bg-bg-hover hover:text-text-primary"
-                }`}
-              >
-                <Icon size={18} />
-                <span>{tool.name}</span>
-              </Link>
+              <div key={tool.id} className="flex items-center">
+                <Link
+                  href={tool.path}
+                  onClick={onClose}
+                  className={`flex-1 flex items-center gap-3 pl-4 pr-2 py-2.5 transition-colors ${
+                    isActive
+                      ? "bg-bg-hover text-accent"
+                      : "text-text-secondary hover:bg-bg-hover hover:text-text-primary"
+                  }`}
+                >
+                  <Icon size={18} />
+                  <span>{tool.name}</span>
+                </Link>
+                <button
+                  onClick={() => toggleFavorite(tool.id)}
+                  className="p-2 text-text-muted hover:text-warning hover:bg-bg-hover rounded transition-colors"
+                  aria-label="Add to favorites"
+                >
+                  <StarIcon size={14} />
+                </button>
+              </div>
             );
           })}
         </nav>

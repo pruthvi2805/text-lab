@@ -1,7 +1,7 @@
 # Text Lab - Development Plan
 
 > **Domain:** text.kpruthvi.com
-> **Status:** Build Complete — Ready for Deployment
+> **Status:** Ready for Cloudflare Deployment
 > **Last Updated:** 2026-01-21
 
 ---
@@ -21,24 +21,45 @@ Text Lab is a static, browser-only text utility web application. Zero backend, z
 | Framework | Next.js 16 (App Router) |
 | Rendering | Static Site Generation (`output: 'export'`) |
 | Editor | CodeMirror 6 |
-| State | Zustand (installed, not yet used) |
+| State | Zustand (theme + favorites) |
 | Styling | Tailwind CSS v4 (dark-first) |
-| Deployment | Cloudflare Pages |
+| Deployment | GitHub Pages (current) → Cloudflare Pages (final) |
 
 ---
 
-## Tools Implemented (8 total)
+## Tools Implemented (16 total)
 
 | # | Tool | Route | Status |
 |---|------|-------|--------|
 | 1 | JSON Formatter | `/tools/json` | ✅ Done |
-| 2 | Text Case Converter | `/tools/case-converter` | ✅ Done |
-| 3 | JWT Decoder | `/tools/jwt` | ✅ Done |
-| 4 | URL Parser/Encoder | `/tools/url` | ✅ Done |
-| 5 | List Utilities | `/tools/list` | ✅ Done |
-| 6 | Regex Tester | `/tools/regex` | ✅ Done |
+| 2 | Base64 Encoder | `/tools/base64` | ✅ Done |
+| 3 | URL Parser/Encoder | `/tools/url` | ✅ Done |
+| 4 | JWT Decoder | `/tools/jwt` | ✅ Done |
+| 5 | Hash Generator | `/tools/hash` | ✅ Done |
+| 6 | UUID Generator | `/tools/uuid` | ✅ Done |
 | 7 | Unix Timestamp Converter | `/tools/timestamp` | ✅ Done |
-| 8 | Base64 | `/tools/base64` | ✅ Done |
+| 8 | YAML ↔ JSON | `/tools/yaml` | ✅ Done |
+| 9 | Text Case Converter | `/tools/case-converter` | ✅ Done |
+| 10 | Regex Tester | `/tools/regex` | ✅ Done |
+| 11 | Text Diff | `/tools/diff` | ✅ Done |
+| 12 | Markdown Preview | `/tools/markdown` | ✅ Done |
+| 13 | HTML Entities | `/tools/html-entities` | ✅ Done |
+| 14 | Color Converter | `/tools/color` | ✅ Done |
+| 15 | List Utilities | `/tools/list` | ✅ Done |
+| 16 | Lorem Ipsum Generator | `/tools/lorem` | ✅ Done |
+
+---
+
+## Features
+
+- ✅ 16 developer tools
+- ✅ Dark/Light mode toggle (localStorage persisted)
+- ✅ Tool favorites (localStorage persisted)
+- ✅ Responsive design (mobile + desktop)
+- ✅ IDE-like aesthetic
+- ✅ Privacy-first (100% client-side)
+- ✅ SEO optimized (meta tags, sitemap)
+- ✅ Scroll restoration on navigation
 
 ---
 
@@ -67,14 +88,7 @@ Text Lab is a static, browser-only text utility web application. Zero backend, z
 
 ### Phase 4: Tool Implementation ✅
 - [x] Tool registry system
-- [x] JSON Formatter
-- [x] Text Case Converter
-- [x] JWT Decoder
-- [x] URL Parser/Encoder
-- [x] List Utilities
-- [x] Regex Tester
-- [x] Unix Timestamp Converter
-- [x] Base64 Encoder/Decoder
+- [x] All 16 tools implemented
 
 ### Phase 5: Polish & SEO ✅
 - [x] Homepage with tool grid
@@ -82,21 +96,25 @@ Text Lab is a static, browser-only text utility web application. Zero backend, z
 - [x] Meta tags per tool page
 - [x] robots.txt & sitemap.xml
 - [x] README.md
+- [x] Dark/Light mode toggle
+- [x] Tool favorites
+- [x] Scroll restoration
 
 ### Phase 6: Deployment ⏳
 - [x] Test static export (npm run build)
-- [ ] Create GitHub repo
-- [ ] Push code
+- [x] Create GitHub repo
+- [x] Push code
+- [x] Deploy to GitHub Pages (auto via Actions)
 - [ ] Connect to Cloudflare Pages
 - [ ] Configure custom domain (text.kpruthvi.com)
 - [ ] Add to hub (kpruthvi.com)
 
 ---
 
-## Deferred to V2
+## Deferred to Future
+
 - Pipeline system (chain multiple tools)
 - Smart paste (auto-detect content type)
-- Tool favorites
 - Recent tools history
 - Export/import settings
 - Keyboard shortcuts
@@ -105,6 +123,9 @@ Text Lab is a static, browser-only text utility web application. Zero backend, z
 ---
 
 ## Notes
+
 - Build outputs to `out/` directory
-- All 13 pages successfully generated
+- All 21 pages successfully generated
 - Static export verified working
+- GitHub Pages: pruthvi2805.github.io/text-lab
+- Cloudflare Pages: text.kpruthvi.com (pending)

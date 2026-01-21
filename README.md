@@ -8,6 +8,7 @@ Fast, private text utilities that run entirely in your browser. No servers, no u
 
 - **100% Browser-Based** — All processing happens client-side. Your data never leaves your device.
 - **No Tracking** — No analytics, no cookies, no telemetry.
+- **Favorites** — Star your most-used tools for quick access.
 - **16 Developer Tools:**
   - JSON Formatter (validate, prettify, minify)
   - Base64 Encoder/Decoder
