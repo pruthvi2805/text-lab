@@ -135,8 +135,8 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
           })}
         </nav>
 
-        {/* Footer */}
-        <div className="px-4 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] border-t border-border">
+        {/* Footer - extra bottom padding for iPhone safe area */}
+        <div className="px-4 pt-3 pb-8 border-t border-border">
           <Link
             href="/privacy"
             onClick={onClose}
