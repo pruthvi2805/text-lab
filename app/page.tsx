@@ -99,6 +99,15 @@ export default function HomePage() {
               </a>
               {" "}&middot;{" "}
               <a
+                href="https://kpruthvi.com/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-text-secondary transition-colors"
+              >
+                Contact
+              </a>
+              {" "}&middot;{" "}
+              <a
                 href="https://github.com/pruthvi2805/text-lab"
                 target="_blank"
                 rel="noopener noreferrer"

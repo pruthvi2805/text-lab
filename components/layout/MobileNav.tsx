@@ -136,14 +136,23 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
         </nav>
 
         {/* Footer - extra bottom padding for iPhone safe area */}
-        <div className="px-4 pt-3 pb-8 border-t border-border">
+        <div className="px-4 pt-3 pb-8 border-t border-border flex items-center gap-3 text-xs text-text-muted">
           <Link
             href="/privacy"
             onClick={onClose}
-            className="text-xs text-text-muted hover:text-text-secondary transition-colors"
+            className="hover:text-text-secondary transition-colors"
           >
-            Privacy Policy
+            Privacy
           </Link>
+          <span>·</span>
+          <a
+            href="https://kpruthvi.com/contact"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-text-secondary transition-colors"
+          >
+            Contact
+          </a>
         </div>
       </div>
     </>
