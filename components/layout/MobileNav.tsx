@@ -136,7 +136,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
         </nav>
 
         {/* Footer */}
-        <div className="px-4 py-3 border-t border-border">
+        <div className="px-4 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] border-t border-border">
           <Link
             href="/privacy"
             onClick={onClose}
