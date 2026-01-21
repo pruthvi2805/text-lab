@@ -9,7 +9,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden md:flex flex-col w-14 bg-bg-panel border-r border-border">
+    <aside className="hidden md:flex flex-col w-14 h-full overflow-hidden bg-bg-panel border-r border-border">
       {/* Home button */}
       <Link
         href="/"
