@@ -28,6 +28,10 @@ export default function Base64Page() {
     setInput(value);
   }, []);
 
+  const outputPlaceholder = mode === "encode"
+    ? "Base64 encoded string will appear here..."
+    : "Decoded text will appear here...";
+
   return (
     <ToolLayout
       input={input}
@@ -38,6 +42,7 @@ export default function Base64Page() {
           ? "Enter text to encode to Base64..."
           : "Enter Base64 string to decode..."
       }
+      outputPlaceholder={outputPlaceholder}
       error={error}
       options={
         <div className="flex flex-wrap items-center gap-3">

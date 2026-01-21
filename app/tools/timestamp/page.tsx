@@ -43,6 +43,7 @@ export default function TimestampPage() {
       output={output}
       onInputChange={handleInputChange}
       inputPlaceholder="Enter a Unix timestamp or date string... e.g. 1609459200 or 2021-01-01"
+      outputPlaceholder="Converted timestamps and formatted dates will appear here..."
       error={error}
       options={
         <div className="flex flex-wrap items-center gap-3">

@@ -33,12 +33,18 @@ export default function ListPage() {
     };
   }, [input]);
 
+  const selectedOp = listOperations.find((o) => o.value === operation);
+  const outputPlaceholder = selectedOp
+    ? `${selectedOp.description}...`
+    : "Processed list will appear here...";
+
   return (
     <ToolLayout
       input={input}
       output={output}
       onInputChange={handleInputChange}
       inputPlaceholder="Enter a list (one item per line)..."
+      outputPlaceholder={outputPlaceholder}
       options={
         <div className="flex flex-wrap items-center gap-2">
           <select

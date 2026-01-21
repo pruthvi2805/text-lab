@@ -38,12 +38,17 @@ export default function JsonPage() {
     setInput(value);
   }, []);
 
+  const outputPlaceholder = mode === "format"
+    ? "Formatted JSON will appear here..."
+    : "Minified JSON will appear here...";
+
   return (
     <ToolLayout
       input={input}
       output={output}
       onInputChange={handleInputChange}
       inputPlaceholder='Paste your JSON here... e.g. {"name": "value"}'
+      outputPlaceholder={outputPlaceholder}
       error={error}
       options={
         <>

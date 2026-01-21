@@ -31,6 +31,7 @@ export default function RegexPage() {
       output={output}
       onInputChange={handleInputChange}
       inputPlaceholder="Enter test string to match against..."
+      outputPlaceholder="Matches, positions, and capture groups will appear here..."
       error={!result.isValid ? result.error : null}
       options={
         <div className="flex flex-wrap items-center gap-3">

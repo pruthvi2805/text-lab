@@ -41,6 +41,13 @@ export default function UrlPage() {
     setInput(value);
   }, []);
 
+  const outputPlaceholder =
+    mode === "parse"
+      ? "URL components and query parameters will appear here..."
+      : mode === "encode"
+      ? "URL-encoded string will appear here..."
+      : "Decoded text will appear here...";
+
   return (
     <ToolLayout
       input={input}
@@ -53,6 +60,7 @@ export default function UrlPage() {
           ? "Enter text to URL encode..."
           : "Enter URL-encoded text to decode..."
       }
+      outputPlaceholder={outputPlaceholder}
       error={error}
       options={
         <div className="flex items-center gap-1 bg-bg-surface rounded p-0.5">
