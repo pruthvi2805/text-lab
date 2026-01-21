@@ -61,7 +61,7 @@ export default function HomePage() {
               </a>
               . Open source on{" "}
               <a
-                href="https://github.com/kpruthvireddy/text-lab"
+                href="https://github.com/pruthvi2805/text-lab"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent hover:underline"

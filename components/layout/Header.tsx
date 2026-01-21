@@ -48,7 +48,7 @@ export function Header({ onMenuClick }: HeaderProps) {
 
       {/* GitHub link */}
       <a
-        href="https://github.com/kpruthvireddy/text-lab"
+        href="https://github.com/pruthvi2805/text-lab"
         target="_blank"
         rel="noopener noreferrer"
         className="ml-3 p-1.5 text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-colors"

@@ -98,7 +98,7 @@ export default function PrivacyPage() {
                 Text Lab is open source. You can verify these claims by reviewing the
                 source code on{" "}
                 <a
-                  href="https://github.com/kpruthvireddy/text-lab"
+                  href="https://github.com/pruthvi2805/text-lab"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-accent hover:underline"
