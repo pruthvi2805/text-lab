@@ -22,7 +22,7 @@ export function Sidebar() {
       </Link>
 
       {/* Tool icons */}
-      <nav className="flex flex-col flex-1 py-2 overflow-y-auto">
+      <nav className="flex flex-col flex-1 py-2 overflow-y-auto overflow-x-hidden">
         {tools.map((tool) => {
           const Icon = tool.icon;
           const isActive = pathname === tool.path || pathname === `${tool.path}/`;
@@ -30,7 +30,7 @@ export function Sidebar() {
             <Link
               key={tool.id}
               href={tool.path}
-              className={`flex items-center justify-center h-11 hover:bg-bg-hover transition-colors relative group ${
+              className={`flex items-center justify-center h-11 shrink-0 hover:bg-bg-hover transition-colors relative group ${
                 isActive ? "text-accent" : "text-text-secondary hover:text-text-primary"
               }`}
               title={tool.name}
