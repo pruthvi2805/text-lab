@@ -81,25 +81,31 @@ export default function HomePage() {
           {/* Footer note */}
           <div className="mt-12 text-center text-sm text-text-muted">
             <p>
-              Built by{" "}
+              &copy; 2026 Pruthvi Kauticwar &middot;{" "}
               <a
                 href="https://kpruthvi.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent hover:underline"
+                className="hover:text-text-secondary transition-colors"
               >
-                K Pruthvi
+                kpruthvi.com
               </a>
-              . Open source on{" "}
+              {" "}&middot;{" "}
+              <a
+                href="/privacy"
+                className="hover:text-text-secondary transition-colors"
+              >
+                Privacy
+              </a>
+              {" "}&middot;{" "}
               <a
                 href="https://github.com/pruthvi2805/text-lab"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent hover:underline"
+                className="hover:text-text-secondary transition-colors"
               >
                 GitHub
               </a>
-              .
             </p>
           </div>
         </div>

@@ -10,7 +10,7 @@ interface StatusBarProps {
 
 export function StatusBar({ inputLength = 0, outputLength = 0 }: StatusBarProps) {
   return (
-    <footer className="flex items-center h-6 px-3 bg-bg-panel border-t border-border text-xs">
+    <footer className="hidden md:flex items-center h-6 px-3 bg-bg-panel border-t border-border text-xs">
       {/* Privacy link */}
       <Link
         href="/privacy"
