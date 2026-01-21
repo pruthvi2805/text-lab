@@ -136,23 +136,44 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
         </nav>
 
         {/* Footer - extra bottom padding for iPhone safe area */}
-        <div className="px-4 pt-3 pb-8 border-t border-border flex items-center gap-3 text-xs text-text-muted">
-          <Link
-            href="/privacy"
-            onClick={onClose}
-            className="hover:text-text-secondary transition-colors"
-          >
-            Privacy
-          </Link>
-          <span>·</span>
-          <a
-            href="https://kpruthvi.com/contact"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-text-secondary transition-colors"
-          >
-            Contact
-          </a>
+        <div className="px-4 pt-3 pb-8 border-t border-border text-xs text-text-muted">
+          <p>
+            &copy; 2026 Pruthvi Kauticwar &middot;{" "}
+            <a
+              href="https://kpruthvi.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-text-secondary transition-colors"
+            >
+              kpruthvi.com
+            </a>
+            {" "}&middot;{" "}
+            <Link
+              href="/privacy"
+              onClick={onClose}
+              className="hover:text-text-secondary transition-colors"
+            >
+              Privacy
+            </Link>
+            {" "}&middot;{" "}
+            <a
+              href="https://kpruthvi.com/contact"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-text-secondary transition-colors"
+            >
+              Contact
+            </a>
+            {" "}&middot;{" "}
+            <a
+              href="https://github.com/pruthvi2805/text-lab"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-text-secondary transition-colors"
+            >
+              GitHub
+            </a>
+          </p>
         </div>
       </div>
     </>
