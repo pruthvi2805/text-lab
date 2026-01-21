@@ -190,3 +190,33 @@ body {
 .light .cm-editor .cm-placeholder {
   color: var(--text-muted);
 }
+
+/* ==================== PAGE LOAD ANIMATION ==================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease both;
+}
+
+/* Apply fade-in to main content areas */
+main,
+.tool-layout {
+  animation: fadeIn 0.3s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main,
+  .tool-layout,
+  .animate-fadeIn {
+    animation: none;
+  }
+}
