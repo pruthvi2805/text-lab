@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useCallback, useMemo } from "react";
+import { useEffect, useCallback, useMemo, useRef } from "react";
 import { tools, categories, ToolCategory } from "@/lib/tools/registry";
 import { HomeIcon, XIcon, StarIcon } from "@/components/ui/icons";
 import { useFavoritesStore } from "@/stores/favorites";
@@ -17,6 +17,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
   const pathname = usePathname();
   const { favorites, toggleFavorite } = useFavoritesStore();
   const { addToast } = useToastStore();
+  const navRef = useRef<HTMLElement>(null);
 
   const handleToggleFavorite = useCallback((toolId: string, toolName: string) => {
     const wasFavorite = favorites.includes(toolId);
@@ -64,6 +65,20 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
     }
   }, [isOpen, handleKeyDown]);
 
+  // Auto-scroll to active tool when nav opens
+  useEffect(() => {
+    if (isOpen && navRef.current) {
+      // Small delay to allow animation to start
+      const timer = setTimeout(() => {
+        const activeLink = navRef.current?.querySelector('[data-active="true"]');
+        if (activeLink) {
+          activeLink.scrollIntoView({ block: "center", behavior: "smooth" });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
+
   // Don't render anything if closed (but keep in DOM for animation)
   if (!isOpen) return null;
 
@@ -98,7 +113,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 overflow-y-auto py-2">
+        <nav ref={navRef} className="flex-1 overflow-y-auto py-2">
           {/* Home */}
           <Link
             href="/"
@@ -129,6 +144,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                     <Link
                       href={tool.path}
                       onClick={onClose}
+                      data-active={isActive}
                       className={`flex-1 flex items-center gap-3 pl-4 pr-2 py-2.5 transition-colors ${
                         isActive
                           ? "bg-bg-hover text-accent"
@@ -170,6 +186,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                       <Link
                         href={tool.path}
                         onClick={onClose}
+                        data-active={isActive}
                         className={`flex-1 flex items-center gap-3 pl-4 pr-2 py-2.5 transition-colors ${
                           isActive
                             ? "bg-bg-hover text-accent"

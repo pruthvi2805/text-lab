@@ -70,11 +70,16 @@ export function Header({ onMenuClick }: HeaderProps) {
         <span className="text-sm font-semibold text-text-primary">Text Lab</span>
       </Link>
 
-      {/* Breadcrumb / current tool */}
+      {/* Current tool name - prominent display */}
       {currentTool && (
         <>
           <span className="mx-2 text-text-muted">/</span>
-          <span className="text-sm text-text-secondary truncate max-w-[120px] sm:max-w-none">{currentTool.name}</span>
+          <div className="flex items-center gap-1.5">
+            <currentTool.icon size={16} className="text-accent" />
+            <span className="text-sm font-medium text-text-primary truncate max-w-[140px] sm:max-w-none">
+              {currentTool.name}
+            </span>
+          </div>
           <button
             onClick={handleToggleFavorite}
             className={`ml-1.5 p-1 rounded transition-colors star-button ${

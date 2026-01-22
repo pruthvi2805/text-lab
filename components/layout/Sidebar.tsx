@@ -5,11 +5,12 @@ import { usePathname } from "next/navigation";
 import { tools } from "@/lib/tools/registry";
 import { HomeIcon, StarIcon } from "@/components/ui/icons";
 import { useFavoritesStore } from "@/stores/favorites";
-import { useMemo } from "react";
+import { useMemo, useEffect, useRef } from "react";
 
 export function Sidebar() {
   const pathname = usePathname();
   const { favorites } = useFavoritesStore();
+  const navRef = useRef<HTMLElement>(null);
 
   // Sort tools: favorites first, then others (maintaining original order within each group)
   const sortedTools = useMemo(() => {
@@ -19,6 +20,15 @@ export function Sidebar() {
   }, [favorites]);
 
   const hasFavorites = favorites.length > 0;
+
+  // Auto-scroll to active tool when pathname changes
+  useEffect(() => {
+    if (!navRef.current) return;
+    const activeLink = navRef.current.querySelector('[data-active="true"]');
+    if (activeLink) {
+      activeLink.scrollIntoView({ block: "center", behavior: "smooth" });
+    }
+  }, [pathname]);
 
   return (
     <aside className="hidden md:flex flex-col w-14 h-full overflow-hidden bg-bg-panel border-r border-border">
@@ -41,7 +51,7 @@ export function Sidebar() {
       )}
 
       {/* Tool icons */}
-      <nav className="flex flex-col flex-1 py-2 overflow-y-auto overflow-x-hidden">
+      <nav ref={navRef} className="flex flex-col flex-1 py-2 overflow-y-auto overflow-x-hidden">
         {sortedTools.map((tool, index) => {
           const Icon = tool.icon;
           const isActive = pathname === tool.path || pathname === `${tool.path}/`;
@@ -57,6 +67,7 @@ export function Sidebar() {
               )}
               <Link
                 href={tool.path}
+                data-active={isActive}
                 className={`flex items-center justify-center h-11 shrink-0 hover:bg-bg-hover transition-colors relative group ${
                   isActive ? "text-accent" : "text-text-secondary hover:text-text-primary"
                 }`}
