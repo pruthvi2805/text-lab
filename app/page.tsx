@@ -5,10 +5,21 @@ import { Shell } from "@/components/layout";
 import { tools, categories, ToolCategory } from "@/lib/tools/registry";
 import { ShieldIcon, StarIcon } from "@/components/ui/icons";
 import { useFavoritesStore } from "@/stores/favorites";
-import { useMemo } from "react";
+import { useToastStore } from "@/stores/toast";
+import { useMemo, useCallback } from "react";
 
 export default function HomePage() {
   const { favorites, toggleFavorite } = useFavoritesStore();
+  const { addToast } = useToastStore();
+
+  const handleToggleFavorite = useCallback((toolId: string, toolName: string) => {
+    const wasFavorite = favorites.includes(toolId);
+    toggleFavorite(toolId);
+    addToast(
+      wasFavorite ? `Removed ${toolName} from favorites` : `Added ${toolName} to favorites`,
+      "warning"
+    );
+  }, [favorites, toggleFavorite, addToast]);
 
   const { favoriteTools, toolsByCategory } = useMemo(() => {
     const favs = tools.filter((tool) => favorites.includes(tool.id));
@@ -68,7 +79,7 @@ export default function HomePage() {
                     key={tool.id}
                     tool={tool}
                     isFavorite={true}
-                    onToggleFavorite={() => toggleFavorite(tool.id)}
+                    onToggleFavorite={() => handleToggleFavorite(tool.id, tool.name)}
                   />
                 ))}
               </div>
@@ -106,7 +117,7 @@ export default function HomePage() {
                         key={tool.id}
                         tool={tool}
                         isFavorite={false}
-                        onToggleFavorite={() => toggleFavorite(tool.id)}
+                        onToggleFavorite={() => handleToggleFavorite(tool.id, tool.name)}
                       />
                     ))}
                   </div>
@@ -183,7 +194,7 @@ function ToolCard({ tool, isFavorite, onToggleFavorite }: ToolCardProps) {
             e.stopPropagation();
             onToggleFavorite();
           }}
-          className={`relative z-10 p-1.5 rounded-md transition-all active:scale-125 ${
+          className={`relative z-10 p-1.5 rounded-md transition-all star-button ${
             isFavorite
               ? "text-warning hover:bg-warning/10"
               : "text-text-muted hover:text-warning hover:bg-bg-surface"
