@@ -6,6 +6,7 @@ import { useEffect, useCallback, useMemo } from "react";
 import { tools, categories, ToolCategory } from "@/lib/tools/registry";
 import { HomeIcon, XIcon, StarIcon } from "@/components/ui/icons";
 import { useFavoritesStore } from "@/stores/favorites";
+import { useToastStore } from "@/stores/toast";
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -15,6 +16,16 @@ interface MobileNavProps {
 export function MobileNav({ isOpen, onClose }: MobileNavProps) {
   const pathname = usePathname();
   const { favorites, toggleFavorite } = useFavoritesStore();
+  const { addToast } = useToastStore();
+
+  const handleToggleFavorite = useCallback((toolId: string, toolName: string) => {
+    const wasFavorite = favorites.includes(toolId);
+    toggleFavorite(toolId);
+    addToast(
+      wasFavorite ? `Removed ${toolName} from favorites` : `Added ${toolName} to favorites`,
+      "warning"
+    );
+  }, [favorites, toggleFavorite, addToast]);
 
   const { favoriteTools, toolsByCategory } = useMemo(() => {
     const favs = tools.filter((tool) => favorites.includes(tool.id));
@@ -128,8 +139,8 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                       <span>{tool.name}</span>
                     </Link>
                     <button
-                      onClick={() => toggleFavorite(tool.id)}
-                      className="p-2 text-warning hover:bg-bg-hover rounded transition-colors"
+                      onClick={() => handleToggleFavorite(tool.id, tool.name)}
+                      className="p-2 text-warning hover:bg-bg-hover rounded transition-colors star-button"
                       aria-label="Remove from favorites"
                     >
                       <StarIcon size={14} filled />
@@ -169,8 +180,8 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
                         <span>{tool.name}</span>
                       </Link>
                       <button
-                        onClick={() => toggleFavorite(tool.id)}
-                        className="p-2 text-text-muted hover:text-warning hover:bg-bg-hover rounded transition-colors"
+                        onClick={() => handleToggleFavorite(tool.id, tool.name)}
+                        className="p-2 text-text-muted hover:text-warning hover:bg-bg-hover rounded transition-colors star-button"
                         aria-label="Add to favorites"
                       >
                         <StarIcon size={14} />

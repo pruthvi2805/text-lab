@@ -2,9 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useCallback } from "react";
 import { getToolByPath } from "@/lib/tools/registry";
-import { MenuIcon, GithubIcon, ChevronLeftIcon } from "@/components/ui/icons";
+import { MenuIcon, GithubIcon, ChevronLeftIcon, StarIcon } from "@/components/ui/icons";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { useFavoritesStore } from "@/stores/favorites";
+import { useToastStore } from "@/stores/toast";
 
 interface HeaderProps {
   onMenuClick?: () => void;
@@ -14,6 +17,21 @@ export function Header({ onMenuClick }: HeaderProps) {
   const pathname = usePathname();
   const currentTool = getToolByPath(pathname);
   const isToolPage = !!currentTool;
+  const { favorites, toggleFavorite } = useFavoritesStore();
+  const { addToast } = useToastStore();
+
+  const isFavorite = currentTool ? favorites.includes(currentTool.id) : false;
+
+  const handleToggleFavorite = useCallback(() => {
+    if (!currentTool) return;
+    toggleFavorite(currentTool.id);
+    addToast(
+      isFavorite
+        ? `Removed ${currentTool.name} from favorites`
+        : `Added ${currentTool.name} to favorites`,
+      "warning"
+    );
+  }, [currentTool, isFavorite, toggleFavorite, addToast]);
 
   return (
     <header className="flex items-center h-10 px-3 bg-bg-panel border-b border-border shrink-0">
@@ -57,6 +75,18 @@ export function Header({ onMenuClick }: HeaderProps) {
         <>
           <span className="mx-2 text-text-muted">/</span>
           <span className="text-sm text-text-secondary truncate max-w-[120px] sm:max-w-none">{currentTool.name}</span>
+          <button
+            onClick={handleToggleFavorite}
+            className={`ml-1.5 p-1 rounded transition-colors star-button ${
+              isFavorite
+                ? "text-warning hover:bg-bg-hover"
+                : "text-text-muted hover:text-warning hover:bg-bg-hover"
+            }`}
+            aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+            title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+          >
+            <StarIcon size={14} filled={isFavorite} />
+          </button>
         </>
       )}
 

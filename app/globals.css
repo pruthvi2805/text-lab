@@ -269,6 +269,22 @@ body.modal-open {
   animation: starPop 0.2s ease-out;
 }
 
+/* Toast animation */
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-toastIn {
+  animation: toastIn 0.2s ease-out both;
+}
+
 /* Apply fade-in to main content areas */
 main,
 .tool-layout {
