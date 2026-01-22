@@ -112,22 +112,22 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
           </button>
         </div>
 
-        {/* Navigation */}
-        <nav ref={navRef} className="flex-1 overflow-y-auto py-2">
-          {/* Home */}
-          <Link
-            href="/"
-            onClick={onClose}
-            className={`flex items-center gap-3 px-4 py-2.5 transition-colors ${
-              pathname === "/"
-                ? "bg-bg-hover text-accent"
-                : "text-text-secondary hover:bg-bg-hover hover:text-text-primary"
-            }`}
-          >
-            <HomeIcon size={18} />
-            <span>Home</span>
-          </Link>
+        {/* Sticky Home link */}
+        <Link
+          href="/"
+          onClick={onClose}
+          className={`flex items-center gap-3 px-4 py-2.5 border-b border-border transition-colors ${
+            pathname === "/"
+              ? "bg-bg-hover text-accent"
+              : "text-text-secondary hover:bg-bg-hover hover:text-text-primary"
+          }`}
+        >
+          <HomeIcon size={18} />
+          <span>Home</span>
+        </Link>
 
+        {/* Navigation - scrollable */}
+        <nav ref={navRef} className="flex-1 overflow-y-auto py-2">
           {/* Favorites */}
           {favoriteTools.length > 0 && (
             <>

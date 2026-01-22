@@ -55,8 +55,7 @@ export function Sidebar() {
         {sortedTools.map((tool, index) => {
           const Icon = tool.icon;
           const isActive = pathname === tool.path || pathname === `${tool.path}/`;
-          const isFavorite = favorites.includes(tool.id);
-          const isFirstNonFavorite = hasFavorites && !isFavorite &&
+          const isFirstNonFavorite = hasFavorites && !favorites.includes(tool.id) &&
             (index === 0 || favorites.includes(sortedTools[index - 1].id));
 
           return (
@@ -77,10 +76,6 @@ export function Sidebar() {
                   <span className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-accent" />
                 )}
                 <Icon size={20} />
-                {/* Favorite indicator */}
-                {isFavorite && !isActive && (
-                  <span className="absolute top-1 right-1 w-1.5 h-1.5 bg-warning rounded-full" />
-                )}
                 {/* Tooltip */}
                 <span className="absolute left-full ml-2 px-2 py-1 bg-bg-surface text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
                   {tool.shortName}

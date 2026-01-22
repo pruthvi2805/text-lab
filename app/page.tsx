@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { Shell } from "@/components/layout";
 import { tools, categories, ToolCategory } from "@/lib/tools/registry";
-import { ShieldIcon, StarIcon, ClockIcon, SearchIcon } from "@/components/ui/icons";
+import { ShieldIcon, StarIcon, SearchIcon } from "@/components/ui/icons";
 import { useFavoritesStore } from "@/stores/favorites";
 import { useRecentStore } from "@/stores/recent";
 import { useToastStore } from "@/stores/toast";
 import { useCommandPaletteStore } from "@/stores/command-palette";
 import { useMemo, useCallback } from "react";
+
+const MAX_QUICK_ACCESS = 6;
 
 export default function HomePage() {
   const { favorites, toggleFavorite } = useFavoritesStore();
@@ -17,7 +19,9 @@ export default function HomePage() {
   const { open: openCommandPalette } = useCommandPaletteStore();
 
   const handleToggleFavorite = useCallback(
-    (toolId: string, toolName: string) => {
+    (toolId: string, toolName: string, e: React.MouseEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
       const wasFavorite = favorites.includes(toolId);
       toggleFavorite(toolId);
       addToast(
@@ -28,18 +32,19 @@ export default function HomePage() {
     [favorites, toggleFavorite, addToast]
   );
 
-  // Get recent tools (excluding favorites to avoid duplication)
-  const recentTools = useMemo(() => {
-    return recentToolIds
+  // Combined quick access: favorites first, then recent (excluding duplicates)
+  const quickAccessTools = useMemo(() => {
+    const favTools = tools.filter((t) => favorites.includes(t.id));
+    const recentNotFav = recentToolIds
       .filter((id) => !favorites.includes(id))
       .map((id) => tools.find((t) => t.id === id))
       .filter(Boolean) as typeof tools;
-  }, [recentToolIds, favorites]);
 
-  const { favoriteTools, toolsByCategory } = useMemo(() => {
-    const favs = tools.filter((tool) => favorites.includes(tool.id));
+    return [...favTools, ...recentNotFav].slice(0, MAX_QUICK_ACCESS);
+  }, [favorites, recentToolIds]);
 
-    // Group tools by category (excluding favorites and recent)
+  // Tools by category (all tools, for the main grid)
+  const toolsByCategory = useMemo(() => {
     const byCategory: Record<ToolCategory, typeof tools> = {
       formatting: [],
       encoding: [],
@@ -48,22 +53,18 @@ export default function HomePage() {
     };
 
     tools.forEach((tool) => {
-      if (!favorites.includes(tool.id) && !recentToolIds.includes(tool.id)) {
-        byCategory[tool.category].push(tool);
-      }
+      byCategory[tool.category].push(tool);
     });
 
-    return { favoriteTools: favs, toolsByCategory: byCategory };
-  }, [favorites, recentToolIds]);
-
-  const hasQuickAccess = favoriteTools.length > 0 || recentTools.length > 0;
+    return byCategory;
+  }, []);
 
   return (
     <Shell>
       <div className="h-full overflow-y-auto">
         <div className="max-w-4xl mx-auto px-4 py-6 md:py-10">
           {/* Hero with Search */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <h1 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">
               Developer Text Utilities
             </h1>
@@ -91,77 +92,46 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Quick Access: Favorites + Recent */}
-          {hasQuickAccess && (
+          {/* Quick Access - Compact horizontal row */}
+          {quickAccessTools.length > 0 && (
             <div className="mb-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Favorites */}
-                {favoriteTools.length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <StarIcon size={14} filled className="text-warning" />
-                      <h2 className="text-xs font-medium text-text-muted uppercase tracking-wide">
-                        Favorites
-                      </h2>
-                    </div>
-                    <div className="space-y-2">
-                      {favoriteTools.map((tool) => (
-                        <CompactToolCard
-                          key={tool.id}
-                          tool={tool}
-                          isFavorite={true}
-                          onToggleFavorite={() => handleToggleFavorite(tool.id, tool.name)}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Recent */}
-                {recentTools.length > 0 && (
-                  <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <ClockIcon size={14} className="text-text-muted" />
-                      <h2 className="text-xs font-medium text-text-muted uppercase tracking-wide">
-                        Recent
-                      </h2>
-                    </div>
-                    <div className="space-y-2">
-                      {recentTools.map((tool) => (
-                        <CompactToolCard
-                          key={tool.id}
-                          tool={tool}
-                          isFavorite={false}
-                          onToggleFavorite={() => handleToggleFavorite(tool.id, tool.name)}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
+              <div className="flex items-center gap-2 mb-3">
+                <StarIcon size={14} filled className="text-warning" />
+                <h2 className="text-xs font-medium text-text-muted uppercase tracking-wide">
+                  Quick Access
+                </h2>
+              </div>
+              {/* Horizontal scroll on mobile, wrap on desktop */}
+              <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap md:overflow-visible scrollbar-hide">
+                {quickAccessTools.map((tool) => {
+                  const Icon = tool.icon;
+                  const isFavorite = favorites.includes(tool.id);
+                  return (
+                    <Link
+                      key={tool.id}
+                      href={tool.path}
+                      className="group flex items-center gap-2 px-3 py-2 bg-bg-panel border border-border rounded-lg hover:border-accent/50 hover:bg-bg-surface transition-colors shrink-0"
+                    >
+                      <Icon size={16} className="text-accent" />
+                      <span className="text-sm font-medium text-text-primary whitespace-nowrap">
+                        {tool.shortName}
+                      </span>
+                      {isFavorite && (
+                        <StarIcon size={12} filled className="text-warning" />
+                      )}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           )}
 
           {/* All Tools by Category */}
           <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h2 className="text-sm font-medium text-text-secondary">
-                {hasQuickAccess ? "All Tools" : "Tools"}
-              </h2>
-              {!hasQuickAccess && (
-                <span className="text-xs text-text-muted flex items-center gap-1">
-                  <StarIcon size={12} />
-                  Star to add favorites
-                </span>
-              )}
-            </div>
+            <h2 className="text-sm font-medium text-text-secondary">All Tools</h2>
 
             {categories.map((category) => {
-              // Show all tools in category if no quick access section, otherwise show remaining
-              const categoryTools = hasQuickAccess
-                ? toolsByCategory[category.id]
-                : tools.filter((t) => t.category === category.id);
-
+              const categoryTools = toolsByCategory[category.id];
               if (categoryTools.length === 0) return null;
 
               return (
@@ -180,7 +150,7 @@ export default function HomePage() {
                         key={tool.id}
                         tool={tool}
                         isFavorite={favorites.includes(tool.id)}
-                        onToggleFavorite={() => handleToggleFavorite(tool.id, tool.name)}
+                        onToggleFavorite={(e) => handleToggleFavorite(tool.id, tool.name, e)}
                       />
                     ))}
                   </div>
@@ -212,47 +182,11 @@ export default function HomePage() {
   );
 }
 
-// Compact card for favorites/recent section
-interface CompactToolCardProps {
-  tool: (typeof tools)[0];
-  isFavorite: boolean;
-  onToggleFavorite: () => void;
-}
-
-function CompactToolCard({ tool, isFavorite, onToggleFavorite }: CompactToolCardProps) {
-  const Icon = tool.icon;
-
-  return (
-    <div className="group relative flex items-center gap-3 p-3 bg-bg-panel border border-border rounded-lg hover:border-accent/50 hover:bg-bg-surface transition-colors">
-      <Link href={tool.path} className="absolute inset-0 z-0" />
-      <Icon size={18} className="text-accent shrink-0" />
-      <div className="flex-1 min-w-0">
-        <h3 className="font-medium text-text-primary text-sm truncate">{tool.name}</h3>
-      </div>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          onToggleFavorite();
-        }}
-        className={`relative z-10 p-1 rounded transition-all star-button ${
-          isFavorite
-            ? "text-warning hover:bg-warning/10"
-            : "text-text-muted hover:text-warning hover:bg-bg-surface opacity-0 group-hover:opacity-100"
-        }`}
-        aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
-      >
-        <StarIcon size={14} filled={isFavorite} />
-      </button>
-    </div>
-  );
-}
-
-// Full card for category grid
+// Tool card for category grid
 interface ToolCardProps {
   tool: (typeof tools)[0];
   isFavorite: boolean;
-  onToggleFavorite: () => void;
+  onToggleFavorite: (e: React.MouseEvent) => void;
 }
 
 function ToolCard({ tool, isFavorite, onToggleFavorite }: ToolCardProps) {
@@ -265,11 +199,7 @@ function ToolCard({ tool, isFavorite, onToggleFavorite }: ToolCardProps) {
         <Icon size={18} className="text-accent shrink-0" />
         <h3 className="font-medium text-text-primary text-sm flex-1 truncate">{tool.name}</h3>
         <button
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            onToggleFavorite();
-          }}
+          onClick={onToggleFavorite}
           className={`relative z-10 p-1 rounded transition-all star-button ${
             isFavorite
               ? "text-warning hover:bg-warning/10"
