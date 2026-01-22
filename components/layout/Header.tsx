@@ -114,7 +114,7 @@ export function Header({ onMenuClick, onSearchClick }: HeaderProps) {
         href="https://github.com/pruthvi2805/text-lab"
         target="_blank"
         rel="noopener noreferrer"
-        className="ml-1 p-1.5 text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-colors"
+        className="ml-1 p-1.5 flex items-center justify-center text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-colors"
         aria-label="View on GitHub"
       >
         <GithubIcon size={16} />
