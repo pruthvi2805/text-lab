@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
-import { EditorState, Extension } from "@codemirror/state";
+import { useEffect, useRef } from "react";
+import { EditorState, Extension, Compartment } from "@codemirror/state";
 import { EditorView, keymap, placeholder as placeholderExt } from "@codemirror/view";
 import { defaultKeymap, history, historyKeymap } from "@codemirror/commands";
 import { oneDark } from "@codemirror/theme-one-dark";
@@ -26,6 +26,7 @@ export function CodeEditor({
   const containerRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<EditorView | null>(null);
   const onChangeRef = useRef(onChange);
+  const placeholderCompartmentRef = useRef(new Compartment());
 
   // Keep onChange ref updated
   useEffect(() => {
@@ -48,12 +49,9 @@ export function CodeEditor({
       oneDark,
       EditorView.lineWrapping,
       updateListener,
+      placeholderCompartmentRef.current.of(placeholder ? placeholderExt(placeholder) : []),
       ...extensions,
     ];
-
-    if (placeholder) {
-      baseExtensions.push(placeholderExt(placeholder));
-    }
 
     if (readOnly) {
       baseExtensions.push(EditorState.readOnly.of(true));
@@ -78,6 +76,18 @@ export function CodeEditor({
     // Only run on mount - extensions and readOnly don't change dynamically
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Update placeholder when it changes
+  useEffect(() => {
+    const view = viewRef.current;
+    if (!view) return;
+
+    view.dispatch({
+      effects: placeholderCompartmentRef.current.reconfigure(
+        placeholder ? placeholderExt(placeholder) : []
+      ),
+    });
+  }, [placeholder]);
 
   // Sync external value changes
   useEffect(() => {
