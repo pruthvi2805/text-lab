@@ -65,8 +65,11 @@ export function Header({ onMenuClick }: HeaderProps) {
         </button>
       )}
 
-      {/* Branding */}
-      <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+      {/* Branding - hidden on mobile when viewing a tool */}
+      <Link
+        href="/"
+        className={`flex items-center gap-2 hover:opacity-80 transition-opacity ${isToolPage ? "hidden md:flex" : ""}`}
+      >
         <span className="text-sm font-semibold text-text-primary">Text Lab</span>
       </Link>
 
@@ -75,16 +78,16 @@ export function Header({ onMenuClick }: HeaderProps) {
         const ToolIcon = currentTool.icon;
         return (
           <>
-            <span className="mx-2 text-text-muted">/</span>
-            <div className="flex items-center gap-1.5">
-              <ToolIcon size={16} className="text-accent" />
-              <span className="text-sm font-medium text-text-primary truncate max-w-[140px] sm:max-w-none">
+            <span className="mx-2 text-text-muted hidden md:inline">/</span>
+            <div className="flex items-center gap-2">
+              <ToolIcon size={18} className="text-accent" />
+              <span className="text-base font-semibold text-text-primary truncate max-w-[180px] sm:max-w-none">
                 {currentTool.name}
               </span>
             </div>
             <button
               onClick={handleToggleFavorite}
-              className={`ml-1.5 p-1 rounded transition-colors star-button ${
+              className={`ml-2 p-1 rounded transition-colors star-button ${
                 isFavorite
                   ? "text-warning hover:bg-bg-hover"
                   : "text-text-muted hover:text-warning hover:bg-bg-hover"
@@ -92,7 +95,7 @@ export function Header({ onMenuClick }: HeaderProps) {
               aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
               title={isFavorite ? "Remove from favorites" : "Add to favorites"}
             >
-              <StarIcon size={14} filled={isFavorite} />
+              <StarIcon size={16} filled={isFavorite} />
             </button>
           </>
         );
