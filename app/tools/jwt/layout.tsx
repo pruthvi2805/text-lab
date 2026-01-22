@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "bearer token",
   ],
   openGraph: {
-    title: "JWT Decoder | Text Lab",
+    title: "JWT Decoder | Textsy",
     description:
       "Decode JWT tokens to view header and payload. 100% browser-based, no data uploaded.",
   },

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "UUID Generator - Text Lab",
+  title: "UUID Generator - Textsy",
   description:
     "Generate and validate UUIDs. Supports v4 (random), v7 (timestamp-based), with batch generation and format options.",
   keywords: [

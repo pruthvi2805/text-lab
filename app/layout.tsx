@@ -27,21 +27,28 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Text Lab - Browser-Based Text Utilities",
-    template: "%s | Text Lab",
+    default: "Textsy - Browser-Based Developer Tools",
+    template: "%s | Textsy",
   },
   description:
-    "Free, private text utilities that run entirely in your browser. JSON formatter, Base64 encoder, JWT decoder, and more. No data leaves your device.",
+    "Free, private developer tools that run entirely in your browser. JSON formatter, password generator, QR codes, hash generator, and more. No data leaves your device.",
   keywords: [
     "text tools",
+    "developer tools",
     "json formatter",
     "base64 encoder",
     "jwt decoder",
     "url encoder",
     "regex tester",
-    "developer tools",
-    "privacy",
+    "password generator",
+    "qr code generator",
+    "hash generator",
+    "uuid generator",
+    "cron builder",
+    "sql formatter",
+    "privacy tools",
     "browser-based",
+    "no upload",
   ],
   authors: [{ name: "K Pruthvi" }],
   creator: "K Pruthvi",
@@ -50,16 +57,16 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://text.kpruthvi.com",
-    siteName: "Text Lab",
-    title: "Text Lab - Browser-Based Text Utilities",
+    siteName: "Textsy",
+    title: "Textsy - Free Browser-Based Developer Tools",
     description:
-      "Free, private text utilities that run entirely in your browser. No data leaves your device.",
+      "Free, private developer tools that run entirely in your browser. JSON, Base64, JWT, passwords, QR codes, and more. No data leaves your device.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Text Lab - Browser-Based Text Utilities",
+    title: "Textsy - Free Browser-Based Developer Tools",
     description:
-      "Free, private text utilities that run entirely in your browser. No data leaves your device.",
+      "Free, private developer tools that run entirely in your browser. JSON, Base64, JWT, passwords, QR codes, and more. No data leaves your device.",
   },
   robots: {
     index: true,

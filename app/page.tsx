@@ -66,10 +66,10 @@ export default function HomePage() {
           {/* Hero with Search */}
           <div className="text-center mb-6">
             <h1 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">
-              Developer Text Utilities
+              Developer Tools
             </h1>
             <p className="text-text-secondary max-w-md mx-auto mb-5">
-              Format, encode, decode, convert—instantly. 100% private.
+              Format, encode, generate, analyze—instantly in your browser.
             </p>
 
             {/* Search bar - opens command palette */}

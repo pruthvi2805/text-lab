@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "epoch time",
   ],
   openGraph: {
-    title: "Unix Timestamp Converter | Text Lab",
+    title: "Unix Timestamp Converter | Textsy",
     description:
       "Convert Unix timestamps to dates and back. 100% browser-based, no data uploaded.",
   },

@@ -102,7 +102,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
       >
         {/* Header */}
         <div className="flex items-center justify-between h-12 px-4 border-b border-border">
-          <span className="font-semibold text-text-primary">Text Lab</span>
+          <span className="font-semibold text-text-primary">Textsy</span>
           <button
             onClick={onClose}
             className="p-1.5 text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-colors"

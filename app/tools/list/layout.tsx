@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "line tools",
   ],
   openGraph: {
-    title: "List Utilities | Text Lab",
+    title: "List Utilities | Textsy",
     description:
       "Sort, deduplicate, reverse, and transform text lists. 100% browser-based, no data uploaded.",
   },

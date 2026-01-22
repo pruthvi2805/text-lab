@@ -47,7 +47,7 @@ This is a **bold** and *italic* text example.
 - Headings (h1-h6)
 - **Bold** and *italic* text
 - ~~Strikethrough~~
-- Links: [Text Lab](https://text.kpruthvi.com)
+- Links: [Textsy](https://text.kpruthvi.com)
 - Images and more!
 
 ### Code Examples
@@ -81,7 +81,7 @@ function greet(name) {
 
 ---
 
-Made with ❤️ using Text Lab`);
+Made with ❤️ using Textsy`);
   }, []);
 
   return (

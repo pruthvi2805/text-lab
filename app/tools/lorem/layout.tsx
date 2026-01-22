@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Lorem Ipsum Generator - Text Lab",
+  title: "Lorem Ipsum Generator - Textsy",
   description:
     "Generate placeholder text for designs and mockups. Customize words, sentences, or paragraphs with classic Lorem Ipsum.",
   keywords: [

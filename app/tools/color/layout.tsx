@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Color Converter - Text Lab",
+  title: "Color Converter - Textsy",
   description:
     "Convert colors between HEX, RGB, HSL, HWB, and CMYK formats. Parse named CSS colors with live preview.",
   keywords: [

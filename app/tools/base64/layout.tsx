@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "url-safe base64",
   ],
   openGraph: {
-    title: "Base64 Encoder & Decoder | Text Lab",
+    title: "Base64 Encoder & Decoder | Textsy",
     description:
       "Encode and decode Base64 strings. 100% browser-based, no data uploaded.",
   },

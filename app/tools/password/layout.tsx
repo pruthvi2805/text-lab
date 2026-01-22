@@ -1,0 +1,28 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Password Generator - Textsy",
+  description:
+    "Generate secure random passwords with customizable length, character sets, and strength indicators. 100% client-side generation, no data sent to servers.",
+  keywords: [
+    "password generator",
+    "secure password",
+    "random password",
+    "strong password generator",
+    "password strength",
+    "online password generator",
+  ],
+  openGraph: {
+    title: "Password Generator | Textsy",
+    description:
+      "Generate secure random passwords with customizable options. 100% browser-based, no data uploaded.",
+  },
+};
+
+export default function PasswordLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return children;
+}

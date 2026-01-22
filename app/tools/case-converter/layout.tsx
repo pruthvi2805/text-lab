@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "title case",
   ],
   openGraph: {
-    title: "Case Converter | Text Lab",
+    title: "Case Converter | Textsy",
     description:
       "Convert text between camelCase, snake_case, kebab-case, and more. 100% browser-based.",
   },

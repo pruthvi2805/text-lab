@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "format json online",
   ],
   openGraph: {
-    title: "JSON Formatter | Text Lab",
+    title: "JSON Formatter | Textsy",
     description:
       "Format, validate, and minify JSON online. 100% browser-based, no data uploaded.",
   },

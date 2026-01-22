@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "percent encoding",
   ],
   openGraph: {
-    title: "URL Parser & Encoder | Text Lab",
+    title: "URL Parser & Encoder | Textsy",
     description:
       "Parse, encode, and decode URLs. Extract query parameters and URL components. 100% browser-based.",
   },

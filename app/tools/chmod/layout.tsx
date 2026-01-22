@@ -1,0 +1,29 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "chmod Calculator - Textsy",
+  description:
+    "Calculate Unix file permissions with interactive chmod calculator. Convert between numeric (755) and symbolic (rwxr-xr-x) notation. No data leaves your browser.",
+  keywords: [
+    "chmod calculator",
+    "unix permissions",
+    "file permissions",
+    "chmod converter",
+    "linux permissions",
+    "permission calculator",
+    "rwx permissions",
+  ],
+  openGraph: {
+    title: "chmod Calculator | Textsy",
+    description:
+      "Calculate Unix file permissions interactively. 100% browser-based, no data uploaded.",
+  },
+};
+
+export default function ChmodLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return children;
+}

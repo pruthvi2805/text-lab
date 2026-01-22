@@ -1,4 +1,4 @@
-# Text Lab
+# Textsy
 
 Fast, private text utilities that run entirely in your browser. No servers, no uploads, no tracking.
 
@@ -9,23 +9,50 @@ Fast, private text utilities that run entirely in your browser. No servers, no u
 - **100% Browser-Based** — All processing happens client-side. Your data never leaves your device.
 - **No Tracking** — No analytics, no cookies, no telemetry.
 - **Favorites** — Star your most-used tools for quick access.
-- **16 Developer Tools:**
-  - JSON Formatter (validate, prettify, minify)
+- **Developer Tools:**
+
+  **Encoders & Decoders**
   - Base64 Encoder/Decoder
   - URL Parser & Encoder
   - JWT Decoder (view header & payload)
-  - Hash Generator (MD5, SHA-1, SHA-256, SHA-512)
-  - UUID Generator (v4, v7, validation)
-  - Unix Timestamp Converter
+  - HTML Entity Encoder/Decoder
+  - String Escape/Unescape (JSON, HTML, URL, SQL, Regex, C, Shell, XML, CSV)
+  - Hex ↔ Text Converter
+  - Number Base Converter (Decimal, Hex, Octal, Binary)
+
+  **Formatters & Converters**
+  - JSON Formatter (validate, prettify, minify)
   - YAML ↔ JSON Converter
+  - XML ↔ JSON Converter
+  - CSV ↔ JSON Converter
+  - SQL Formatter (beautify with keyword highlighting)
+  - JavaScript/CSS Formatter (beautify & minify)
   - Case Converter (camelCase, snake_case, etc.)
+  - Markdown Preview (live rendering)
+
+  **Generators**
+  - UUID Generator (v4, v7, validation)
+  - Password Generator (secure, customizable)
+  - Lorem Ipsum Generator
+  - Fake Data Generator (names, emails, addresses, etc.)
+  - QR Code Generator (SVG & PNG export)
+  - Slug Generator (URL-friendly strings)
+
+  **Security & Hashing**
+  - Hash Generator (MD5, SHA-1, SHA-256, SHA-512)
+  - HMAC Generator (SHA-256, SHA-384, SHA-512)
+
+  **Analysis & Utilities**
   - Regex Tester (live matching)
   - Text Diff (line, word, character comparison)
-  - Markdown Preview (live rendering)
-  - HTML Entity Encoder/Decoder
+  - JSONPath Query Tool
+  - Text Statistics (words, sentences, reading time)
+  - ASCII/Unicode Lookup Table
   - Color Converter (HEX, RGB, HSL, HWB, CMYK)
+  - Unix Timestamp Converter
+  - Cron Expression Builder (visual editor)
+  - chmod Calculator (Unix permissions)
   - List Utilities (sort, dedupe, shuffle)
-  - Lorem Ipsum Generator
 
 ## Tech Stack
 
@@ -63,7 +90,7 @@ To deploy to Cloudflare Pages:
 
 ## Privacy
 
-Text Lab is designed with privacy as a core principle:
+Textsy is designed with privacy as a core principle:
 - Static site with no backend
 - All transformations run in JavaScript in your browser
 - No data is ever transmitted to any server

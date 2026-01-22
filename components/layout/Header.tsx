@@ -50,7 +50,7 @@ export function Header({ onMenuClick, onSearchClick }: HeaderProps) {
         href="/"
         className={`flex items-center gap-2 hover:opacity-80 transition-opacity ${isToolPage ? "hidden md:flex" : ""}`}
       >
-        <span className="text-sm font-semibold text-text-primary">Text Lab</span>
+        <span className="text-sm font-semibold text-text-primary">Textsy</span>
       </Link>
 
       {/* Current tool name - prominent display */}

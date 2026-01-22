@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "javascript regex",
   ],
   openGraph: {
-    title: "Regex Tester | Text Lab",
+    title: "Regex Tester | Textsy",
     description:
       "Test JavaScript regex patterns with live matching. 100% browser-based, no data uploaded.",
   },

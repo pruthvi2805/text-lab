@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "HTML Entity Encoder/Decoder - Text Lab",
+  title: "HTML Entity Encoder/Decoder - Textsy",
   description:
     "Encode and decode HTML entities. Convert special characters to named, numeric, or hexadecimal entities.",
   keywords: [

@@ -6,7 +6,7 @@ import { ShieldIcon, CheckIcon } from "@/components/ui/icons";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Text Lab privacy policy. Learn how we protect your data by processing everything locally in your browser.",
+    "Textsy privacy policy. Learn how we protect your data by processing everything locally in your browser.",
 };
 
 export default function PrivacyPage() {
@@ -33,7 +33,7 @@ export default function PrivacyPage() {
               </h2>
               <div className="p-4 bg-success/5 border border-success/20 rounded-lg">
                 <p className="text-success font-medium">
-                  Text Lab processes all data locally in your browser. Nothing is ever
+                  Textsy processes all data locally in your browser. Nothing is ever
                   sent to any server.
                 </p>
               </div>
@@ -65,7 +65,7 @@ export default function PrivacyPage() {
                 How It Works
               </h2>
               <p className="mb-4">
-                Text Lab is a static website with no backend server. All text
+                Textsy is a static website with no backend server. All text
                 transformations happen using JavaScript running in your browser:
               </p>
               <ul className="space-y-2 list-disc list-inside">
@@ -95,7 +95,7 @@ export default function PrivacyPage() {
                 Open Source
               </h2>
               <p>
-                Text Lab is open source. You can verify these claims by reviewing the
+                Textsy is open source. You can verify these claims by reviewing the
                 source code on{" "}
                 <a
                   href="https://github.com/pruthvi2805/text-lab"

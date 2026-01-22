@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "YAML ↔ JSON Converter - Text Lab",
+  title: "YAML ↔ JSON Converter - Textsy",
   description:
     "Convert between YAML and JSON formats. Auto-detect input format with pure client-side processing.",
   keywords: [

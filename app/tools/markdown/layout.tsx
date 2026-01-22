@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Markdown Preview - Text Lab",
+  title: "Markdown Preview - Textsy",
   description:
     "Preview Markdown with live rendering. See the HTML output and formatted preview side by side.",
   keywords: [

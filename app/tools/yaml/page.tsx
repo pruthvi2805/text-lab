@@ -41,7 +41,7 @@ export default function YAMLPage() {
   const handleSample = useCallback((type: "yaml" | "json") => {
     if (type === "yaml") {
       setInput(`# Example YAML
-name: Text Lab
+name: Textsy
 version: 1.0.0
 features:
   - JSON formatting
@@ -54,7 +54,7 @@ settings:
       setDirection("yaml-to-json");
     } else {
       setInput(`{
-  "name": "Text Lab",
+  "name": "Textsy",
   "version": "1.0.0",
   "features": [
     "JSON formatting",
