@@ -146,9 +146,9 @@ export function ToolLayout({
           </div>
         </div>
 
-        {/* Mobile action bar - sticky at bottom */}
+        {/* Mobile action bar - sticky at bottom with safe area */}
         {actions && (
-          <div className="md:hidden sticky bottom-0 flex items-center gap-2 px-3 py-2 bg-bg-panel border-t border-border shrink-0">
+          <div className="md:hidden sticky bottom-0 flex items-center gap-2 px-3 py-2 bg-bg-panel border-t border-border shrink-0 safe-area-bottom">
             {actions}
           </div>
         )}

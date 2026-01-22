@@ -94,7 +94,7 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
 
       {/* Drawer with slide animation */}
       <div
-        className="fixed inset-y-0 left-0 w-64 bg-bg-panel border-r border-border z-50 md:hidden flex flex-col animate-slideIn"
+        className="fixed inset-y-0 left-0 w-64 bg-bg-panel border-r border-border z-50 md:hidden flex flex-col animate-slideIn safe-area-top"
         style={{ animationDuration: "200ms" }}
         role="dialog"
         aria-modal="true"
@@ -211,8 +211,8 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
           })}
         </nav>
 
-        {/* Footer - extra bottom padding for iPhone safe area */}
-        <div className="px-4 pt-3 pb-8 border-t border-border text-xs text-text-muted">
+        {/* Footer - with safe area for home indicator */}
+        <div className="px-4 pt-3 pb-3 border-t border-border text-xs text-text-muted safe-area-bottom">
           <p>
             &copy; 2026 Pruthvi Kauticwar &middot;{" "}
             <a

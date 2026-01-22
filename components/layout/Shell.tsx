@@ -44,7 +44,10 @@ export function Shell({ children, inputLength = 0, outputLength = 0 }: ShellProp
   }, [openCommandPalette]);
 
   return (
-    <div className="flex flex-col h-screen h-[100dvh] bg-bg-darkest">
+    <div className="flex flex-col h-screen h-[100dvh] bg-bg-darkest safe-area-x">
+      {/* Safe area for notch - extends header background into notch area */}
+      <div className="bg-bg-panel safe-area-top md:hidden" />
+
       {/* Header */}
       <Header onMenuClick={() => setMobileNavOpen(true)} onSearchClick={openCommandPalette} />
 
