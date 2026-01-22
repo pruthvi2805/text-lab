@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback } from "react";
 import { getToolByPath } from "@/lib/tools/registry";
-import { MenuIcon, GithubIcon, ChevronLeftIcon, StarIcon } from "@/components/ui/icons";
+import { MenuIcon, GithubIcon, StarIcon } from "@/components/ui/icons";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { useFavoritesStore } from "@/stores/favorites";
 import { useToastStore } from "@/stores/toast";
@@ -35,35 +35,14 @@ export function Header({ onMenuClick }: HeaderProps) {
 
   return (
     <header className="flex items-center h-10 px-3 bg-bg-panel border-b border-border shrink-0">
-      {/* Mobile: Back button on tool pages, Menu button on home */}
-      {isToolPage ? (
-        <Link
-          href="/"
-          className="md:hidden p-1.5 -ml-1 mr-1 text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-colors"
-          aria-label="Back to home"
-        >
-          <ChevronLeftIcon size={18} />
-        </Link>
-      ) : (
-        <button
-          onClick={onMenuClick}
-          className="md:hidden p-1.5 -ml-1 mr-2 text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-colors"
-          aria-label="Open menu"
-        >
-          <MenuIcon size={18} />
-        </button>
-      )}
-
-      {/* Mobile menu button (always visible on tool pages alongside back) */}
-      {isToolPage && (
-        <button
-          onClick={onMenuClick}
-          className="md:hidden p-1.5 mr-1 text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-colors"
-          aria-label="Open menu"
-        >
-          <MenuIcon size={18} />
-        </button>
-      )}
+      {/* Mobile menu button */}
+      <button
+        onClick={onMenuClick}
+        className="md:hidden p-1.5 -ml-1 mr-2 text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-colors"
+        aria-label="Open menu"
+      >
+        <MenuIcon size={18} />
+      </button>
 
       {/* Branding - hidden on mobile when viewing a tool */}
       <Link
