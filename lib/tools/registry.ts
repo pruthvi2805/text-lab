@@ -250,7 +250,9 @@ export function getToolById(id: string): ToolDefinition | undefined {
 }
 
 export function getToolByPath(path: string): ToolDefinition | undefined {
-  return tools.find((tool) => tool.path === path);
+  // Normalize path by removing trailing slash for comparison
+  const normalizedPath = path.endsWith("/") ? path.slice(0, -1) : path;
+  return tools.find((tool) => tool.path === normalizedPath);
 }
 
 export function getToolsByCategory(category: ToolCategory): ToolDefinition[] {
