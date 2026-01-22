@@ -79,7 +79,35 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
   min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
+  /* Allow natural scrolling - individual containers manage overflow */
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* Prevent overscroll bounce on iOS */
+  overscroll-behavior: none;
+}
+
+/* Lock body scroll when modal is open */
+body.modal-open {
   overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+/* Mobile touch handling improvements */
+@media (max-width: 768px) {
+  /* Ensure touch areas are large enough */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Compact header buttons can be smaller */
+  header button, header a {
+    min-height: 36px;
+    min-width: 36px;
+  }
 }
 
 /* Only apply transitions during theme switch to avoid scroll flicker */
@@ -149,6 +177,16 @@ body {
 
 .cm-editor .cm-scroller {
   overflow: auto;
+  /* Improve touch scrolling */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile CodeMirror improvements */
+@media (max-width: 768px) {
+  .cm-editor .cm-content {
+    /* Ensure touch events work properly */
+    touch-action: pan-y pinch-zoom;
+  }
 }
 
 .cm-editor.cm-focused {
@@ -191,7 +229,7 @@ body {
   color: var(--text-muted);
 }
 
-/* ==================== PAGE LOAD ANIMATION ==================== */
+/* ==================== ANIMATIONS ==================== */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -203,8 +241,32 @@ body {
   }
 }
 
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 .animate-fadeIn {
   animation: fadeIn 0.4s ease both;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.2s ease-out both;
+}
+
+/* Favorite star animation */
+@keyframes starPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+.star-button:active svg {
+  animation: starPop 0.2s ease-out;
 }
 
 /* Apply fade-in to main content areas */

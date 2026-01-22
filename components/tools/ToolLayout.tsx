@@ -25,8 +25,8 @@ export function ToolLayout({
   input,
   output,
   onInputChange,
-  inputPlaceholder = "Paste or type your input here...",
-  outputPlaceholder = "Output will appear here...",
+  inputPlaceholder = "Paste or type here — output updates instantly",
+  outputPlaceholder = "Output appears here as you type",
   actions,
   options,
   error,
@@ -54,25 +54,27 @@ export function ToolLayout({
   return (
     <Shell inputLength={input.length} outputLength={output.length}>
       <div className="flex flex-col h-full">
-        {/* Options bar */}
+        {/* Options bar - sticky on mobile */}
         {options && (
-          <div className="flex items-center gap-2 px-3 py-2 bg-bg-panel border-b border-border overflow-x-auto">
+          <div className="sticky top-0 z-20 flex items-center gap-2 px-3 py-2 bg-bg-panel border-b border-border overflow-x-auto shrink-0">
             {options}
           </div>
         )}
 
         {/* Main content area */}
-        <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
+        {/* Desktop: side-by-side with overflow hidden */}
+        {/* Mobile: stacked vertically, each panel has fixed height */}
+        <div className="flex-1 flex flex-col md:flex-row min-h-0 md:overflow-hidden">
           {/* Input panel */}
-          <div className="flex-1 flex flex-col min-h-0 md:border-r border-border">
-            <div className="flex items-center justify-between px-3 py-1.5 bg-bg-surface border-b border-border">
+          <div className="h-[45vh] md:h-auto md:flex-1 flex flex-col shrink-0 md:shrink md:border-r border-border">
+            <div className="flex items-center justify-between px-3 py-1.5 bg-bg-surface border-b border-border shrink-0">
               <span className="text-xs text-text-muted uppercase tracking-wide">Input</span>
               <Button variant="ghost" size="sm" onClick={handleClear} disabled={!input}>
                 <TrashIcon size={14} />
                 <span className="ml-1">Clear</span>
               </Button>
             </div>
-            <div className="flex-1 min-h-0">
+            <div className="flex-1 min-h-0 overflow-hidden">
               <CodeEditor
                 value={input}
                 onChange={onInputChange}
@@ -82,8 +84,8 @@ export function ToolLayout({
           </div>
 
           {/* Output panel */}
-          <div className="flex-1 flex flex-col min-h-0 border-t md:border-t-0 border-border">
-            <div className="flex items-center justify-between px-3 py-1.5 bg-bg-surface border-b border-border">
+          <div className="h-[45vh] md:h-auto md:flex-1 flex flex-col shrink-0 md:shrink border-t md:border-t-0 border-border">
+            <div className="flex items-center justify-between px-3 py-1.5 bg-bg-surface border-b border-border shrink-0">
               <div className="flex items-center gap-2">
                 <span className="text-xs text-text-muted uppercase tracking-wide">Output</span>
                 {isProcessing && (
@@ -106,7 +108,7 @@ export function ToolLayout({
                 <span className="ml-1">{copied ? "Copied!" : "Copy"}</span>
               </Button>
             </div>
-            <div className="flex-1 min-h-0 relative">
+            <div className="flex-1 min-h-0 overflow-hidden relative">
               {isLargeInput && (
                 <div className="absolute top-2 left-2 right-2 z-10">
                   <div className="text-xs text-warning bg-warning/10 px-3 py-1.5 rounded-md">
@@ -131,9 +133,9 @@ export function ToolLayout({
           </div>
         </div>
 
-        {/* Mobile action bar */}
+        {/* Mobile action bar - sticky at bottom */}
         {actions && (
-          <div className="md:hidden flex items-center gap-2 px-3 py-2 bg-bg-panel border-t border-border">
+          <div className="md:hidden sticky bottom-0 flex items-center gap-2 px-3 py-2 bg-bg-panel border-t border-border shrink-0">
             {actions}
           </div>
         )}

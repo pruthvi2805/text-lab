@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getToolByPath } from "@/lib/tools/registry";
-import { MenuIcon, GithubIcon } from "@/components/ui/icons";
+import { MenuIcon, GithubIcon, ChevronLeftIcon } from "@/components/ui/icons";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 interface HeaderProps {
@@ -13,17 +13,39 @@ interface HeaderProps {
 export function Header({ onMenuClick }: HeaderProps) {
   const pathname = usePathname();
   const currentTool = getToolByPath(pathname);
+  const isToolPage = !!currentTool;
 
   return (
-    <header className="flex items-center h-10 px-3 bg-bg-panel border-b border-border">
-      {/* Mobile menu button */}
-      <button
-        onClick={onMenuClick}
-        className="md:hidden p-1.5 -ml-1 mr-2 text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-colors"
-        aria-label="Open menu"
-      >
-        <MenuIcon size={18} />
-      </button>
+    <header className="flex items-center h-10 px-3 bg-bg-panel border-b border-border shrink-0">
+      {/* Mobile: Back button on tool pages, Menu button on home */}
+      {isToolPage ? (
+        <Link
+          href="/"
+          className="md:hidden p-1.5 -ml-1 mr-1 text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-colors"
+          aria-label="Back to home"
+        >
+          <ChevronLeftIcon size={18} />
+        </Link>
+      ) : (
+        <button
+          onClick={onMenuClick}
+          className="md:hidden p-1.5 -ml-1 mr-2 text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-colors"
+          aria-label="Open menu"
+        >
+          <MenuIcon size={18} />
+        </button>
+      )}
+
+      {/* Mobile menu button (always visible on tool pages alongside back) */}
+      {isToolPage && (
+        <button
+          onClick={onMenuClick}
+          className="md:hidden p-1.5 mr-1 text-text-secondary hover:text-text-primary hover:bg-bg-hover rounded transition-colors"
+          aria-label="Open menu"
+        >
+          <MenuIcon size={18} />
+        </button>
+      )}
 
       {/* Branding */}
       <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
@@ -34,7 +56,7 @@ export function Header({ onMenuClick }: HeaderProps) {
       {currentTool && (
         <>
           <span className="mx-2 text-text-muted">/</span>
-          <span className="text-sm text-text-secondary">{currentTool.name}</span>
+          <span className="text-sm text-text-secondary truncate max-w-[120px] sm:max-w-none">{currentTool.name}</span>
         </>
       )}
 

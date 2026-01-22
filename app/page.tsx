@@ -23,18 +23,20 @@ export default function HomePage() {
           {/* Hero */}
           <div className="text-center mb-10">
             <h1 className="text-3xl md:text-4xl font-bold text-text-primary mb-3">
-              Text Lab
+              Developer Text Utilities
             </h1>
-            <p className="text-lg text-text-secondary max-w-xl mx-auto">
-              Fast, private text utilities that run entirely in your browser.
-              No servers, no uploads, no tracking.
+            <p className="text-lg text-text-secondary max-w-xl mx-auto mb-4">
+              Paste anything. Format, encode, decode, convert—instantly.
             </p>
 
-            {/* Privacy badge */}
-            <div className="inline-flex items-center gap-2 mt-4 px-3 py-1.5 bg-success/10 text-success rounded-full text-sm">
-              <ShieldIcon size={16} />
-              <span>100% browser-based — your data never leaves this device</span>
+            {/* Privacy guarantee - prominent and confident */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-success/10 text-success rounded-lg text-sm font-medium">
+              <ShieldIcon size={18} />
+              <span>Your data stays on your device. Always.</span>
             </div>
+            <p className="text-xs text-text-muted mt-2">
+              No servers. No uploads. No tracking. Everything runs locally in your browser.
+            </p>
           </div>
 
           {/* Favorites section */}
@@ -61,11 +63,17 @@ export default function HomePage() {
 
           {/* All tools section */}
           <div>
-            {favoriteTools.length > 0 && (
-              <h2 className="text-sm font-medium text-text-secondary uppercase tracking-wide mb-4">
-                All Tools
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-sm font-medium text-text-secondary uppercase tracking-wide">
+                {favoriteTools.length > 0 ? "All Tools" : "Tools"}
               </h2>
-            )}
+              {favoriteTools.length === 0 && (
+                <span className="text-xs text-text-muted flex items-center gap-1">
+                  <StarIcon size={12} />
+                  Star tools to add them to favorites
+                </span>
+              )}
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {otherTools.map((tool) => (
                 <ToolCard
@@ -146,12 +154,13 @@ function ToolCard({ tool, isFavorite, onToggleFavorite }: ToolCardProps) {
             e.stopPropagation();
             onToggleFavorite();
           }}
-          className={`relative z-10 p-1.5 rounded-md transition-colors ${
+          className={`relative z-10 p-1.5 rounded-md transition-all active:scale-125 ${
             isFavorite
               ? "text-warning hover:bg-warning/10"
               : "text-text-muted hover:text-warning hover:bg-bg-surface"
           }`}
-          title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+          aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+          aria-pressed={isFavorite}
         >
           <StarIcon size={16} filled={isFavorite} />
         </button>

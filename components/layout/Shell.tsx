@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, ReactNode } from "react";
+import { useState, useEffect, ReactNode } from "react";
 import { Header } from "./Header";
 import { Sidebar } from "./Sidebar";
 import { StatusBar } from "./StatusBar";
@@ -15,18 +15,30 @@ interface ShellProps {
 export function Shell({ children, inputLength = 0, outputLength = 0 }: ShellProps) {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
+  // Lock body scroll when mobile nav is open
+  useEffect(() => {
+    if (mobileNavOpen) {
+      document.body.classList.add("modal-open");
+    } else {
+      document.body.classList.remove("modal-open");
+    }
+    return () => {
+      document.body.classList.remove("modal-open");
+    };
+  }, [mobileNavOpen]);
+
   return (
-    <div className="flex flex-col h-screen bg-bg-darkest">
+    <div className="flex flex-col h-screen h-[100dvh] bg-bg-darkest">
       {/* Header */}
       <Header onMenuClick={() => setMobileNavOpen(true)} />
 
       {/* Main content area */}
-      <div className="flex flex-1 overflow-hidden">
+      <div className="flex flex-1 min-h-0 overflow-hidden">
         {/* Sidebar (desktop) */}
         <Sidebar />
 
         {/* Content */}
-        <main className="flex-1 overflow-hidden">{children}</main>
+        <main className="flex-1 min-h-0 overflow-y-auto md:overflow-hidden">{children}</main>
       </div>
 
       {/* Status bar */}

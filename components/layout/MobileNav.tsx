@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useCallback, useMemo } from "react";
 import { tools } from "@/lib/tools/registry";
 import { HomeIcon, XIcon, StarIcon } from "@/components/ui/icons";
 import { useFavoritesStore } from "@/stores/favorites";
-import { useMemo } from "react";
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -22,19 +22,44 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
     return { favoriteTools: favs, otherTools: others };
   }, [favorites]);
 
+  // Handle escape key to close
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    },
+    [onClose]
+  );
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+      return () => document.removeEventListener("keydown", handleKeyDown);
+    }
+  }, [isOpen, handleKeyDown]);
+
+  // Don't render anything if closed (but keep in DOM for animation)
   if (!isOpen) return null;
 
   return (
     <>
-      {/* Backdrop */}
+      {/* Backdrop with fade animation */}
       <div
-        className="fixed inset-0 bg-black/50 z-40 md:hidden"
+        className="fixed inset-0 bg-black/50 z-40 md:hidden animate-fadeIn"
         onClick={onClose}
         aria-hidden="true"
+        style={{ animationDuration: "150ms" }}
       />
 
-      {/* Drawer */}
-      <div className="fixed inset-y-0 left-0 w-64 bg-bg-panel border-r border-border z-50 md:hidden flex flex-col">
+      {/* Drawer with slide animation */}
+      <div
+        className="fixed inset-y-0 left-0 w-64 bg-bg-panel border-r border-border z-50 md:hidden flex flex-col animate-slideIn"
+        style={{ animationDuration: "200ms" }}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+      >
         {/* Header */}
         <div className="flex items-center justify-between h-12 px-4 border-b border-border">
           <span className="font-semibold text-text-primary">Text Lab</span>
