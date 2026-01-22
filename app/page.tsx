@@ -203,7 +203,7 @@ function ToolCard({ tool, isFavorite, onToggleFavorite }: ToolCardProps) {
           className={`relative z-10 p-1 rounded transition-all star-button ${
             isFavorite
               ? "text-warning hover:bg-warning/10"
-              : "text-text-muted hover:text-warning hover:bg-bg-surface opacity-0 group-hover:opacity-100"
+              : "text-text-muted hover:text-warning hover:bg-bg-surface md:opacity-0 md:group-hover:opacity-100"
           }`}
           aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
         >

@@ -531,6 +531,24 @@ export function ChevronLeftIcon({ size = 20, ...props }: IconProps) {
   );
 }
 
+export function ChevronRightIcon({ size = 20, ...props }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      {...props}
+    >
+      <polyline points="9 18 15 12 9 6" />
+    </svg>
+  );
+}
+
 export function SearchIcon({ size = 20, ...props }: IconProps) {
   return (
     <svg
