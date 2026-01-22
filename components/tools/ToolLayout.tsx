@@ -1,10 +1,13 @@
 "use client";
 
-import { ReactNode, useState, useCallback, useMemo } from "react";
+import { ReactNode, useState, useCallback, useMemo, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Shell } from "@/components/layout";
 import { CodeEditor } from "@/components/editor";
 import { Button } from "@/components/ui/Button";
 import { CopyIcon, CheckIcon, TrashIcon } from "@/components/ui/icons";
+import { getToolByPath } from "@/lib/tools/registry";
+import { useRecentStore } from "@/stores/recent";
 
 const LARGE_INPUT_THRESHOLD = 100000; // 100KB
 
@@ -33,6 +36,16 @@ export function ToolLayout({
   isProcessing = false,
 }: ToolLayoutProps) {
   const [copied, setCopied] = useState(false);
+  const pathname = usePathname();
+  const { addRecent } = useRecentStore();
+
+  // Track recent tool visit
+  useEffect(() => {
+    const tool = getToolByPath(pathname);
+    if (tool) {
+      addRecent(tool.id);
+    }
+  }, [pathname, addRecent]);
 
   const isLargeInput = useMemo(() => input.length > LARGE_INPUT_THRESHOLD, [input.length]);
 
