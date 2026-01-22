@@ -6,29 +6,13 @@ import { tools, categories, ToolCategory } from "@/lib/tools/registry";
 import { HomeIcon, StarIcon, ChevronLeftIcon, ChevronRightIcon } from "@/components/ui/icons";
 import { useFavoritesStore } from "@/stores/favorites";
 import { useSidebarStore } from "@/stores/sidebar";
-import { useToastStore } from "@/stores/toast";
-import { useMemo, useEffect, useRef, useCallback } from "react";
+import { useMemo, useEffect, useRef } from "react";
 
 export function Sidebar() {
   const pathname = usePathname();
-  const { favorites, toggleFavorite } = useFavoritesStore();
+  const { favorites } = useFavoritesStore();
   const { isExpanded, toggle } = useSidebarStore();
-  const { addToast } = useToastStore();
   const navRef = useRef<HTMLElement>(null);
-
-  const handleToggleFavorite = useCallback(
-    (toolId: string, toolName: string, e: React.MouseEvent) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const wasFavorite = favorites.includes(toolId);
-      toggleFavorite(toolId);
-      addToast(
-        wasFavorite ? `Removed ${toolName} from favorites` : `Added ${toolName} to favorites`,
-        "warning"
-      );
-    },
-    [favorites, toggleFavorite, addToast]
-  );
 
   const { favoriteTools, toolsByCategory } = useMemo(() => {
     const favs = tools.filter((tool) => favorites.includes(tool.id));
@@ -81,12 +65,25 @@ export function Sidebar() {
         {/* Favorites section */}
         {favoriteTools.length > 0 && (
           <>
-            <div className={`flex items-center gap-2 py-1.5 shrink-0 ${isExpanded ? "px-4" : "justify-center"}`}>
-              <StarIcon size={12} filled className="text-warning" />
-              {isExpanded && (
+            {/* Collapsed: clickable icon to expand */}
+            {!isExpanded && (
+              <button
+                onClick={toggle}
+                className="flex items-center justify-center py-2 shrink-0 text-text-muted hover:text-text-primary hover:bg-bg-hover transition-colors group"
+                title="Expand to see favorites"
+              >
+                <StarIcon size={14} />
+                <span className="absolute left-full ml-2 px-2 py-1 bg-bg-surface text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
+                  Favorites ({favoriteTools.length})
+                </span>
+              </button>
+            )}
+            {/* Expanded: show header and tools */}
+            {isExpanded && (
+              <div className="px-4 py-1.5">
                 <span className="text-xs text-text-muted uppercase tracking-wide">Favorites</span>
-              )}
-            </div>
+              </div>
+            )}
             {favoriteTools.map((tool) => {
               const Icon = tool.icon;
               const isActive = pathname === tool.path || pathname === `${tool.path}/`;
@@ -113,15 +110,6 @@ export function Sidebar() {
                       </span>
                     )}
                   </Link>
-                  {isExpanded && (
-                    <button
-                      onClick={(e) => handleToggleFavorite(tool.id, tool.name, e)}
-                      className="p-2 mr-1 text-warning hover:bg-warning/10 rounded transition-colors star-button"
-                      aria-label="Remove from favorites"
-                    >
-                      <StarIcon size={14} filled />
-                    </button>
-                  )}
                 </div>
               );
             })}
@@ -146,37 +134,27 @@ export function Sidebar() {
                 const isActive = pathname === tool.path || pathname === `${tool.path}/`;
 
                 return (
-                  <div key={tool.id} className="flex items-center group">
-                    <Link
-                      href={tool.path}
-                      data-active={isActive}
-                      className={`flex items-center gap-3 h-11 flex-1 shrink-0 hover:bg-bg-hover transition-colors relative ${
-                        isExpanded ? "px-4" : "justify-center"
-                      } ${isActive ? "text-accent" : "text-text-secondary hover:text-text-primary"}`}
-                      title={isExpanded ? undefined : tool.name}
-                    >
-                      {isActive && (
-                        <span className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-accent" />
-                      )}
-                      <Icon size={20} />
-                      {isExpanded && <span className="truncate">{tool.name}</span>}
-                      {/* Collapsed tooltip */}
-                      {!isExpanded && (
-                        <span className="absolute left-full ml-2 px-2 py-1 bg-bg-surface text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
-                          {tool.shortName}
-                        </span>
-                      )}
-                    </Link>
-                    {isExpanded && (
-                      <button
-                        onClick={(e) => handleToggleFavorite(tool.id, tool.name, e)}
-                        className="p-2 mr-1 text-text-muted hover:text-warning hover:bg-bg-hover rounded transition-colors star-button"
-                        aria-label="Add to favorites"
-                      >
-                        <StarIcon size={14} />
-                      </button>
+                  <Link
+                    key={tool.id}
+                    href={tool.path}
+                    data-active={isActive}
+                    className={`flex items-center gap-3 h-11 shrink-0 hover:bg-bg-hover transition-colors relative group ${
+                      isExpanded ? "px-4" : "justify-center"
+                    } ${isActive ? "text-accent" : "text-text-secondary hover:text-text-primary"}`}
+                    title={isExpanded ? undefined : tool.name}
+                  >
+                    {isActive && (
+                      <span className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-6 bg-accent" />
                     )}
-                  </div>
+                    <Icon size={20} />
+                    {isExpanded && <span className="truncate">{tool.name}</span>}
+                    {/* Collapsed tooltip */}
+                    {!isExpanded && (
+                      <span className="absolute left-full ml-2 px-2 py-1 bg-bg-surface text-text-primary text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-50">
+                        {tool.shortName}
+                      </span>
+                    )}
+                  </Link>
                 );
               })}
               {isExpanded && <div className="my-2 mx-4 border-t border-border" />}
