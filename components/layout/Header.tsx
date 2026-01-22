@@ -71,29 +71,32 @@ export function Header({ onMenuClick }: HeaderProps) {
       </Link>
 
       {/* Current tool name - prominent display */}
-      {currentTool && (
-        <>
-          <span className="mx-2 text-text-muted">/</span>
-          <div className="flex items-center gap-1.5">
-            <currentTool.icon size={16} className="text-accent" />
-            <span className="text-sm font-medium text-text-primary truncate max-w-[140px] sm:max-w-none">
-              {currentTool.name}
-            </span>
-          </div>
-          <button
-            onClick={handleToggleFavorite}
-            className={`ml-1.5 p-1 rounded transition-colors star-button ${
-              isFavorite
-                ? "text-warning hover:bg-bg-hover"
-                : "text-text-muted hover:text-warning hover:bg-bg-hover"
-            }`}
-            aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
-            title={isFavorite ? "Remove from favorites" : "Add to favorites"}
-          >
-            <StarIcon size={14} filled={isFavorite} />
-          </button>
-        </>
-      )}
+      {currentTool && (() => {
+        const ToolIcon = currentTool.icon;
+        return (
+          <>
+            <span className="mx-2 text-text-muted">/</span>
+            <div className="flex items-center gap-1.5">
+              <ToolIcon size={16} className="text-accent" />
+              <span className="text-sm font-medium text-text-primary truncate max-w-[140px] sm:max-w-none">
+                {currentTool.name}
+              </span>
+            </div>
+            <button
+              onClick={handleToggleFavorite}
+              className={`ml-1.5 p-1 rounded transition-colors star-button ${
+                isFavorite
+                  ? "text-warning hover:bg-bg-hover"
+                  : "text-text-muted hover:text-warning hover:bg-bg-hover"
+              }`}
+              aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+              title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+            >
+              <StarIcon size={14} filled={isFavorite} />
+            </button>
+          </>
+        );
+      })()}
 
       {/* Spacer */}
       <div className="flex-1" />
