@@ -55,17 +55,17 @@ export default function UrlPage() {
       onInputChange={handleInputChange}
       inputPlaceholder={
         mode === "parse"
-          ? "Paste a full URL — protocol, host, path, and query params will be extracted"
+          ? "Paste URL to parse"
           : mode === "encode"
-          ? "Paste text with special characters — spaces become %20, etc."
-          : "Paste URL-encoded text (e.g., hello%20world) — original text appears instantly"
+          ? "Paste text to encode"
+          : "Paste encoded URL to decode"
       }
       outputPlaceholder={
         mode === "parse"
-          ? "URL components (protocol, host, path, query parameters) appear here"
+          ? "→ Protocol, host, path, query params"
           : mode === "encode"
-          ? "URL-safe encoded string appears here — ready for use in URLs"
-          : "Decoded plain text appears here"
+          ? "→ hello%20world (URL encoded)"
+          : "→ Decoded text"
       }
       error={error}
       options={

@@ -89,7 +89,7 @@ export default function DiffPage() {
               <CodeEditor
                 value={original}
                 onChange={setOriginal}
-                placeholder="Paste the original/old version here"
+                placeholder="Paste original text"
               />
             </div>
           </div>
@@ -103,7 +103,7 @@ export default function DiffPage() {
               <CodeEditor
                 value={modified}
                 onChange={setModified}
-                placeholder="Paste the new/modified version here"
+                placeholder="Paste modified text"
               />
             </div>
           </div>
@@ -135,7 +135,7 @@ export default function DiffPage() {
               <CodeEditor
                 value={output}
                 readOnly
-                placeholder="Differences shown here: + added, - removed. Use Line/Word/Char mode above."
+                placeholder={`→ ${mode === "line" ? "Line" : mode === "word" ? "Word" : "Char"} diff: +added -removed`}
               />
             </div>
           </div>

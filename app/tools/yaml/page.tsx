@@ -78,17 +78,17 @@ settings:
       onInputChange={handleInputChange}
       inputPlaceholder={
         direction === "auto"
-          ? "Paste YAML or JSON — format is auto-detected and converted to the other"
+          ? "Paste YAML or JSON"
           : direction === "yaml-to-json"
-          ? "Paste YAML here — JSON output appears instantly on the right"
-          : "Paste JSON here — YAML output appears instantly on the right"
+          ? "Paste YAML here"
+          : "Paste JSON here"
       }
       outputPlaceholder={
         direction === "auto"
-          ? "Converted output (YAML→JSON or JSON→YAML) appears here"
+          ? "→ Auto-converted output"
           : direction === "yaml-to-json"
-          ? "JSON output with proper formatting appears here"
-          : "YAML output with clean indentation appears here"
+          ? "→ JSON output"
+          : "→ YAML output"
       }
       error={error}
       options={

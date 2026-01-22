@@ -18,15 +18,14 @@ export default function CaseConverterPage() {
   }, []);
 
   const selectedOption = caseOptions.find((o) => o.value === caseType);
-  const outputPlaceholder = `Text in ${selectedOption?.label || caseType} will appear here...`;
 
   return (
     <ToolLayout
       input={input}
       output={output}
       onInputChange={handleInputChange}
-      inputPlaceholder="Type or paste text — select a case style above to convert instantly"
-      outputPlaceholder={`Text converted to ${selectedOption?.label || caseType} — hover buttons above to see examples`}
+      inputPlaceholder="Paste text here"
+      outputPlaceholder={`→ ${selectedOption?.example || "converted text"}`}
       options={
         <div className="flex flex-wrap items-center gap-1">
           {caseOptions.map((option) => (

@@ -60,10 +60,10 @@ export default function HashPage() {
       input={input}
       output={output}
       onInputChange={handleInputChange}
-      inputPlaceholder="Type or paste any text — hash values update as you type. Select algorithm above or use All."
+      inputPlaceholder="Paste text to hash"
       outputPlaceholder={algorithm === "all"
-        ? "MD5, SHA-1, SHA-256, and SHA-512 hashes appear here"
-        : `${algorithm.toUpperCase()} hash appears here`
+        ? "→ MD5, SHA-1, SHA-256, SHA-512"
+        : `→ ${algorithm.toUpperCase()} hash`
       }
       error={error}
       isProcessing={isProcessing}

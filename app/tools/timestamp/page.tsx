@@ -42,8 +42,11 @@ export default function TimestampPage() {
       input={input}
       output={output}
       onInputChange={handleInputChange}
-      inputPlaceholder={`Enter a Unix timestamp (${unit}) or date string like "2024-01-15" or "Jan 15, 2024" — click Now for current time`}
-      outputPlaceholder="ISO date, local time, UTC, relative time, and both timestamp formats appear here"
+      inputPlaceholder={unit === "seconds"
+        ? "Paste timestamp (1704067200) or date"
+        : "Paste timestamp (ms) or date"
+      }
+      outputPlaceholder="→ ISO, local, UTC, relative time"
       error={error}
       options={
         <div className="flex flex-wrap items-center gap-3">

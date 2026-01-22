@@ -39,13 +39,13 @@ export default function Base64Page() {
       onInputChange={handleInputChange}
       inputPlaceholder={
         mode === "encode"
-          ? "Paste any text here — it will be encoded to Base64 instantly"
-          : "Paste Base64 string here (e.g., SGVsbG8gV29ybGQ=) — decoded text appears instantly"
+          ? "Paste text to encode"
+          : "Paste Base64 to decode"
       }
       outputPlaceholder={
         mode === "encode"
-          ? "Base64 encoded result appears here — ready to copy"
-          : "Decoded plain text appears here — ready to copy"
+          ? "→ SGVsbG8gV29ybGQ= (Base64)"
+          : "→ Decoded plain text"
       }
       error={error}
       options={

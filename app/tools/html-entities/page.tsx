@@ -77,13 +77,13 @@ Numeric: &#60; &#x3E; &#38;`);
       onInputChange={handleInputChange}
       inputPlaceholder={
         mode === "encode"
-          ? "Paste text with <, >, &, quotes, or special symbols — they become HTML-safe entities"
-          : "Paste text with &lt; &amp; &quot; or &#123; entities — original characters restored"
+          ? "Paste text with <, >, & symbols"
+          : "Paste text with &lt; &amp; entities"
       }
       outputPlaceholder={
         mode === "encode"
-          ? `HTML-safe output using ${encodeMode === "minimal" ? "only essential" : format} entities — safe for web pages`
-          : "Decoded plain text with original characters restored"
+          ? `→ ${encodeMode === "minimal" ? "Minimal" : format === "named" ? "&amp; &lt;" : format === "numeric" ? "&#38; &#60;" : "&#x26; &#x3C;"}`
+          : "→ Decoded < > & text"
       }
       error={error}
       options={

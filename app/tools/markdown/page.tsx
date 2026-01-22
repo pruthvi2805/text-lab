@@ -144,7 +144,7 @@ Made with ❤️ using Text Lab`);
                 <CodeEditor
                   value={input}
                   onChange={setInput}
-                  placeholder="Type Markdown here — # headings, **bold**, *italic*, - lists, ```code```. Live preview on right."
+                  placeholder="Type Markdown here"
                 />
               </div>
             </div>
@@ -171,7 +171,7 @@ Made with ❤️ using Text Lab`);
                 <CodeEditor
                   value={result.html}
                   readOnly
-                  placeholder="Generated HTML source code appears here — copy for use in web pages"
+                  placeholder="→ HTML source code"
                 />
               ) : (
                 <div
@@ -192,7 +192,7 @@ Made with ❤️ using Text Lab`);
                 <CodeEditor
                   value={result.html}
                   readOnly
-                  placeholder="HTML source code"
+                  placeholder="→ HTML"
                 />
               </div>
             </div>

@@ -43,8 +43,8 @@ export default function ListPage() {
       input={input}
       output={output}
       onInputChange={handleInputChange}
-      inputPlaceholder="Enter items, one per line — choose operation above: sort, dedupe, reverse, shuffle, or add prefix/suffix"
-      outputPlaceholder={`${selectedOp?.label || 'Processed'} list appears here — ${stats ? `${stats.total} lines, ${stats.unique} unique` : 'results update instantly'}`}
+      inputPlaceholder="Paste list (one item per line)"
+      outputPlaceholder={`→ ${selectedOp?.label || 'Processed'} output`}
       options={
         <div className="flex flex-wrap items-center gap-2">
           <select
