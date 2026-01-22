@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useCallback, useMemo } from "react";
-import { tools } from "@/lib/tools/registry";
+import { tools, categories, ToolCategory } from "@/lib/tools/registry";
 import { HomeIcon, XIcon, StarIcon } from "@/components/ui/icons";
 import { useFavoritesStore } from "@/stores/favorites";
 
@@ -16,10 +16,24 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
   const pathname = usePathname();
   const { favorites, toggleFavorite } = useFavoritesStore();
 
-  const { favoriteTools, otherTools } = useMemo(() => {
+  const { favoriteTools, toolsByCategory } = useMemo(() => {
     const favs = tools.filter((tool) => favorites.includes(tool.id));
-    const others = tools.filter((tool) => !favorites.includes(tool.id));
-    return { favoriteTools: favs, otherTools: others };
+
+    // Group non-favorite tools by category
+    const byCategory: Record<ToolCategory, typeof tools> = {
+      formatting: [],
+      encoding: [],
+      generators: [],
+      text: [],
+    };
+
+    tools.forEach((tool) => {
+      if (!favorites.includes(tool.id)) {
+        byCategory[tool.category].push(tool);
+      }
+    });
+
+    return { favoriteTools: favs, toolsByCategory: byCategory };
   }, [favorites]);
 
   // Handle escape key to close
@@ -126,35 +140,44 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
             </>
           )}
 
-          {/* All Tools */}
-          <div className="my-2 mx-4 border-t border-border" />
-          <div className="px-4 py-1.5 text-xs text-text-muted uppercase tracking-wide">
-            {favoriteTools.length > 0 ? "All Tools" : "Tools"}
-          </div>
-          {otherTools.map((tool) => {
-            const Icon = tool.icon;
-            const isActive = pathname === tool.path || pathname === `${tool.path}/`;
+          {/* Tools by category */}
+          {categories.map((category) => {
+            const categoryTools = toolsByCategory[category.id];
+            if (categoryTools.length === 0) return null;
+
             return (
-              <div key={tool.id} className="flex items-center">
-                <Link
-                  href={tool.path}
-                  onClick={onClose}
-                  className={`flex-1 flex items-center gap-3 pl-4 pr-2 py-2.5 transition-colors ${
-                    isActive
-                      ? "bg-bg-hover text-accent"
-                      : "text-text-secondary hover:bg-bg-hover hover:text-text-primary"
-                  }`}
-                >
-                  <Icon size={18} />
-                  <span>{tool.name}</span>
-                </Link>
-                <button
-                  onClick={() => toggleFavorite(tool.id)}
-                  className="p-2 text-text-muted hover:text-warning hover:bg-bg-hover rounded transition-colors"
-                  aria-label="Add to favorites"
-                >
-                  <StarIcon size={14} />
-                </button>
+              <div key={category.id}>
+                <div className="my-2 mx-4 border-t border-border" />
+                <div className="px-4 py-1.5 text-xs text-text-muted uppercase tracking-wide">
+                  {category.name}
+                </div>
+                {categoryTools.map((tool) => {
+                  const Icon = tool.icon;
+                  const isActive = pathname === tool.path || pathname === `${tool.path}/`;
+                  return (
+                    <div key={tool.id} className="flex items-center">
+                      <Link
+                        href={tool.path}
+                        onClick={onClose}
+                        className={`flex-1 flex items-center gap-3 pl-4 pr-2 py-2.5 transition-colors ${
+                          isActive
+                            ? "bg-bg-hover text-accent"
+                            : "text-text-secondary hover:bg-bg-hover hover:text-text-primary"
+                        }`}
+                      >
+                        <Icon size={18} />
+                        <span>{tool.name}</span>
+                      </Link>
+                      <button
+                        onClick={() => toggleFavorite(tool.id)}
+                        className="p-2 text-text-muted hover:text-warning hover:bg-bg-hover rounded transition-colors"
+                        aria-label="Add to favorites"
+                      >
+                        <StarIcon size={14} />
+                      </button>
+                    </div>
+                  );
+                })}
               </div>
             );
           })}

@@ -49,8 +49,8 @@ export default function ColorPage() {
       input={input}
       output={output}
       onInputChange={handleInputChange}
-      inputPlaceholder="Enter a color value... (e.g., #ff5500, rgb(255, 85, 0), hsl(20, 100%, 50%), steelblue)"
-      outputPlaceholder="Color conversions will appear here..."
+      inputPlaceholder="Enter any color: #hex, rgb(), hsl(), hwb(), or CSS names like 'steelblue' — all formats shown"
+      outputPlaceholder="HEX, RGB, HSL, HWB, and CMYK values appear here — preview swatch shown above"
       error={error}
       options={
         <div className="flex flex-wrap items-center gap-3">

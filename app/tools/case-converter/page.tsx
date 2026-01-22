@@ -25,8 +25,8 @@ export default function CaseConverterPage() {
       input={input}
       output={output}
       onInputChange={handleInputChange}
-      inputPlaceholder="Type or paste your text here..."
-      outputPlaceholder={outputPlaceholder}
+      inputPlaceholder="Type or paste text — select a case style above to convert instantly"
+      outputPlaceholder={`Text converted to ${selectedOption?.label || caseType} — hover buttons above to see examples`}
       options={
         <div className="flex flex-wrap items-center gap-1">
           {caseOptions.map((option) => (

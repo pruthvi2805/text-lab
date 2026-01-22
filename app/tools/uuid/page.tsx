@@ -65,13 +65,13 @@ export default function UUIDPage() {
       onInputChange={handleInputChange}
       inputPlaceholder={
         mode === "validate"
-          ? "Paste a UUID to validate and analyze..."
-          : "Generated UUIDs will also appear here for batch generation..."
+          ? "Paste a UUID to check if it's valid and see its version/variant info"
+          : "UUIDs are auto-generated above. Use + More to add batches here."
       }
       outputPlaceholder={
         mode === "validate"
-          ? "UUID analysis will appear here..."
-          : "Generated UUIDs will appear here..."
+          ? "Validation result, version, variant, and timestamp (for v7) appear here"
+          : `${count} new ${version.toUpperCase()} UUID${count > 1 ? 's' : ''} — ready to copy`
       }
       error={error}
       options={

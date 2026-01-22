@@ -55,12 +55,18 @@ export default function UrlPage() {
       onInputChange={handleInputChange}
       inputPlaceholder={
         mode === "parse"
-          ? "Paste a URL to parse... e.g. https://example.com/path?query=value"
+          ? "Paste a full URL — protocol, host, path, and query params will be extracted"
           : mode === "encode"
-          ? "Enter text to URL encode..."
-          : "Enter URL-encoded text to decode..."
+          ? "Paste text with special characters — spaces become %20, etc."
+          : "Paste URL-encoded text (e.g., hello%20world) — original text appears instantly"
       }
-      outputPlaceholder={outputPlaceholder}
+      outputPlaceholder={
+        mode === "parse"
+          ? "URL components (protocol, host, path, query parameters) appear here"
+          : mode === "encode"
+          ? "URL-safe encoded string appears here — ready for use in URLs"
+          : "Decoded plain text appears here"
+      }
       error={error}
       options={
         <div className="flex items-center gap-1 bg-bg-surface rounded p-0.5">

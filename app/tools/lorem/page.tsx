@@ -46,8 +46,8 @@ export default function LoremPage() {
       input=""
       output={output}
       onInputChange={handleInputChange}
-      inputPlaceholder=""
-      outputPlaceholder="Generated Lorem Ipsum text will appear here..."
+      inputPlaceholder="This tool generates text — no input needed. Adjust count and type above."
+      outputPlaceholder={`${count} ${unit} of Lorem Ipsum text — click Regenerate for new random text`}
       options={
         <div className="flex flex-wrap items-center gap-3">
           <div className="flex items-center gap-2">

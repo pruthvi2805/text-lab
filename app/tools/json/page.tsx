@@ -47,8 +47,11 @@ export default function JsonPage() {
       input={input}
       output={output}
       onInputChange={handleInputChange}
-      inputPlaceholder='Paste your JSON here... e.g. {"name": "value"}'
-      outputPlaceholder={outputPlaceholder}
+      inputPlaceholder='Paste JSON here — use Format or Minify above. Example: {"key": "value"}'
+      outputPlaceholder={mode === "format"
+        ? "Formatted JSON with proper indentation appears here instantly"
+        : "Compact single-line JSON appears here instantly"
+      }
       error={error}
       options={
         <>

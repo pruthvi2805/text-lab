@@ -76,8 +76,20 @@ settings:
       input={input}
       output={output}
       onInputChange={handleInputChange}
-      inputPlaceholder="Paste YAML or JSON here..."
-      outputPlaceholder="Converted output will appear here..."
+      inputPlaceholder={
+        direction === "auto"
+          ? "Paste YAML or JSON — format is auto-detected and converted to the other"
+          : direction === "yaml-to-json"
+          ? "Paste YAML here — JSON output appears instantly on the right"
+          : "Paste JSON here — YAML output appears instantly on the right"
+      }
+      outputPlaceholder={
+        direction === "auto"
+          ? "Converted output (YAML→JSON or JSON→YAML) appears here"
+          : direction === "yaml-to-json"
+          ? "JSON output with proper formatting appears here"
+          : "YAML output with clean indentation appears here"
+      }
       error={error}
       options={
         <div className="flex flex-wrap items-center gap-3">

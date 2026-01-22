@@ -60,8 +60,11 @@ export default function HashPage() {
       input={input}
       output={output}
       onInputChange={handleInputChange}
-      inputPlaceholder="Enter text to generate cryptographic hashes..."
-      outputPlaceholder="Hash values will appear here..."
+      inputPlaceholder="Type or paste any text — hash values update as you type. Select algorithm above or use All."
+      outputPlaceholder={algorithm === "all"
+        ? "MD5, SHA-1, SHA-256, and SHA-512 hashes appear here"
+        : `${algorithm.toUpperCase()} hash appears here`
+      }
       error={error}
       isProcessing={isProcessing}
       options={

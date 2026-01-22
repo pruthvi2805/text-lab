@@ -30,8 +30,8 @@ export default function JwtPage() {
       input={input}
       output={output}
       onInputChange={handleInputChange}
-      inputPlaceholder="Paste your JWT token here... (eyJhbGciOiJIUzI1NiIs...)"
-      outputPlaceholder="Decoded header, payload, and expiration info will appear here..."
+      inputPlaceholder="Paste a JWT token starting with eyJ... — header and payload will be decoded instantly"
+      outputPlaceholder="Decoded header (algorithm, type) and payload (claims, expiration) appear here"
       error={error}
       options={
         <div className="flex items-center gap-2 text-xs text-text-secondary">

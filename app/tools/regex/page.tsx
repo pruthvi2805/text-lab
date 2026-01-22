@@ -30,8 +30,8 @@ export default function RegexPage() {
       input={testString}
       output={output}
       onInputChange={handleInputChange}
-      inputPlaceholder="Enter test string to match against..."
-      outputPlaceholder="Matches, positions, and capture groups will appear here..."
+      inputPlaceholder="Paste your test string here — matches highlight based on the pattern above"
+      outputPlaceholder="Match details: positions, captured groups, and full match text appear here"
       error={!result.isValid ? result.error : null}
       options={
         <div className="flex flex-wrap items-center gap-3">

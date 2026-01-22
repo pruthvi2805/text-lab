@@ -39,10 +39,14 @@ export default function Base64Page() {
       onInputChange={handleInputChange}
       inputPlaceholder={
         mode === "encode"
-          ? "Enter text to encode to Base64..."
-          : "Enter Base64 string to decode..."
+          ? "Paste any text here — it will be encoded to Base64 instantly"
+          : "Paste Base64 string here (e.g., SGVsbG8gV29ybGQ=) — decoded text appears instantly"
       }
-      outputPlaceholder={outputPlaceholder}
+      outputPlaceholder={
+        mode === "encode"
+          ? "Base64 encoded result appears here — ready to copy"
+          : "Decoded plain text appears here — ready to copy"
+      }
       error={error}
       options={
         <div className="flex flex-wrap items-center gap-3">

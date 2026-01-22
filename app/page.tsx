@@ -2,18 +2,32 @@
 
 import Link from "next/link";
 import { Shell } from "@/components/layout";
-import { tools } from "@/lib/tools/registry";
+import { tools, categories, ToolCategory } from "@/lib/tools/registry";
 import { ShieldIcon, StarIcon } from "@/components/ui/icons";
 import { useFavoritesStore } from "@/stores/favorites";
 import { useMemo } from "react";
 
 export default function HomePage() {
-  const { favorites, toggleFavorite, isFavorite } = useFavoritesStore();
+  const { favorites, toggleFavorite } = useFavoritesStore();
 
-  const { favoriteTools, otherTools } = useMemo(() => {
+  const { favoriteTools, toolsByCategory } = useMemo(() => {
     const favs = tools.filter((tool) => favorites.includes(tool.id));
-    const others = tools.filter((tool) => !favorites.includes(tool.id));
-    return { favoriteTools: favs, otherTools: others };
+
+    // Group non-favorite tools by category
+    const byCategory: Record<ToolCategory, typeof tools> = {
+      formatting: [],
+      encoding: [],
+      generators: [],
+      text: [],
+    };
+
+    tools.forEach((tool) => {
+      if (!favorites.includes(tool.id)) {
+        byCategory[tool.category].push(tool);
+      }
+    });
+
+    return { favoriteTools: favs, toolsByCategory: byCategory };
   }, [favorites]);
 
   return (
@@ -61,29 +75,44 @@ export default function HomePage() {
             </div>
           )}
 
-          {/* All tools section */}
-          <div>
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-sm font-medium text-text-secondary uppercase tracking-wide">
-                {favoriteTools.length > 0 ? "All Tools" : "Tools"}
-              </h2>
-              {favoriteTools.length === 0 && (
+          {/* Tools by category */}
+          <div className="space-y-8">
+            {favoriteTools.length === 0 && (
+              <div className="flex items-center justify-end">
                 <span className="text-xs text-text-muted flex items-center gap-1">
                   <StarIcon size={12} />
                   Star tools to add them to favorites
                 </span>
-              )}
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {otherTools.map((tool) => (
-                <ToolCard
-                  key={tool.id}
-                  tool={tool}
-                  isFavorite={false}
-                  onToggleFavorite={() => toggleFavorite(tool.id)}
-                />
-              ))}
-            </div>
+              </div>
+            )}
+
+            {categories.map((category) => {
+              const categoryTools = toolsByCategory[category.id];
+              if (categoryTools.length === 0) return null;
+
+              return (
+                <div key={category.id}>
+                  <div className="flex items-center gap-2 mb-4">
+                    <h2 className="text-sm font-medium text-text-secondary uppercase tracking-wide">
+                      {category.name}
+                    </h2>
+                    <span className="text-xs text-text-muted hidden sm:inline">
+                      — {category.description}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {categoryTools.map((tool) => (
+                      <ToolCard
+                        key={tool.id}
+                        tool={tool}
+                        isFavorite={false}
+                        onToggleFavorite={() => toggleFavorite(tool.id)}
+                      />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           {/* Footer note */}
