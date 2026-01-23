@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "sql online",
     "query formatter",
   ],
+  alternates: {
+    canonical: "/tools/sql",
+  },
   openGraph: {
     title: "SQL Formatter | Textsy",
     description:

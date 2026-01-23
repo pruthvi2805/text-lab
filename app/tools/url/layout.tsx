@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "uri encoder",
     "percent encoding",
   ],
+  alternates: {
+    canonical: "/tools/url",
+  },
   openGraph: {
     title: "URL Parser & Encoder | Textsy",
     description:

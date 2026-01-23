@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "text to qr code",
     "free qr code",
   ],
+  alternates: {
+    canonical: "/tools/qr-code",
+  },
   openGraph: {
     title: "QR Code Generator | Textsy",
     description:

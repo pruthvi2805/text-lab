@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "lowercase",
     "title case",
   ],
+  alternates: {
+    canonical: "/tools/case-converter",
+  },
   openGraph: {
     title: "Case Converter | Textsy",
     description:

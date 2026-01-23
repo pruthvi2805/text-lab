@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "message authentication",
     "hmac online",
   ],
+  alternates: {
+    canonical: "/tools/hmac",
+  },
   openGraph: {
     title: "HMAC Generator | Textsy",
     description:

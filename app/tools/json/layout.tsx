@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "json pretty print",
     "format json online",
   ],
+  alternates: {
+    canonical: "/tools/json",
+  },
   openGraph: {
     title: "JSON Formatter | Textsy",
     description:

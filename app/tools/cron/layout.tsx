@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "schedule expression",
     "cron syntax",
   ],
+  alternates: {
+    canonical: "/tools/cron",
+  },
   openGraph: {
     title: "Cron Expression Builder | Textsy",
     description:

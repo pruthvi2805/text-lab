@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "unix time",
     "epoch time",
   ],
+  alternates: {
+    canonical: "/tools/timestamp",
+  },
   openGraph: {
     title: "Unix Timestamp Converter | Textsy",
     description:

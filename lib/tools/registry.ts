@@ -60,6 +60,7 @@ export interface ToolDefinition {
   icon: ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;
   keywords: string[];
   category: ToolCategory;
+  relatedTools?: string[]; // IDs of related tools for internal linking
 }
 
 export const tools: ToolDefinition[] = [
@@ -76,6 +77,7 @@ export const tools: ToolDefinition[] = [
     icon: JsonIcon,
     keywords: ["json", "format", "validate", "minify", "prettify", "parse"],
     category: "formatting",
+    relatedTools: ["yaml", "json-path", "xml-json", "csv-json"],
   },
   {
     id: "yaml",
@@ -88,6 +90,7 @@ export const tools: ToolDefinition[] = [
     icon: YamlIcon,
     keywords: ["yaml", "json", "convert", "transform", "config"],
     category: "formatting",
+    relatedTools: ["json", "xml-json", "csv-json"],
   },
   {
     id: "markdown",
@@ -112,6 +115,7 @@ export const tools: ToolDefinition[] = [
     icon: DatabaseIcon,
     keywords: ["sql", "format", "beautify", "query", "database", "mysql", "postgresql"],
     category: "formatting",
+    relatedTools: ["json", "js-formatter"],
   },
   {
     id: "js-formatter",
@@ -136,6 +140,7 @@ export const tools: ToolDefinition[] = [
     icon: XmlIcon,
     keywords: ["xml", "json", "convert", "transform", "data", "api"],
     category: "formatting",
+    relatedTools: ["json", "yaml", "csv-json"],
   },
   {
     id: "csv-json",
@@ -148,6 +153,7 @@ export const tools: ToolDefinition[] = [
     icon: CsvIcon,
     keywords: ["csv", "json", "convert", "spreadsheet", "excel", "data", "table"],
     category: "formatting",
+    relatedTools: ["json", "yaml", "xml-json"],
   },
   // Encoding
   {
@@ -161,6 +167,7 @@ export const tools: ToolDefinition[] = [
     icon: BinaryIcon,
     keywords: ["base64", "encode", "decode", "binary", "text"],
     category: "encoding",
+    relatedTools: ["hex-text", "url", "jwt"],
   },
   {
     id: "url",
@@ -173,6 +180,7 @@ export const tools: ToolDefinition[] = [
     icon: LinkIcon,
     keywords: ["url", "uri", "encode", "decode", "parse", "query", "parameter"],
     category: "encoding",
+    relatedTools: ["base64", "html-entities", "string-escape"],
   },
   {
     id: "jwt",
@@ -185,6 +193,7 @@ export const tools: ToolDefinition[] = [
     icon: KeyIcon,
     keywords: ["jwt", "token", "decode", "json web token", "auth", "bearer"],
     category: "encoding",
+    relatedTools: ["base64", "hash", "hmac"],
   },
   {
     id: "html-entities",
@@ -245,6 +254,7 @@ export const tools: ToolDefinition[] = [
     icon: HexIcon,
     keywords: ["hex", "hexadecimal", "text", "bytes", "binary", "convert", "encode", "decode"],
     category: "encoding",
+    relatedTools: ["base64", "number-base"],
   },
   // Generators
   {
@@ -258,6 +268,7 @@ export const tools: ToolDefinition[] = [
     icon: HashIcon,
     keywords: ["hash", "md5", "sha1", "sha256", "sha512", "checksum", "digest"],
     category: "generators",
+    relatedTools: ["hmac", "password", "jwt"],
   },
   {
     id: "uuid",
@@ -270,6 +281,7 @@ export const tools: ToolDefinition[] = [
     icon: UuidIcon,
     keywords: ["uuid", "guid", "unique id", "identifier", "random"],
     category: "generators",
+    relatedTools: ["password", "hash"],
   },
   {
     id: "timestamp",
@@ -306,6 +318,7 @@ export const tools: ToolDefinition[] = [
     icon: LockIcon,
     keywords: ["password", "generate", "secure", "random", "strong", "security"],
     category: "generators",
+    relatedTools: ["hash", "uuid"],
   },
   {
     id: "cron",
@@ -354,6 +367,7 @@ export const tools: ToolDefinition[] = [
     icon: FingerprintIcon,
     keywords: ["hmac", "hash", "signature", "mac", "authentication", "sha256", "sha512"],
     category: "generators",
+    relatedTools: ["hash", "jwt"],
   },
   // Text Tools
   {
@@ -379,6 +393,7 @@ export const tools: ToolDefinition[] = [
     icon: RegexIcon,
     keywords: ["regex", "regexp", "regular expression", "pattern", "match", "test"],
     category: "text",
+    relatedTools: ["diff", "list", "string-escape"],
   },
   {
     id: "diff",
@@ -391,6 +406,7 @@ export const tools: ToolDefinition[] = [
     icon: DiffIcon,
     keywords: ["diff", "compare", "difference", "text comparison", "merge"],
     category: "text",
+    relatedTools: ["regex", "list"],
   },
   {
     id: "color",
@@ -415,6 +431,7 @@ export const tools: ToolDefinition[] = [
     icon: ListIcon,
     keywords: ["list", "sort", "unique", "dedupe", "reverse", "shuffle", "lines"],
     category: "text",
+    relatedTools: ["regex", "case-converter", "text-stats", "diff"],
   },
   {
     id: "text-stats",
@@ -451,6 +468,7 @@ export const tools: ToolDefinition[] = [
     icon: PathIcon,
     keywords: ["json", "path", "jsonpath", "query", "filter", "extract", "jmespath"],
     category: "text",
+    relatedTools: ["json", "regex"],
   },
   {
     id: "chmod",

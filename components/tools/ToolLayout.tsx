@@ -2,11 +2,12 @@
 
 import { ReactNode, useState, useCallback, useMemo, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { Shell } from "@/components/layout";
 import { CodeEditor } from "@/components/editor";
 import { Button } from "@/components/ui/Button";
 import { CopyIcon, CheckIcon, TrashIcon } from "@/components/ui/icons";
-import { getToolByPath } from "@/lib/tools/registry";
+import { getToolByPath, getToolById } from "@/lib/tools/registry";
 import { useRecentStore } from "@/stores/recent";
 
 const LARGE_INPUT_THRESHOLD = 100000; // 100KB
@@ -74,6 +75,29 @@ export function ToolLayout({
             <p className="text-xs text-text-secondary leading-relaxed">
               {currentTool.longDescription}
             </p>
+            {/* Related tools - internal linking for SEO */}
+            {currentTool.relatedTools && currentTool.relatedTools.length > 0 && (
+              <div className="mt-2 flex items-center gap-2 flex-wrap text-xs">
+                <span className="text-text-muted">Related:</span>
+                {currentTool.relatedTools.map((toolId, index) => {
+                  const relatedTool = getToolById(toolId);
+                  if (!relatedTool) return null;
+                  return (
+                    <span key={toolId}>
+                      <Link
+                        href={relatedTool.path}
+                        className="text-accent hover:underline"
+                      >
+                        {relatedTool.shortName}
+                      </Link>
+                      {index < currentTool.relatedTools!.length - 1 && (
+                        <span className="text-text-muted ml-2">·</span>
+                      )}
+                    </span>
+                  );
+                })}
+              </div>
+            )}
           </div>
         )}
 

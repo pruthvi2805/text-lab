@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "password strength",
     "online password generator",
   ],
+  alternates: {
+    canonical: "/tools/password",
+  },
   openGraph: {
     title: "Password Generator | Textsy",
     description:

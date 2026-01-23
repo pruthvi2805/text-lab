@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "jsonpath expression",
     "json selector",
   ],
+  alternates: {
+    canonical: "/tools/json-path",
+  },
   openGraph: {
     title: "JSONPath Query Tool | Textsy",
     description:

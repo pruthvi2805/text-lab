@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "hex string",
     "byte converter",
   ],
+  alternates: {
+    canonical: "/tools/hex-text",
+  },
   openGraph: {
     title: "Hex to Text Converter | Textsy",
     description:

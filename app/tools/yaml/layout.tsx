@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "JSON converter",
     "format converter",
   ],
+  alternates: {
+    canonical: "/tools/yaml",
+  },
   openGraph: {
     title: "YAML ↔ JSON Converter | Textsy",
     description:

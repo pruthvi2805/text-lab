@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "regex debugger",
     "javascript regex",
   ],
+  alternates: {
+    canonical: "/tools/regex",
+  },
   openGraph: {
     title: "Regex Tester | Textsy",
     description:

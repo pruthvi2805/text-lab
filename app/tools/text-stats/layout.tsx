@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "keyword density",
     "sentence count",
   ],
+  alternates: {
+    canonical: "/tools/text-stats",
+  },
   openGraph: {
     title: "Text Statistics | Textsy",
     description:

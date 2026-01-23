@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "js minifier",
     "pretty print javascript",
   ],
+  alternates: {
+    canonical: "/tools/js-formatter",
+  },
   openGraph: {
     title: "JavaScript & CSS Formatter | Textsy",
     description:

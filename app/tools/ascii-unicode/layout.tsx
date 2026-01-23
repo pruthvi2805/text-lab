@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "character reference",
     "code point",
   ],
+  alternates: {
+    canonical: "/tools/ascii-unicode",
+  },
   openGraph: {
     title: "ASCII & Unicode Table | Textsy",
     description:

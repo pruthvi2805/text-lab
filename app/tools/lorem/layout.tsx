@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "text generator",
     "Lorem generator",
   ],
+  alternates: {
+    canonical: "/tools/lorem",
+  },
   openGraph: {
     title: "Lorem Ipsum Generator | Textsy",
     description:

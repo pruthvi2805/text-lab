@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "jwt viewer",
     "bearer token",
   ],
+  alternates: {
+    canonical: "/tools/jwt",
+  },
   openGraph: {
     title: "JWT Decoder | Textsy",
     description:

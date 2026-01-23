@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "diff tool",
     "find differences",
   ],
+  alternates: {
+    canonical: "/tools/diff",
+  },
   openGraph: {
     title: "Text Diff – Compare Text Side-by-Side | Textsy",
     description:

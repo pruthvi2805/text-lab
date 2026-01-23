@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "sql escape",
     "regex escape",
   ],
+  alternates: {
+    canonical: "/tools/string-escape",
+  },
   openGraph: {
     title: "String Escape/Unescape | Textsy",
     description:

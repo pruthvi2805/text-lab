@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "CSS colors",
     "color formats",
   ],
+  alternates: {
+    canonical: "/tools/color",
+  },
   openGraph: {
     title: "Color Converter – HEX, RGB, HSL, CMYK | Textsy",
     description:

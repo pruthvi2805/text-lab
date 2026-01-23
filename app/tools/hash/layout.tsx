@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "cryptographic hash",
     "checksum",
   ],
+  alternates: {
+    canonical: "/tools/hash",
+  },
   openGraph: {
     title: "Hash Generator – MD5, SHA-256, SHA-512 | Textsy",
     description:

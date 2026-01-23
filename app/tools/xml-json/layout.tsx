@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "data format converter",
     "xml parser",
   ],
+  alternates: {
+    canonical: "/tools/xml-json",
+  },
   openGraph: {
     title: "XML to JSON Converter | Textsy",
     description:

@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "base conversion",
     "radix converter",
   ],
+  alternates: {
+    canonical: "/tools/number-base",
+  },
   openGraph: {
     title: "Number Base Converter | Textsy",
     description:

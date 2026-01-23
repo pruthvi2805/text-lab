@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "random emails",
     "sample data generator",
   ],
+  alternates: {
+    canonical: "/tools/fake-data",
+  },
   openGraph: {
     title: "Fake Data Generator | Textsy",
     description:

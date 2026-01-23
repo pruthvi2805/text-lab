@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "special characters",
     "entity converter",
   ],
+  alternates: {
+    canonical: "/tools/html-entities",
+  },
   openGraph: {
     title: "HTML Entity Encoder/Decoder | Textsy",
     description:

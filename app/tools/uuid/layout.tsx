@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "unique identifier",
     "UUID validator",
   ],
+  alternates: {
+    canonical: "/tools/uuid",
+  },
   openGraph: {
     title: "UUID Generator – v4 & v7 with Validation | Textsy",
     description:

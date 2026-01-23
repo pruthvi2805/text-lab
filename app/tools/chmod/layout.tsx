@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "permission calculator",
     "rwx permissions",
   ],
+  alternates: {
+    canonical: "/tools/chmod",
+  },
   openGraph: {
     title: "chmod Calculator | Textsy",
     description:

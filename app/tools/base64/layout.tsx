@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "decode base64",
     "url-safe base64",
   ],
+  alternates: {
+    canonical: "/tools/base64",
+  },
   openGraph: {
     title: "Base64 Encoder & Decoder | Textsy",
     description:

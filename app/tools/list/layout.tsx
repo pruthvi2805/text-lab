@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "add suffix",
     "line tools",
   ],
+  alternates: {
+    canonical: "/tools/list",
+  },
   openGraph: {
     title: "List Utilities | Textsy",
     description:

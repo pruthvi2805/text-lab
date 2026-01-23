@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "text to slug",
     "slug converter",
   ],
+  alternates: {
+    canonical: "/tools/slug",
+  },
   openGraph: {
     title: "Slug Generator | Textsy",
     description:

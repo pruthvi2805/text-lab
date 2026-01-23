@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "data format converter",
     "tabular data",
   ],
+  alternates: {
+    canonical: "/tools/csv-json",
+  },
   openGraph: {
     title: "CSV to JSON Converter | Textsy",
     description:
