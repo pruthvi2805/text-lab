@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Regex Tester",
   description:
-    "Test JavaScript regular expressions with live matching. See all matches, capture groups, and match positions. Supports all regex flags. Browser-based tool.",
+    "Test JavaScript regular expressions with live matching and highlighting. View all matches, capture groups, and match indices with support for all flags.",
   keywords: [
     "regex tester",
     "regular expression",
@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "regex debugger",
     "javascript regex",
   ],
+  alternates: {
+    canonical: "/tools/regex",
+  },
   openGraph: {
     title: "Regex Tester | Textsy",
     description:

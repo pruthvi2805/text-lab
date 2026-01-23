@@ -2,11 +2,12 @@
 
 import { ReactNode, useState, useCallback, useMemo, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { Shell } from "@/components/layout";
 import { CodeEditor } from "@/components/editor";
 import { Button } from "@/components/ui/Button";
 import { CopyIcon, CheckIcon, TrashIcon } from "@/components/ui/icons";
-import { getToolByPath } from "@/lib/tools/registry";
+import { getToolByPath, getToolById } from "@/lib/tools/registry";
 import { useRecentStore } from "@/stores/recent";
 
 const LARGE_INPUT_THRESHOLD = 100000; // 100KB
@@ -74,6 +75,29 @@ export function ToolLayout({
             <p className="text-xs text-text-secondary leading-relaxed">
               {currentTool.longDescription}
             </p>
+            {/* Related tools - internal linking for SEO */}
+            {currentTool.relatedTools && currentTool.relatedTools.length > 0 && (
+              <div className="mt-2 flex items-center gap-2 flex-wrap text-xs">
+                <span className="text-text-muted">Related:</span>
+                {currentTool.relatedTools.map((toolId, index) => {
+                  const relatedTool = getToolById(toolId);
+                  if (!relatedTool) return null;
+                  return (
+                    <span key={toolId}>
+                      <Link
+                        href={relatedTool.path}
+                        className="text-accent hover:underline"
+                      >
+                        {relatedTool.shortName}
+                      </Link>
+                      {index < currentTool.relatedTools!.length - 1 && (
+                        <span className="text-text-muted ml-2">·</span>
+                      )}
+                    </span>
+                  );
+                })}
+              </div>
+            )}
           </div>
         )}
 
@@ -86,10 +110,12 @@ export function ToolLayout({
 
         {/* Main content area */}
         {/* Desktop: side-by-side with overflow hidden */}
-        {/* Mobile: stacked vertically, each panel has fixed height */}
-        <div className="flex-1 flex flex-col md:flex-row min-h-0 md:overflow-hidden">
+        {/* Mobile Portrait: stacked vertically, each panel gets 50% of remaining space */}
+        {/* Mobile Landscape: side-by-side like desktop for better space utilization */}
+        {/* Key fix: Use flex-1 instead of fixed h-[45vh] for flexible, keyboard-aware heights */}
+        <div className="flex-1 flex flex-col landscape:flex-row md:flex-row min-h-0 overflow-hidden">
           {/* Input panel */}
-          <div className="h-[45vh] md:h-auto md:flex-1 flex flex-col shrink-0 md:shrink md:border-r border-border">
+          <div className="flex-1 flex flex-col min-h-0 landscape:border-r md:border-r border-border">
             <div className="flex items-center justify-between px-3 py-1.5 bg-bg-surface border-b border-border shrink-0">
               <span className="text-xs text-text-muted uppercase tracking-wide">Input</span>
               <Button variant="ghost" size="sm" onClick={handleClear} disabled={!input}>
@@ -107,7 +133,7 @@ export function ToolLayout({
           </div>
 
           {/* Output panel */}
-          <div className="h-[45vh] md:h-auto md:flex-1 flex flex-col shrink-0 md:shrink border-t md:border-t-0 border-border">
+          <div className="flex-1 flex flex-col min-h-0 border-t landscape:border-t-0 landscape:border-l md:border-t-0 md:border-l-0 border-border">
             <div className="flex items-center justify-between px-3 py-1.5 bg-bg-surface border-b border-border shrink-0">
               <div className="flex items-center gap-2">
                 <span className="text-xs text-text-muted uppercase tracking-wide">Output</span>

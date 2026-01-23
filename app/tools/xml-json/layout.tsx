@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "XML ↔ JSON Converter",
   description:
-    "Convert between XML and JSON with proper attribute handling. Bidirectional conversion, runs entirely in your browser. No uploads required.",
+    "Convert between XML and JSON while preserving attributes and nested elements. Handles complex structures and validates both formats.",
   keywords: [
     "xml to json",
     "json to xml",
@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "data format converter",
     "xml parser",
   ],
+  alternates: {
+    canonical: "/tools/xml-json",
+  },
   openGraph: {
     title: "XML to JSON Converter | Textsy",
     description:

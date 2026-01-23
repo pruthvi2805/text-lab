@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Slug Generator – SEO-Friendly URLs",
   description:
-    "Convert text to URL-friendly slugs in multiple formats (kebab-case, snake_case). Instant slug generation for SEO. Browser-based, no uploads.",
+    "Convert text to URL-friendly slugs in kebab-case, snake_case, or custom formats. Handles special characters and Unicode for clean permalinks.",
   keywords: [
     "slug generator",
     "url slug",
@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "text to slug",
     "slug converter",
   ],
+  alternates: {
+    canonical: "/tools/slug",
+  },
   openGraph: {
     title: "Slug Generator | Textsy",
     description:

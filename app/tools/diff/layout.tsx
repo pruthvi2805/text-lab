@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Text Diff – Compare Text Side-by-Side",
   description:
-    "Compare two texts with line-by-line or word-level diff highlighting. Uses Myers algorithm, runs locally in your browser. No uploads.",
+    "Compare two texts with line-by-line, word, or character-level diff highlighting. Uses the Myers algorithm for accurate change detection.",
   keywords: [
     "text diff",
     "compare text",
@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "diff tool",
     "find differences",
   ],
+  alternates: {
+    canonical: "/tools/diff",
+  },
   openGraph: {
     title: "Text Diff – Compare Text Side-by-Side | Textsy",
     description:

@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Secure Password Generator",
   description:
-    "Generate cryptographically secure passwords with custom length and character sets. 100% client-side generation, passwords never leave your device.",
+    "Generate cryptographically secure random passwords with customizable length and character sets. Generated locally — nothing sent to servers.",
   keywords: [
     "password generator",
     "secure password",
@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "password strength",
     "online password generator",
   ],
+  alternates: {
+    canonical: "/tools/password",
+  },
   openGraph: {
     title: "Password Generator | Textsy",
     description:

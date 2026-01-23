@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hash Generator – MD5, SHA-256, SHA-512",
   description:
-    "Generate cryptographic hashes (MD5, SHA-1, SHA-256, SHA-512) securely in your browser. No server processing, data stays local.",
+    "Generate cryptographic hashes with MD5, SHA-1, SHA-256, and SHA-512 algorithms. Useful for checksums and data verification. All processing local.",
   keywords: [
     "hash generator",
     "MD5",
@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "cryptographic hash",
     "checksum",
   ],
+  alternates: {
+    canonical: "/tools/hash",
+  },
   openGraph: {
     title: "Hash Generator – MD5, SHA-256, SHA-512 | Textsy",
     description:

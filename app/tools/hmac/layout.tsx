@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "HMAC Generator – SHA-256, SHA-512",
   description:
-    "Generate HMAC signatures for API authentication with SHA-256, SHA-384, and SHA-512. Secure client-side calculator, no data uploaded.",
+    "Generate HMAC (Hash-based Message Authentication Code) signatures with SHA-256, SHA-384, and SHA-512 for API authentication and verification.",
   keywords: [
     "hmac generator",
     "hmac calculator",
@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "message authentication",
     "hmac online",
   ],
+  alternates: {
+    canonical: "/tools/hmac",
+  },
   openGraph: {
     title: "HMAC Generator | Textsy",
     description:

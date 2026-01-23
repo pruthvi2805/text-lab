@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Base64 Encoder & Decoder",
   description:
-    "Encode text to Base64 or decode Base64 back to text. Supports standard and URL-safe Base64 variants. Browser-based, no data uploaded.",
+    "Encode text to Base64 or decode Base64 strings back to plain text. Supports both standard and URL-safe Base64 encoding variants.",
   keywords: [
     "base64 encoder",
     "base64 decoder",
@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "decode base64",
     "url-safe base64",
   ],
+  alternates: {
+    canonical: "/tools/base64",
+  },
   openGraph: {
     title: "Base64 Encoder & Decoder | Textsy",
     description:

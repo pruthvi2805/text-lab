@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Hex ↔ Text Converter",
   description:
-    "Convert between hexadecimal and text instantly. Bidirectional hex encoder/decoder with multiple output formats. Browser-based, no uploads.",
+    "Convert text to hexadecimal bytes or decode hex back to readable text. Supports multiple output formats and handles UTF-8 encoding.",
   keywords: [
     "hex to text",
     "text to hex",
@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "hex string",
     "byte converter",
   ],
+  alternates: {
+    canonical: "/tools/hex-text",
+  },
   openGraph: {
     title: "Hex to Text Converter | Textsy",
     description:

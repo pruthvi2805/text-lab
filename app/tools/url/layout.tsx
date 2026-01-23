@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "URL Parser & Encoder",
   description:
-    "Parse URLs into components, encode text for URLs, or decode URL-encoded strings. Extract query parameters, hostname, path, and more. Browser-based tool.",
+    "Parse URLs into components, encode text for URLs, or decode percent-encoded strings. Extract query parameters, hostname, path, and protocol details.",
   keywords: [
     "url parser",
     "url encoder",
@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "uri encoder",
     "percent encoding",
   ],
+  alternates: {
+    canonical: "/tools/url",
+  },
   openGraph: {
     title: "URL Parser & Encoder | Textsy",
     description:

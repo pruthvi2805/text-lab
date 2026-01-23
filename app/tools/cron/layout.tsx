@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Cron Expression Builder & Parser",
   description:
-    "Build and parse cron expressions visually. Get human-readable explanations and preview upcoming schedules. Browser-based crontab tool.",
+    "Build and parse cron expressions with a visual interface. Get human-readable explanations and preview next scheduled execution times.",
   keywords: [
     "cron expression",
     "cron builder",
@@ -13,6 +13,9 @@ export const metadata: Metadata = {
     "schedule expression",
     "cron syntax",
   ],
+  alternates: {
+    canonical: "/tools/cron",
+  },
   openGraph: {
     title: "Cron Expression Builder | Textsy",
     description:

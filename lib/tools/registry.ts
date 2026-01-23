@@ -60,6 +60,7 @@ export interface ToolDefinition {
   icon: ComponentType<SVGProps<SVGSVGElement> & { size?: number }>;
   keywords: string[];
   category: ToolCategory;
+  relatedTools?: string[]; // IDs of related tools for internal linking
 }
 
 export const tools: ToolDefinition[] = [
@@ -76,6 +77,7 @@ export const tools: ToolDefinition[] = [
     icon: JsonIcon,
     keywords: ["json", "format", "validate", "minify", "prettify", "parse"],
     category: "formatting",
+    relatedTools: ["yaml", "json-path", "xml-json", "csv-json"],
   },
   {
     id: "yaml",
@@ -88,6 +90,7 @@ export const tools: ToolDefinition[] = [
     icon: YamlIcon,
     keywords: ["yaml", "json", "convert", "transform", "config"],
     category: "formatting",
+    relatedTools: ["json", "xml-json", "csv-json"],
   },
   {
     id: "markdown",
@@ -100,6 +103,7 @@ export const tools: ToolDefinition[] = [
     icon: MarkdownIcon,
     keywords: ["markdown", "preview", "html", "render", "md"],
     category: "formatting",
+    relatedTools: ["html-entities", "text-stats"],
   },
   {
     id: "sql",
@@ -112,6 +116,7 @@ export const tools: ToolDefinition[] = [
     icon: DatabaseIcon,
     keywords: ["sql", "format", "beautify", "query", "database", "mysql", "postgresql"],
     category: "formatting",
+    relatedTools: ["json", "js-formatter"],
   },
   {
     id: "js-formatter",
@@ -124,6 +129,7 @@ export const tools: ToolDefinition[] = [
     icon: CodeIcon,
     keywords: ["javascript", "css", "format", "beautify", "minify", "prettify", "js"],
     category: "formatting",
+    relatedTools: ["sql", "json"],
   },
   {
     id: "xml-json",
@@ -136,6 +142,7 @@ export const tools: ToolDefinition[] = [
     icon: XmlIcon,
     keywords: ["xml", "json", "convert", "transform", "data", "api"],
     category: "formatting",
+    relatedTools: ["json", "yaml", "csv-json"],
   },
   {
     id: "csv-json",
@@ -148,6 +155,7 @@ export const tools: ToolDefinition[] = [
     icon: CsvIcon,
     keywords: ["csv", "json", "convert", "spreadsheet", "excel", "data", "table"],
     category: "formatting",
+    relatedTools: ["json", "yaml", "xml-json"],
   },
   // Encoding
   {
@@ -161,6 +169,7 @@ export const tools: ToolDefinition[] = [
     icon: BinaryIcon,
     keywords: ["base64", "encode", "decode", "binary", "text"],
     category: "encoding",
+    relatedTools: ["hex-text", "url", "jwt"],
   },
   {
     id: "url",
@@ -173,6 +182,7 @@ export const tools: ToolDefinition[] = [
     icon: LinkIcon,
     keywords: ["url", "uri", "encode", "decode", "parse", "query", "parameter"],
     category: "encoding",
+    relatedTools: ["base64", "html-entities", "string-escape"],
   },
   {
     id: "jwt",
@@ -185,6 +195,7 @@ export const tools: ToolDefinition[] = [
     icon: KeyIcon,
     keywords: ["jwt", "token", "decode", "json web token", "auth", "bearer"],
     category: "encoding",
+    relatedTools: ["base64", "hash", "hmac"],
   },
   {
     id: "html-entities",
@@ -197,6 +208,7 @@ export const tools: ToolDefinition[] = [
     icon: HtmlIcon,
     keywords: ["html", "entities", "encode", "decode", "escape", "special characters"],
     category: "encoding",
+    relatedTools: ["string-escape", "ascii-unicode", "url", "markdown", "color"],
   },
   {
     id: "number-base",
@@ -209,6 +221,7 @@ export const tools: ToolDefinition[] = [
     icon: CalculatorIcon,
     keywords: ["number", "base", "decimal", "hex", "hexadecimal", "octal", "binary", "convert"],
     category: "encoding",
+    relatedTools: ["hex-text", "ascii-unicode"],
   },
   {
     id: "string-escape",
@@ -221,6 +234,7 @@ export const tools: ToolDefinition[] = [
     icon: EscapeIcon,
     keywords: ["escape", "unescape", "string", "quote", "javascript", "python", "sql", "json"],
     category: "encoding",
+    relatedTools: ["html-entities", "url", "regex"],
   },
   {
     id: "ascii-unicode",
@@ -233,6 +247,7 @@ export const tools: ToolDefinition[] = [
     icon: TableIcon,
     keywords: ["ascii", "unicode", "character", "code", "point", "lookup", "table", "utf8"],
     category: "encoding",
+    relatedTools: ["html-entities", "hex-text", "number-base"],
   },
   {
     id: "hex-text",
@@ -245,6 +260,7 @@ export const tools: ToolDefinition[] = [
     icon: HexIcon,
     keywords: ["hex", "hexadecimal", "text", "bytes", "binary", "convert", "encode", "decode"],
     category: "encoding",
+    relatedTools: ["base64", "number-base"],
   },
   // Generators
   {
@@ -258,6 +274,7 @@ export const tools: ToolDefinition[] = [
     icon: HashIcon,
     keywords: ["hash", "md5", "sha1", "sha256", "sha512", "checksum", "digest"],
     category: "generators",
+    relatedTools: ["hmac", "password", "jwt"],
   },
   {
     id: "uuid",
@@ -270,6 +287,7 @@ export const tools: ToolDefinition[] = [
     icon: UuidIcon,
     keywords: ["uuid", "guid", "unique id", "identifier", "random"],
     category: "generators",
+    relatedTools: ["password", "hash"],
   },
   {
     id: "timestamp",
@@ -282,6 +300,7 @@ export const tools: ToolDefinition[] = [
     icon: ClockIcon,
     keywords: ["timestamp", "unix", "epoch", "date", "time", "convert"],
     category: "generators",
+    relatedTools: ["cron", "uuid"],
   },
   {
     id: "lorem",
@@ -294,6 +313,7 @@ export const tools: ToolDefinition[] = [
     icon: LoremIcon,
     keywords: ["lorem", "ipsum", "placeholder", "dummy", "text", "filler"],
     category: "generators",
+    relatedTools: ["fake-data", "text-stats"],
   },
   {
     id: "password",
@@ -306,6 +326,7 @@ export const tools: ToolDefinition[] = [
     icon: LockIcon,
     keywords: ["password", "generate", "secure", "random", "strong", "security"],
     category: "generators",
+    relatedTools: ["hash", "uuid"],
   },
   {
     id: "cron",
@@ -318,6 +339,7 @@ export const tools: ToolDefinition[] = [
     icon: CalendarIcon,
     keywords: ["cron", "schedule", "job", "timer", "expression", "unix", "crontab"],
     category: "generators",
+    relatedTools: ["timestamp"],
   },
   {
     id: "fake-data",
@@ -330,6 +352,7 @@ export const tools: ToolDefinition[] = [
     icon: UserIcon,
     keywords: ["fake", "data", "mock", "test", "name", "email", "address", "phone", "faker"],
     category: "generators",
+    relatedTools: ["lorem", "uuid", "password"],
   },
   {
     id: "qr-code",
@@ -342,6 +365,7 @@ export const tools: ToolDefinition[] = [
     icon: QrIcon,
     keywords: ["qr", "code", "barcode", "generate", "scan", "url", "wifi"],
     category: "generators",
+    relatedTools: ["url", "base64"],
   },
   {
     id: "hmac",
@@ -354,6 +378,7 @@ export const tools: ToolDefinition[] = [
     icon: FingerprintIcon,
     keywords: ["hmac", "hash", "signature", "mac", "authentication", "sha256", "sha512"],
     category: "generators",
+    relatedTools: ["hash", "jwt"],
   },
   // Text Tools
   {
@@ -367,6 +392,7 @@ export const tools: ToolDefinition[] = [
     icon: CaseIcon,
     keywords: ["case", "camel", "snake", "kebab", "pascal", "upper", "lower", "title"],
     category: "text",
+    relatedTools: ["slug", "string-escape", "list"],
   },
   {
     id: "regex",
@@ -379,6 +405,7 @@ export const tools: ToolDefinition[] = [
     icon: RegexIcon,
     keywords: ["regex", "regexp", "regular expression", "pattern", "match", "test"],
     category: "text",
+    relatedTools: ["diff", "list", "string-escape"],
   },
   {
     id: "diff",
@@ -391,6 +418,7 @@ export const tools: ToolDefinition[] = [
     icon: DiffIcon,
     keywords: ["diff", "compare", "difference", "text comparison", "merge"],
     category: "text",
+    relatedTools: ["regex", "list"],
   },
   {
     id: "color",
@@ -403,6 +431,7 @@ export const tools: ToolDefinition[] = [
     icon: ColorIcon,
     keywords: ["color", "hex", "rgb", "hsl", "convert", "picker"],
     category: "text",
+    relatedTools: ["html-entities"],
   },
   {
     id: "list",
@@ -415,6 +444,7 @@ export const tools: ToolDefinition[] = [
     icon: ListIcon,
     keywords: ["list", "sort", "unique", "dedupe", "reverse", "shuffle", "lines"],
     category: "text",
+    relatedTools: ["regex", "case-converter", "text-stats", "diff"],
   },
   {
     id: "text-stats",
@@ -427,6 +457,7 @@ export const tools: ToolDefinition[] = [
     icon: ChartIcon,
     keywords: ["word", "count", "character", "statistics", "reading", "time", "analysis"],
     category: "text",
+    relatedTools: ["list", "markdown", "lorem"],
   },
   {
     id: "slug",
@@ -439,6 +470,7 @@ export const tools: ToolDefinition[] = [
     icon: SlugIcon,
     keywords: ["slug", "url", "seo", "friendly", "permalink", "kebab", "snake"],
     category: "text",
+    relatedTools: ["case-converter", "url", "string-escape"],
   },
   {
     id: "json-path",
@@ -451,6 +483,7 @@ export const tools: ToolDefinition[] = [
     icon: PathIcon,
     keywords: ["json", "path", "jsonpath", "query", "filter", "extract", "jmespath"],
     category: "text",
+    relatedTools: ["json", "regex"],
   },
   {
     id: "chmod",
@@ -463,6 +496,7 @@ export const tools: ToolDefinition[] = [
     icon: PermissionIcon,
     keywords: ["chmod", "permission", "unix", "linux", "file", "rwx", "octal"],
     category: "text",
+    relatedTools: ["number-base"],
   },
 ];
 

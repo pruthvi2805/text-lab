@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     "Markdown renderer",
     "live preview",
   ],
+  alternates: {
+    canonical: "/tools/markdown",
+  },
   openGraph: {
     title: "Markdown Preview with Live Rendering | Textsy",
     description:

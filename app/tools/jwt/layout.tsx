@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "JWT Decoder",
   description:
-    "Decode JSON Web Tokens (JWT) to view header and payload claims. See expiration status, issued time, and all claims. Browser-based, no data uploaded.",
+    "Decode JWT tokens to inspect header and payload claims. View expiration, issued time, and all embedded data. Your tokens stay on your device.",
   keywords: [
     "jwt decoder",
     "json web token",
@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "jwt viewer",
     "bearer token",
   ],
+  alternates: {
+    canonical: "/tools/jwt",
+  },
   openGraph: {
     title: "JWT Decoder | Textsy",
     description:

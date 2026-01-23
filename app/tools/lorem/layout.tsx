@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Lorem Ipsum Generator",
   description:
-    "Generate Lorem Ipsum placeholder text for mockups and designs. Customize words, sentences, or paragraphs. Instant generation in your browser.",
+    "Generate Lorem Ipsum placeholder text for mockups, designs, and prototypes. Customize by words, sentences, or paragraphs with instant output.",
   keywords: [
     "Lorem Ipsum",
     "placeholder text",
@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     "text generator",
     "Lorem generator",
   ],
+  alternates: {
+    canonical: "/tools/lorem",
+  },
   openGraph: {
     title: "Lorem Ipsum Generator | Textsy",
     description:
