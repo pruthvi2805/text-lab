@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "HMAC Generator - Textsy",
+  title: "HMAC Generator – SHA-256, SHA-512",
   description:
-    "Generate HMAC signatures with SHA-256, SHA-384, and SHA-512. Secure client-side HMAC calculator for API authentication. No data leaves your browser.",
+    "Generate HMAC signatures for API authentication with SHA-256, SHA-384, and SHA-512. Secure client-side calculator, no data uploaded.",
   keywords: [
     "hmac generator",
     "hmac calculator",

@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "QR Code Generator - Textsy",
+  title: "QR Code Generator – Text & URLs",
   description:
-    "Generate QR codes from text or URLs. Download as SVG or PNG with customizable colors and sizes. No data leaves your browser.",
+    "Generate QR codes from text, URLs, or contact info. Download as SVG or PNG with custom colors and sizes. Browser-based, no uploads.",
   keywords: [
     "qr code generator",
     "qr code maker",

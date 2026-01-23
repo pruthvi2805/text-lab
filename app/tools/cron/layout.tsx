@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cron Expression Builder - Textsy",
+  title: "Cron Expression Builder & Parser",
   description:
-    "Build and parse cron expressions with a visual editor. See human-readable descriptions and next scheduled runs. No data leaves your browser.",
+    "Build and parse cron expressions visually. Get human-readable explanations and preview upcoming schedules. Browser-based crontab tool.",
   keywords: [
     "cron expression",
     "cron builder",

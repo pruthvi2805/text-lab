@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Password Generator - Textsy",
+  title: "Secure Password Generator",
   description:
-    "Generate secure random passwords with customizable length, character sets, and strength indicators. 100% client-side generation, no data sent to servers.",
+    "Generate cryptographically secure passwords with custom length and character sets. 100% client-side generation, passwords never leave your device.",
   keywords: [
     "password generator",
     "secure password",

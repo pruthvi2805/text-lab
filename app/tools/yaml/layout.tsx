@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "YAML ↔ JSON Converter - Textsy",
+  title: "YAML ↔ JSON Converter",
   description:
-    "Convert between YAML and JSON formats. Auto-detect input format with pure client-side processing.",
+    "Convert between YAML and JSON with auto-detection. Bidirectional conversion, runs entirely in your browser. No uploads, pure client-side.",
   keywords: [
     "YAML to JSON",
     "JSON to YAML",
@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     "JSON converter",
     "format converter",
   ],
+  openGraph: {
+    title: "YAML ↔ JSON Converter | Textsy",
+    description:
+      "Convert between YAML and JSON with auto-detection. 100% browser-based, no data uploaded.",
+  },
 };
 
 export default function YAMLLayout({

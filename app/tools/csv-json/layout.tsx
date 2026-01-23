@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "CSV to JSON Converter - Textsy",
+  title: "CSV ↔ JSON Converter",
   description:
-    "Convert CSV to JSON and JSON to CSV online. Free bidirectional converter with custom delimiter support. No data leaves your browser.",
+    "Convert between CSV and JSON formats with custom delimiter support. Bidirectional conversion, runs entirely in your browser. No uploads.",
   keywords: [
     "csv to json",
     "json to csv",

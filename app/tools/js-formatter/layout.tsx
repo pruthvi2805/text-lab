@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "JavaScript & CSS Formatter - Textsy",
+  title: "JavaScript & CSS Formatter",
   description:
-    "Format, beautify, and minify JavaScript and CSS code online. Free code formatter with proper indentation. No data leaves your browser.",
+    "Format, beautify, and minify JavaScript and CSS code. Instant formatting with proper indentation. Browser-based, no uploads required.",
   keywords: [
     "javascript formatter",
     "css formatter",

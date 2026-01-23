@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "String Escape/Unescape - Textsy",
+  title: "String Escape/Unescape Tool",
   description:
-    "Escape and unescape strings for JSON, HTML, URL, SQL, Regex, C, Shell, XML, and CSV. Free online string encoder. No data leaves your browser.",
+    "Escape and unescape strings for JSON, HTML, URL, SQL, Regex, and more. Supports multiple languages and formats. Browser-based, no uploads.",
   keywords: [
     "string escape",
     "string unescape",

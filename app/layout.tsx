@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | Textsy",
   },
   description:
-    "Free, private developer tools that run entirely in your browser. JSON formatter, password generator, QR codes, hash generator, and more. No data leaves your device.",
+    "Privacy-first developer tools that run 100% in your browser. JSON formatter, Base64 encoder, JWT decoder, hash generator, and more. No uploads, no tracking.",
   keywords: [
     "text tools",
     "developer tools",
@@ -60,13 +60,13 @@ export const metadata: Metadata = {
     siteName: "Textsy",
     title: "Textsy - Free Browser-Based Developer Tools",
     description:
-      "Free, private developer tools that run entirely in your browser. JSON, Base64, JWT, passwords, QR codes, and more. No data leaves your device.",
+      "Privacy-first developer tools running 100% in your browser. JSON formatter, Base64, JWT decoder, and 30+ more tools. No uploads, no tracking.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Textsy - Free Browser-Based Developer Tools",
     description:
-      "Free, private developer tools that run entirely in your browser. JSON, Base64, JWT, passwords, QR codes, and more. No data leaves your device.",
+      "Privacy-first developer tools running 100% in your browser. JSON formatter, Base64, JWT decoder, and 30+ more tools. No uploads, no tracking.",
   },
   robots: {
     index: true,
