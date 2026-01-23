@@ -62,9 +62,9 @@ export default function HomePage() {
   return (
     <Shell>
       <div className="h-full overflow-y-auto overflow-x-hidden">
-        <div className="max-w-4xl mx-auto px-4 py-6 md:py-10">
+        <div className="max-w-4xl mx-auto px-4 py-4 md:py-10">
           {/* Hero with Search */}
-          <div className="text-center mb-6">
+          <div className="text-center mb-4 md:mb-6">
             <h1 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">
               Textsy – Private, Browser-Only Developer Tools
             </h1>
@@ -94,7 +94,7 @@ export default function HomePage() {
 
           {/* Quick Access - Compact horizontal row */}
           {quickAccessTools.length > 0 && (
-            <div className="mb-8">
+            <div className="mb-6 md:mb-8">
               <div className="flex items-center gap-2 mb-3">
                 <StarIcon size={14} filled className="text-warning" />
                 <h2 className="text-xs font-medium text-text-muted uppercase tracking-wide">
@@ -192,15 +192,23 @@ interface ToolCardProps {
 function ToolCard({ tool, isFavorite, onToggleFavorite }: ToolCardProps) {
   const Icon = tool.icon;
 
+  const handleStarClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onToggleFavorite(e);
+  };
+
   return (
-    <div className="group relative flex flex-col p-3 bg-bg-panel border border-border rounded-lg hover:border-accent/50 hover:bg-bg-surface transition-colors">
-      <Link href={tool.path} className="absolute inset-0 z-0" />
-      <div className="flex items-center gap-2 mb-1.5 pointer-events-none">
+    <Link
+      href={tool.path}
+      className="group flex flex-col p-2.5 md:p-3 bg-bg-panel border border-border rounded-lg hover:border-accent/50 hover:bg-bg-surface transition-colors"
+    >
+      <div className="flex items-center gap-2 mb-1">
         <Icon size={18} className="text-accent shrink-0" />
         <h3 className="font-medium text-text-primary text-sm flex-1 truncate">{tool.name}</h3>
         <button
-          onClick={onToggleFavorite}
-          className={`relative z-10 p-1 rounded transition-all star-button pointer-events-auto ${
+          onClick={handleStarClick}
+          className={`p-1 rounded transition-all star-button ${
             isFavorite
               ? "text-warning hover:bg-warning/10"
               : "text-text-muted hover:text-warning hover:bg-bg-surface md:opacity-0 md:group-hover:opacity-100"
@@ -210,7 +218,7 @@ function ToolCard({ tool, isFavorite, onToggleFavorite }: ToolCardProps) {
           <StarIcon size={14} filled={isFavorite} />
         </button>
       </div>
-      <p className="text-xs text-text-muted line-clamp-2 pointer-events-none">{tool.description}</p>
-    </div>
+      <p className="text-xs text-text-muted line-clamp-2">{tool.description}</p>
+    </Link>
   );
 }

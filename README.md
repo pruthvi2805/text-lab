@@ -238,28 +238,23 @@ npm install && npm run dev
 <table>
 <tr>
 <td align="center" width="20%">
-<img src="https://raw.githubusercontent.com/vercel/next.js/canary/packages/next/src/ui/icons/next-js.svg" width="40" alt="Next.js"><br>
-<b>Next.js 16</b><br>
+<b>⚡ Next.js 16</b><br>
 <sub>React Framework</sub>
 </td>
 <td align="center" width="20%">
-<img src="https://www.typescriptlang.org/favicon-32x32.png" width="40"><br>
-<b>TypeScript 5</b><br>
+<b>📘 TypeScript 5</b><br>
 <sub>Type Safety</sub>
 </td>
 <td align="center" width="20%">
-<img src="https://tailwindcss.com/favicons/favicon-32x32.png" width="40"><br>
-<b>Tailwind CSS 4</b><br>
+<b>🎨 Tailwind CSS 4</b><br>
 <sub>Styling</sub>
 </td>
 <td align="center" width="20%">
-<img src="https://codemirror.net/favicon.ico" width="40"><br>
-<b>CodeMirror 6</b><br>
+<b>📝 CodeMirror 6</b><br>
 <sub>Code Editor</sub>
 </td>
 <td align="center" width="20%">
-<img src="https://zustand-demo.pmnd.rs/favicon.ico" width="40"><br>
-<b>Zustand</b><br>
+<b>🐻 Zustand</b><br>
 <sub>State Management</sub>
 </td>
 </tr>
