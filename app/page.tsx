@@ -61,7 +61,7 @@ export default function HomePage() {
 
   return (
     <Shell>
-      <div className="h-full overflow-y-auto">
+      <div className="h-full overflow-y-auto overflow-x-hidden">
         <div className="max-w-4xl mx-auto px-4 py-6 md:py-10">
           {/* Hero with Search */}
           <div className="text-center mb-6">

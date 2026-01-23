@@ -110,10 +110,12 @@ export function ToolLayout({
 
         {/* Main content area */}
         {/* Desktop: side-by-side with overflow hidden */}
-        {/* Mobile: stacked vertically, each panel has fixed height */}
-        <div className="flex-1 flex flex-col md:flex-row min-h-0 md:overflow-hidden">
+        {/* Mobile Portrait: stacked vertically, each panel gets 50% of remaining space */}
+        {/* Mobile Landscape: side-by-side like desktop for better space utilization */}
+        {/* Key fix: Use flex-1 instead of fixed h-[45vh] for flexible, keyboard-aware heights */}
+        <div className="flex-1 flex flex-col landscape:flex-row md:flex-row min-h-0 overflow-hidden">
           {/* Input panel */}
-          <div className="h-[45vh] md:h-auto md:flex-1 flex flex-col shrink-0 md:shrink md:border-r border-border">
+          <div className="flex-1 flex flex-col min-h-0 landscape:border-r md:border-r border-border">
             <div className="flex items-center justify-between px-3 py-1.5 bg-bg-surface border-b border-border shrink-0">
               <span className="text-xs text-text-muted uppercase tracking-wide">Input</span>
               <Button variant="ghost" size="sm" onClick={handleClear} disabled={!input}>
@@ -131,7 +133,7 @@ export function ToolLayout({
           </div>
 
           {/* Output panel */}
-          <div className="h-[45vh] md:h-auto md:flex-1 flex flex-col shrink-0 md:shrink border-t md:border-t-0 border-border">
+          <div className="flex-1 flex flex-col min-h-0 border-t landscape:border-t-0 landscape:border-l md:border-t-0 md:border-l-0 border-border">
             <div className="flex items-center justify-between px-3 py-1.5 bg-bg-surface border-b border-border shrink-0">
               <div className="flex items-center gap-2">
                 <span className="text-xs text-text-muted uppercase tracking-wide">Output</span>

@@ -337,3 +337,89 @@ main,
     animation: none;
   }
 }
+
+/* ==================== MOBILE UX IMPROVEMENTS ==================== */
+
+/* Scroll affordances - subtle gradient indicators for scrollable areas */
+@media (max-width: 768px) and (orientation: portrait) {
+  /* Add subtle fade gradients to indicate more content */
+  .cm-editor .cm-scroller::after {
+    content: '';
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to top, var(--bg-darkest) 0%, transparent 100%);
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  /* Only show gradient when there's scrollable content */
+  .cm-editor .cm-scroller:not([data-at-bottom])::after {
+    display: block;
+  }
+}
+
+/* Landscape mode optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+  /* Reduce vertical padding in landscape to maximize space */
+  .px-3.py-2 {
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+  }
+
+  /* Make header more compact in landscape */
+  header {
+    height: 36px !important;
+  }
+}
+
+/* Touch target improvements for small interactive elements */
+@media (pointer: coarse) {
+  /* Increase hit area for small buttons without changing visual size */
+  button,
+  a {
+    position: relative;
+  }
+
+  button::before,
+  a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+/* Prevent layout shift when keyboard appears */
+@media (max-width: 768px) {
+  /* Ensure viewport height remains consistent */
+  .h-screen,
+  .h-\[100dvh\] {
+    height: 100dvh;
+    height: 100vh; /* Fallback */
+  }
+
+  /* Keep tool layout stable during keyboard transitions */
+  @supports (height: 100dvh) {
+    .h-screen,
+    .h-\[100dvh\] {
+      height: 100dvh;
+    }
+  }
+}
+
+/* Improve scrolling physics on iOS */
+@media (max-width: 768px) {
+  .overflow-auto,
+  .overflow-y-auto {
+    /* Momentum scrolling for smooth feel */
+    -webkit-overflow-scrolling: touch;
+    /* Prevent bounce at boundaries */
+    overscroll-behavior-y: contain;
+  }
+}
