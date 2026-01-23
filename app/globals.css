@@ -373,6 +373,15 @@ main,
   header {
     height: 36px !important;
   }
+
+  /* Prevent Safari from zooming on input focus in landscape */
+  input,
+  textarea,
+  select,
+  .cm-content,
+  .cm-line {
+    font-size: 16px !important;
+  }
 }
 
 /* Touch target improvements for small interactive elements */
