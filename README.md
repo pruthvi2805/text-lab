@@ -56,18 +56,6 @@ You need to format JSON, decode a JWT, or hash a password. But:
 </tr>
 </table>
 
-<div align="center">
-
-### 🎬 See It In Action
-
-<!-- Add screenshot here: Homepage with tool grid -->
-> *Screenshot placeholder: Homepage showing the tool grid with search bar*
-
-<!-- Add screenshot here: JSON Formatter tool -->
-> *Screenshot placeholder: JSON Formatter tool in action with syntax highlighting*
-
-</div>
-
 ---
 
 ## 🎯 Why Developers Choose Textsy
@@ -126,7 +114,7 @@ No ads. No popups. No newsletter signups. Just tools.
 | **[XML ↔ JSON](https://text.kpruthvi.com/tools/xml-json)** | Convert XML to JSON and back with attribute handling | SOAP APIs, legacy systems |
 | **[CSV ↔ JSON](https://text.kpruthvi.com/tools/csv-json)** | Transform spreadsheet data to structured JSON | Data imports, Excel exports |
 | **[SQL Formatter](https://text.kpruthvi.com/tools/sql)** | Beautify SQL queries with proper indentation | Query optimization, documentation |
-| **[JavaScript Formatter](https://text.kpruthvi.com/tools/js-css)** | Format or minify JS and CSS code | Code review, production builds |
+| **[JavaScript Formatter](https://text.kpruthvi.com/tools/js-formatter)** | Format or minify JS and CSS code | Code review, production builds |
 | **[Markdown Preview](https://text.kpruthvi.com/tools/markdown)** | Live rendering with HTML source view | Writing docs, previewing READMEs |
 
 </details>
@@ -141,11 +129,11 @@ No ads. No popups. No newsletter signups. Just tools.
 | **[Base64 Encoder](https://text.kpruthvi.com/tools/base64)** | Encode/decode with URL-safe variant support | Email attachments, data URIs |
 | **[JWT Decoder](https://text.kpruthvi.com/tools/jwt)** | Inspect token claims and expiration | Debugging auth issues, checking tokens |
 | **[URL Parser](https://text.kpruthvi.com/tools/url)** | Parse URLs and encode/decode components | Query string debugging, routing |
-| **[HTML Entities](https://text.kpruthvi.com/tools/html)** | Convert special characters to entities and back | XSS prevention, content sanitization |
-| **[String Escape](https://text.kpruthvi.com/tools/escape)** | Escape for JSON, SQL, Regex, and more | Preventing injection attacks |
-| **[Hex ↔ Text](https://text.kpruthvi.com/tools/hex)** | Convert between hexadecimal and plain text | Binary data inspection |
+| **[HTML Entities](https://text.kpruthvi.com/tools/html-entities)** | Convert special characters to entities and back | XSS prevention, content sanitization |
+| **[String Escape](https://text.kpruthvi.com/tools/string-escape)** | Escape for JSON, SQL, Regex, and more | Preventing injection attacks |
+| **[Hex ↔ Text](https://text.kpruthvi.com/tools/hex-text)** | Convert between hexadecimal and plain text | Binary data inspection |
 | **[Number Base Converter](https://text.kpruthvi.com/tools/number-base)** | Decimal, hex, octal, and binary conversion | Low-level programming, bit operations |
-| **[ASCII/Unicode Lookup](https://text.kpruthvi.com/tools/ascii)** | Browse character tables and search by code point | Special characters, emoji research |
+| **[ASCII/Unicode Lookup](https://text.kpruthvi.com/tools/ascii-unicode)** | Browse character tables and search by code point | Special characters, emoji research |
 
 </details>
 
@@ -162,7 +150,7 @@ No ads. No popups. No newsletter signups. Just tools.
 | **[Password Generator](https://text.kpruthvi.com/tools/password)** | Cryptographically secure passwords with custom rules | Account creation, credential rotation |
 | **[Lorem Ipsum](https://text.kpruthvi.com/tools/lorem)** | Placeholder text generation | Mockups, design prototypes |
 | **[Fake Data Generator](https://text.kpruthvi.com/tools/fake-data)** | Realistic test data for names, emails, addresses | Database seeding, testing |
-| **[QR Code Generator](https://text.kpruthvi.com/tools/qr)** | Create QR codes from text or URLs | Mobile handoffs, sharing links |
+| **[QR Code Generator](https://text.kpruthvi.com/tools/qr-code)** | Create QR codes from text or URLs | Mobile handoffs, sharing links |
 | **[Cron Expression](https://text.kpruthvi.com/tools/cron)** | Visual cron syntax builder with human-readable output | Scheduled jobs, automation |
 | **[Timestamp Converter](https://text.kpruthvi.com/tools/timestamp)** | Unix timestamps to human-readable dates | Log analysis, API debugging |
 
@@ -177,9 +165,9 @@ No ads. No popups. No newsletter signups. Just tools.
 |------|--------------|----------|
 | **[Regex Tester](https://text.kpruthvi.com/tools/regex)** | Test JavaScript regular expressions with live highlighting | Pattern matching, validation rules |
 | **[Text Diff](https://text.kpruthvi.com/tools/diff)** | Compare texts line-by-line or word-by-word | Code reviews, change detection |
-| **[Case Converter](https://text.kpruthvi.com/tools/case)** | camelCase, snake_case, PascalCase, and more | Code refactoring, naming conventions |
+| **[Case Converter](https://text.kpruthvi.com/tools/case-converter)** | camelCase, snake_case, PascalCase, and more | Code refactoring, naming conventions |
 | **[List Utilities](https://text.kpruthvi.com/tools/list)** | Sort, deduplicate, reverse, and transform lists | Data cleaning, array operations |
-| **[Text Statistics](https://text.kpruthvi.com/tools/stats)** | Word count, reading time, keyword frequency | Content writing, SEO analysis |
+| **[Text Statistics](https://text.kpruthvi.com/tools/text-stats)** | Word count, reading time, keyword frequency | Content writing, SEO analysis |
 | **[Slug Generator](https://text.kpruthvi.com/tools/slug)** | Convert text to URL-friendly slugs | Blog posts, routing |
 | **[Color Converter](https://text.kpruthvi.com/tools/color)** | HEX, RGB, HSL, HWB, and CMYK conversion | Design systems, CSS debugging |
 | **[JSONPath Evaluator](https://text.kpruthvi.com/tools/json-path)** | Test JSONPath queries against JSON data | Data extraction, API filtering |
@@ -250,7 +238,7 @@ npm install && npm run dev
 <table>
 <tr>
 <td align="center" width="20%">
-<img src="https://nextjs.org/static/favicon/favicon.ico" width="40"><br>
+<img src="https://raw.githubusercontent.com/vercel/next.js/canary/packages/next/src/ui/icons/next-js.svg" width="40" alt="Next.js"><br>
 <b>Next.js 16</b><br>
 <sub>React Framework</sub>
 </td>
