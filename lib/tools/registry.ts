@@ -103,6 +103,7 @@ export const tools: ToolDefinition[] = [
     icon: MarkdownIcon,
     keywords: ["markdown", "preview", "html", "render", "md"],
     category: "formatting",
+    relatedTools: ["html-entities", "text-stats"],
   },
   {
     id: "sql",
@@ -128,6 +129,7 @@ export const tools: ToolDefinition[] = [
     icon: CodeIcon,
     keywords: ["javascript", "css", "format", "beautify", "minify", "prettify", "js"],
     category: "formatting",
+    relatedTools: ["sql", "json"],
   },
   {
     id: "xml-json",
@@ -206,6 +208,7 @@ export const tools: ToolDefinition[] = [
     icon: HtmlIcon,
     keywords: ["html", "entities", "encode", "decode", "escape", "special characters"],
     category: "encoding",
+    relatedTools: ["string-escape", "ascii-unicode", "url", "markdown", "color"],
   },
   {
     id: "number-base",
@@ -218,6 +221,7 @@ export const tools: ToolDefinition[] = [
     icon: CalculatorIcon,
     keywords: ["number", "base", "decimal", "hex", "hexadecimal", "octal", "binary", "convert"],
     category: "encoding",
+    relatedTools: ["hex-text", "ascii-unicode"],
   },
   {
     id: "string-escape",
@@ -230,6 +234,7 @@ export const tools: ToolDefinition[] = [
     icon: EscapeIcon,
     keywords: ["escape", "unescape", "string", "quote", "javascript", "python", "sql", "json"],
     category: "encoding",
+    relatedTools: ["html-entities", "url", "regex"],
   },
   {
     id: "ascii-unicode",
@@ -242,6 +247,7 @@ export const tools: ToolDefinition[] = [
     icon: TableIcon,
     keywords: ["ascii", "unicode", "character", "code", "point", "lookup", "table", "utf8"],
     category: "encoding",
+    relatedTools: ["html-entities", "hex-text", "number-base"],
   },
   {
     id: "hex-text",
@@ -294,6 +300,7 @@ export const tools: ToolDefinition[] = [
     icon: ClockIcon,
     keywords: ["timestamp", "unix", "epoch", "date", "time", "convert"],
     category: "generators",
+    relatedTools: ["cron", "uuid"],
   },
   {
     id: "lorem",
@@ -306,6 +313,7 @@ export const tools: ToolDefinition[] = [
     icon: LoremIcon,
     keywords: ["lorem", "ipsum", "placeholder", "dummy", "text", "filler"],
     category: "generators",
+    relatedTools: ["fake-data", "text-stats"],
   },
   {
     id: "password",
@@ -331,6 +339,7 @@ export const tools: ToolDefinition[] = [
     icon: CalendarIcon,
     keywords: ["cron", "schedule", "job", "timer", "expression", "unix", "crontab"],
     category: "generators",
+    relatedTools: ["timestamp"],
   },
   {
     id: "fake-data",
@@ -343,6 +352,7 @@ export const tools: ToolDefinition[] = [
     icon: UserIcon,
     keywords: ["fake", "data", "mock", "test", "name", "email", "address", "phone", "faker"],
     category: "generators",
+    relatedTools: ["lorem", "uuid", "password"],
   },
   {
     id: "qr-code",
@@ -355,6 +365,7 @@ export const tools: ToolDefinition[] = [
     icon: QrIcon,
     keywords: ["qr", "code", "barcode", "generate", "scan", "url", "wifi"],
     category: "generators",
+    relatedTools: ["url", "base64"],
   },
   {
     id: "hmac",
@@ -381,6 +392,7 @@ export const tools: ToolDefinition[] = [
     icon: CaseIcon,
     keywords: ["case", "camel", "snake", "kebab", "pascal", "upper", "lower", "title"],
     category: "text",
+    relatedTools: ["slug", "string-escape", "list"],
   },
   {
     id: "regex",
@@ -419,6 +431,7 @@ export const tools: ToolDefinition[] = [
     icon: ColorIcon,
     keywords: ["color", "hex", "rgb", "hsl", "convert", "picker"],
     category: "text",
+    relatedTools: ["html-entities"],
   },
   {
     id: "list",
@@ -444,6 +457,7 @@ export const tools: ToolDefinition[] = [
     icon: ChartIcon,
     keywords: ["word", "count", "character", "statistics", "reading", "time", "analysis"],
     category: "text",
+    relatedTools: ["list", "markdown", "lorem"],
   },
   {
     id: "slug",
@@ -456,6 +470,7 @@ export const tools: ToolDefinition[] = [
     icon: SlugIcon,
     keywords: ["slug", "url", "seo", "friendly", "permalink", "kebab", "snake"],
     category: "text",
+    relatedTools: ["case-converter", "url", "string-escape"],
   },
   {
     id: "json-path",
@@ -481,6 +496,7 @@ export const tools: ToolDefinition[] = [
     icon: PermissionIcon,
     keywords: ["chmod", "permission", "unix", "linux", "file", "rwx", "octal"],
     category: "text",
+    relatedTools: ["number-base"],
   },
 ];
 
