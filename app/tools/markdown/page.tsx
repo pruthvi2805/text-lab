@@ -135,7 +135,7 @@ Made with ❤️ using Textsy`);
         {/* Main content area */}
         <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
           {/* Input panel */}
-          {(viewMode === "split" || viewMode === "html") && (
+          {viewMode === "split" && (
             <div className={`flex flex-col min-h-0 ${viewMode === "split" ? "flex-1 md:border-r border-border" : "flex-1"}`}>
               <div className="flex items-center justify-between px-3 py-1.5 bg-bg-surface border-b border-border">
                 <span className="text-xs text-text-muted uppercase tracking-wide">Markdown</span>
@@ -151,7 +151,7 @@ Made with ❤️ using Textsy`);
           )}
 
           {/* Preview/HTML panel */}
-          <div className={`flex flex-col min-h-0 ${viewMode === "split" ? "flex-1" : "flex-1"} ${viewMode !== "html" || "hidden"} border-t md:border-t-0 border-border`}>
+          <div className={`flex flex-col min-h-0 flex-1 border-t md:border-t-0 border-border`}>
             <div className="flex items-center justify-between px-3 py-1.5 bg-bg-surface border-b border-border">
               <span className="text-xs text-text-muted uppercase tracking-wide">
                 {viewMode === "html" ? "HTML Output" : "Preview"}
