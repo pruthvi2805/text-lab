@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Number Base Converter – Decimal, Hex, Binary",
   description:
-    "Convert numbers between decimal, hexadecimal, octal, and binary instantly. Browser-based base converter with support for large numbers.",
+    "Convert numbers between decimal, hexadecimal, octal, and binary bases with instant synchronization. Supports large numbers and negative values.",
   keywords: [
     "number base converter",
     "hex converter",

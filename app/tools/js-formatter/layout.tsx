@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "JavaScript & CSS Formatter",
   description:
-    "Format, beautify, and minify JavaScript and CSS code. Instant formatting with proper indentation. Browser-based, no uploads required.",
+    "Format, beautify, and minify JavaScript and CSS code with customizable indentation. Supports modern ES6+ syntax and CSS3 properties.",
   keywords: [
     "javascript formatter",
     "css formatter",

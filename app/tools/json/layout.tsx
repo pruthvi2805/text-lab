@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "JSON Formatter",
   description:
-    "Format, validate, and minify JSON online. Free browser-based JSON formatter with syntax validation, pretty printing, and minification. No data leaves your browser.",
+    "Format, validate, and minify JSON with syntax highlighting and error detection. Instant pretty-printing or single-line compression.",
   keywords: [
     "json formatter",
     "json validator",

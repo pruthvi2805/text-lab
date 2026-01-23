@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Case Converter",
   description:
-    "Convert text between different cases: lowercase, UPPERCASE, Title Case, camelCase, snake_case, kebab-case, and more. Free browser-based tool.",
+    "Convert text between lowercase, UPPERCASE, Title Case, camelCase, snake_case, kebab-case, PascalCase, and more with instant transformation.",
   keywords: [
     "case converter",
     "text case",

@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Unix Timestamp Converter",
   description:
-    "Convert Unix timestamps to human-readable dates and vice versa. Supports seconds and milliseconds. Get current timestamp instantly. Browser-based tool.",
+    "Convert Unix timestamps to human-readable dates and back. Supports seconds and milliseconds, with instant current timestamp retrieval.",
   keywords: [
     "unix timestamp",
     "epoch converter",

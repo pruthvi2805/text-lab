@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "JSONPath Evaluator – Query JSON Data",
   description:
-    "Test JSONPath expressions against JSON data. Extract values, filter arrays, and navigate nested structures. Runs locally in your browser.",
+    "Test JSONPath expressions against JSON data with live results. Extract values, filter arrays, and navigate deeply nested structures with ease.",
   keywords: [
     "jsonpath",
     "json query",

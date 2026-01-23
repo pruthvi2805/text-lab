@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "CSV ↔ JSON Converter",
   description:
-    "Convert between CSV and JSON formats with custom delimiter support. Bidirectional conversion, runs entirely in your browser. No uploads.",
+    "Convert between CSV and JSON with custom delimiter support. Auto-detects headers, handles quoted fields, and preserves data types.",
   keywords: [
     "csv to json",
     "json to csv",

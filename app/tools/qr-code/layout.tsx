@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "QR Code Generator – Text & URLs",
   description:
-    "Generate QR codes from text, URLs, or contact info. Download as SVG or PNG with custom colors and sizes. Browser-based, no uploads.",
+    "Generate QR codes from text, URLs, WiFi credentials, or contact information. Download as SVG or PNG with customizable colors and sizes.",
   keywords: [
     "qr code generator",
     "qr code maker",

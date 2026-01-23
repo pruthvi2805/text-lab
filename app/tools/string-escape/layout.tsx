@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "String Escape/Unescape Tool",
   description:
-    "Escape and unescape strings for JSON, HTML, URL, SQL, Regex, and more. Supports multiple languages and formats. Browser-based, no uploads.",
+    "Escape and unescape strings for JSON, HTML, URL, SQL, Regex, XML, CSV, and Shell. Handles special characters safely for multiple programming contexts.",
   keywords: [
     "string escape",
     "string unescape",

@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "ASCII & Unicode Character Lookup",
   description:
-    "Browse ASCII table and search Unicode characters by code point or name. Complete character reference tool, runs entirely in your browser.",
+    "Browse the complete ASCII table and search Unicode characters by code point or name. Comprehensive character reference with decimal, hex, and HTML codes.",
   keywords: [
     "ascii table",
     "unicode lookup",

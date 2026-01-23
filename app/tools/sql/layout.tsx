@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SQL Formatter (Browser-Only, No Uploads)",
+  title: "SQL Formatter – Format & Beautify Queries",
   description:
-    "Format and beautify SQL queries directly in your browser. Supports all SQL dialects with syntax highlighting. Privacy-first, no data uploaded.",
+    "Format and beautify SQL queries with proper indentation and keyword highlighting. Supports MySQL, PostgreSQL, SQLite, and other dialects.",
   keywords: [
     "sql formatter",
     "sql beautifier",

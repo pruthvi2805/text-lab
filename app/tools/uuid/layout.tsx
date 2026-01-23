@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "UUID Generator – v4 & v7 with Validation",
   description:
-    "Generate UUIDs (v4 random, v7 timestamp-based) and validate existing UUIDs. Batch generation supported. Runs securely in your browser.",
+    "Generate UUIDs in v4 (random) or v7 (timestamp-based) format. Validate existing UUIDs and generate in batches for testing or development.",
   keywords: [
     "UUID generator",
     "GUID generator",

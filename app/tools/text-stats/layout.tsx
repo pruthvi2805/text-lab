@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Text Statistics – Word Count & Analysis",
   description:
-    "Analyze text with word count, character count, reading time, and keyword frequency. Comprehensive text statistics in your browser.",
+    "Analyze text with detailed statistics: word count, character count, sentence count, paragraph count, reading time, and keyword frequency analysis.",
   keywords: [
     "word count",
     "character count",

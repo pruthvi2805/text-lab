@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "chmod Calculator – Unix File Permissions",
   description:
-    "Calculate Unix file permissions interactively. Convert between numeric (755) and symbolic (rwxr-xr-x) notation instantly in your browser.",
+    "Calculate Unix/Linux file permissions with an interactive interface. Convert instantly between numeric (755) and symbolic (rwxr-xr-x) notation.",
   keywords: [
     "chmod calculator",
     "unix permissions",

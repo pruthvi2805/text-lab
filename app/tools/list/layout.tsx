@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "List Utilities",
   description:
-    "Sort, deduplicate, reverse, shuffle, and transform text lists. Add prefixes, suffixes, or line numbers. Process line-separated data easily. Browser-based tool.",
+    "Sort, deduplicate, reverse, shuffle, and transform line-separated text lists. Add prefixes, suffixes, or line numbers to each entry.",
   keywords: [
     "list sorter",
     "remove duplicates",

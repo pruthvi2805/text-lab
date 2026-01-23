@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Color Converter – HEX, RGB, HSL, CMYK",
   description:
-    "Convert colors between HEX, RGB, HSL, HWB, and CMYK with live preview. Browser-based color picker for developers. No uploads required.",
+    "Convert colors between HEX, RGB, HSL, HWB, and CMYK formats with live preview. Parse CSS named colors and copy values instantly.",
   keywords: [
     "color converter",
     "HEX to RGB",

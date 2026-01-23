@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "YAML ↔ JSON Converter",
   description:
-    "Convert between YAML and JSON with auto-detection. Bidirectional conversion, runs entirely in your browser. No uploads, pure client-side.",
+    "Convert between YAML and JSON with automatic format detection. Preserves structure, handles nested data, validates syntax on both sides.",
   keywords: [
     "YAML to JSON",
     "JSON to YAML",

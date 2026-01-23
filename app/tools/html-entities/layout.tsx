@@ -3,7 +3,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "HTML Entity Encoder/Decoder",
   description:
-    "Encode and decode HTML entities instantly. Convert special characters to named, numeric, or hex entities. Browser-based, no uploads.",
+    "Encode and decode HTML entities for special characters. Supports named entities (&amp;), numeric (&#38;), and hexadecimal (&#x26;) formats.",
   keywords: [
     "HTML entities",
     "encode HTML",
