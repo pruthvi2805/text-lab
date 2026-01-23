@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Slug Generator - Textsy",
+  title: "Slug Generator – SEO-Friendly URLs",
   description:
-    "Convert text to URL-friendly slugs. Generate kebab-case, snake_case, and custom slug formats for SEO-friendly URLs. No data leaves your browser.",
+    "Convert text to URL-friendly slugs in multiple formats (kebab-case, snake_case). Instant slug generation for SEO. Browser-based, no uploads.",
   keywords: [
     "slug generator",
     "url slug",

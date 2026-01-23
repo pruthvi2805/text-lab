@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hex to Text Converter - Textsy",
+  title: "Hex ↔ Text Converter",
   description:
-    "Convert hexadecimal to text and text to hex online. Free hex encoder/decoder with multiple output formats. No data leaves your browser.",
+    "Convert between hexadecimal and text instantly. Bidirectional hex encoder/decoder with multiple output formats. Browser-based, no uploads.",
   keywords: [
     "hex to text",
     "text to hex",

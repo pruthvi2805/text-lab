@@ -61,9 +61,9 @@ export function Header({ onMenuClick, onSearchClick }: HeaderProps) {
             <span className="mx-2 text-text-muted hidden md:inline">/</span>
             <div className="flex items-center gap-2">
               <ToolIcon size={18} className="text-accent" />
-              <span className="text-base font-semibold text-text-primary truncate max-w-[180px] sm:max-w-none">
+              <h1 className="text-base font-semibold text-text-primary truncate max-w-[180px] sm:max-w-none">
                 {currentTool.name}
-              </span>
+              </h1>
             </div>
             <button
               onClick={handleToggleFavorite}

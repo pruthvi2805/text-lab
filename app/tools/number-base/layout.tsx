@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Number Base Converter - Textsy",
+  title: "Number Base Converter – Decimal, Hex, Binary",
   description:
-    "Convert numbers between decimal, hexadecimal, octal, and binary formats. Free online base converter with instant conversion. No data leaves your browser.",
+    "Convert numbers between decimal, hexadecimal, octal, and binary instantly. Browser-based base converter with support for large numbers.",
   keywords: [
     "number base converter",
     "hex converter",

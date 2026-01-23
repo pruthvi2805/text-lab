@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "UUID Generator - Textsy",
+  title: "UUID Generator – v4 & v7 with Validation",
   description:
-    "Generate and validate UUIDs. Supports v4 (random), v7 (timestamp-based), with batch generation and format options.",
+    "Generate UUIDs (v4 random, v7 timestamp-based) and validate existing UUIDs. Batch generation supported. Runs securely in your browser.",
   keywords: [
     "UUID generator",
     "GUID generator",
@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     "unique identifier",
     "UUID validator",
   ],
+  openGraph: {
+    title: "UUID Generator – v4 & v7 with Validation | Textsy",
+    description:
+      "Generate and validate UUIDs. Supports v4 (random) and v7 (timestamp-based). 100% browser-based.",
+  },
 };
 
 export default function UUIDLayout({

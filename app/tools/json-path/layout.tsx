@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "JSONPath Query Tool - Textsy",
+  title: "JSONPath Evaluator – Query JSON Data",
   description:
-    "Query JSON data with JSONPath expressions. Extract values, filter arrays, and navigate nested structures. No data leaves your browser.",
+    "Test JSONPath expressions against JSON data. Extract values, filter arrays, and navigate nested structures. Runs locally in your browser.",
   keywords: [
     "jsonpath",
     "json query",

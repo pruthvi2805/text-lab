@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ASCII & Unicode Table - Textsy",
+  title: "ASCII & Unicode Character Lookup",
   description:
-    "Browse ASCII table and look up Unicode characters. Search by character, code point, or name. Free character reference tool. No data leaves your browser.",
+    "Browse ASCII table and search Unicode characters by code point or name. Complete character reference tool, runs entirely in your browser.",
   keywords: [
     "ascii table",
     "unicode lookup",

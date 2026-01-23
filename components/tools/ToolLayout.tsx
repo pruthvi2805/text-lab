@@ -38,6 +38,7 @@ export function ToolLayout({
   const [copied, setCopied] = useState(false);
   const pathname = usePathname();
   const { addRecent } = useRecentStore();
+  const currentTool = getToolByPath(pathname);
 
   // Track recent tool visit
   useEffect(() => {
@@ -67,6 +68,15 @@ export function ToolLayout({
   return (
     <Shell inputLength={input.length} outputLength={output.length}>
       <div className="flex flex-col h-full">
+        {/* Tool description - SEO and user clarity */}
+        {currentTool && (
+          <div className="px-3 py-2 bg-bg-surface border-b border-border shrink-0">
+            <p className="text-xs text-text-secondary leading-relaxed">
+              {currentTool.longDescription}
+            </p>
+          </div>
+        )}
+
         {/* Options bar - sticky on mobile */}
         {options && (
           <div className="sticky top-0 z-20 flex items-center gap-2 px-3 py-2 bg-bg-panel border-b border-border overflow-x-auto shrink-0">

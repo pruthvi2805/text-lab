@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "XML to JSON Converter - Textsy",
+  title: "XML ↔ JSON Converter",
   description:
-    "Convert XML to JSON and JSON to XML online. Free bidirectional converter with proper attribute handling. No data leaves your browser.",
+    "Convert between XML and JSON with proper attribute handling. Bidirectional conversion, runs entirely in your browser. No uploads required.",
   keywords: [
     "xml to json",
     "json to xml",

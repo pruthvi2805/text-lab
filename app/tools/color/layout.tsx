@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Color Converter - Textsy",
+  title: "Color Converter – HEX, RGB, HSL, CMYK",
   description:
-    "Convert colors between HEX, RGB, HSL, HWB, and CMYK formats. Parse named CSS colors with live preview.",
+    "Convert colors between HEX, RGB, HSL, HWB, and CMYK with live preview. Browser-based color picker for developers. No uploads required.",
   keywords: [
     "color converter",
     "HEX to RGB",
@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     "CSS colors",
     "color formats",
   ],
+  openGraph: {
+    title: "Color Converter – HEX, RGB, HSL, CMYK | Textsy",
+    description:
+      "Convert colors between HEX, RGB, HSL, HWB, and CMYK. 100% browser-based with live preview.",
+  },
 };
 
 export default function ColorLayout({

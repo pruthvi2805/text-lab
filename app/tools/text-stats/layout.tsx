@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Text Statistics - Textsy",
+  title: "Text Statistics – Word Count & Analysis",
   description:
-    "Analyze text with word count, character count, sentence count, reading time, and keyword frequency. Free online text analyzer. No data leaves your browser.",
+    "Analyze text with word count, character count, reading time, and keyword frequency. Comprehensive text statistics in your browser.",
   keywords: [
     "word count",
     "character count",

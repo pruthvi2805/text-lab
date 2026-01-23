@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "SQL Formatter - Textsy",
+  title: "SQL Formatter (Browser-Only, No Uploads)",
   description:
-    "Format and beautify SQL queries online. Free SQL formatter with keyword highlighting and proper indentation. No data leaves your browser.",
+    "Format and beautify SQL queries directly in your browser. Supports all SQL dialects with syntax highlighting. Privacy-first, no data uploaded.",
   keywords: [
     "sql formatter",
     "sql beautifier",

@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "chmod Calculator - Textsy",
+  title: "chmod Calculator – Unix File Permissions",
   description:
-    "Calculate Unix file permissions with interactive chmod calculator. Convert between numeric (755) and symbolic (rwxr-xr-x) notation. No data leaves your browser.",
+    "Calculate Unix file permissions interactively. Convert between numeric (755) and symbolic (rwxr-xr-x) notation instantly in your browser.",
   keywords: [
     "chmod calculator",
     "unix permissions",

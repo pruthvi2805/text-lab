@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Fake Data Generator - Textsy",
+  title: "Fake Data Generator for Testing",
   description:
-    "Generate realistic fake data for testing: names, emails, addresses, phone numbers, and more. Export as JSON, CSV, or text. No data leaves your browser.",
+    "Generate realistic test data: names, emails, addresses, phone numbers. Export as JSON, CSV, or text. Fully client-side, no uploads.",
   keywords: [
     "fake data generator",
     "test data",
