@@ -195,12 +195,12 @@ function ToolCard({ tool, isFavorite, onToggleFavorite }: ToolCardProps) {
   return (
     <div className="group relative flex flex-col p-3 bg-bg-panel border border-border rounded-lg hover:border-accent/50 hover:bg-bg-surface transition-colors">
       <Link href={tool.path} className="absolute inset-0 z-0" />
-      <div className="flex items-center gap-2 mb-1.5">
+      <div className="flex items-center gap-2 mb-1.5 pointer-events-none">
         <Icon size={18} className="text-accent shrink-0" />
         <h3 className="font-medium text-text-primary text-sm flex-1 truncate">{tool.name}</h3>
         <button
           onClick={onToggleFavorite}
-          className={`relative z-10 p-1 rounded transition-all star-button ${
+          className={`relative z-10 p-1 rounded transition-all star-button pointer-events-auto ${
             isFavorite
               ? "text-warning hover:bg-warning/10"
               : "text-text-muted hover:text-warning hover:bg-bg-surface md:opacity-0 md:group-hover:opacity-100"
@@ -210,7 +210,7 @@ function ToolCard({ tool, isFavorite, onToggleFavorite }: ToolCardProps) {
           <StarIcon size={14} filled={isFavorite} />
         </button>
       </div>
-      <p className="text-xs text-text-muted line-clamp-2">{tool.description}</p>
+      <p className="text-xs text-text-muted line-clamp-2 pointer-events-none">{tool.description}</p>
     </div>
   );
 }
